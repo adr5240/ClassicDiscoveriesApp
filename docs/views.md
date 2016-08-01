@@ -6,17 +6,18 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## BooksIndex
+![books]
+
+## BooksIndexItem
+![books_index_item]
 
 ## NotebooksIndex / NotebookIndexItem
-![notebooks]
+![bookshelves]
 
-## NotebookForm
-![notebook-form]
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[books]: ./wireframes/book_index.png
+[books_index_item]: ./wireframes/books_index_item.png
+[bookshelves]: ./wireframes/bookshelves_index.png
