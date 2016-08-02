@@ -32,6 +32,7 @@ const App = React.createClass({
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >
+      <Route path='/login' component={ Login } />
 
     </Route>
   </Router>
