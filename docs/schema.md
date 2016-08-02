@@ -6,8 +6,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 description | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-shelfs_id   | integer   | not null, foreign key (references shelfs join table), indexed
+author_id   | integer   | not null, foreign key (references authors), indexed
 
 ## bookshelf
 column name | data type | details
@@ -15,7 +14,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-books_id    | integer   | not null, foreign key (references shelfs join table), indexed
 
 ## reviews
 column name | data type | details
@@ -27,12 +25,11 @@ date        | datetime  | not null
 rating      | integer   | not null
 
 
-## shelfs (join table)
+## shelves (join table)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 book_id     | integer   | not null, foreign key (references books), indexed, unique [shelf_id]
-shelf_id    | integer   | not null, foreign key (references bookshelf), indexed
 
 ## users
 column name     | data type | details
@@ -41,6 +38,14 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+
+## authors
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+fname           | string    | not null, indexed
+lname           | string    | not null, indexed
+description     | string    | not null
 
 ## tags
 column name | data type | details
