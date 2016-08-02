@@ -24,27 +24,27 @@
 - `GET /api/books`
   - books index/search
   - accepts tags (if I get there)
-- `GET /api/books/:id`
+- `GET /api/books/:book_id`
 
 ### Bookshelf
 
 - `GET /api/bookshelf`
 - `POST /api/bookshelf`
-- `PATCH /api/bookshelf/:id`
-- `DELETE /api/bookshelf/:id`
-- `GET /api/bookshelf/:id/books`
+- `PATCH /api/bookshelf/:bookshelf_id`
+- `DELETE /api/bookshelf/:bookshelf_id`
+- `GET /api/bookshelf/:bookshelf_id/books`
   - index of all books for a shelf
 
 ### Author
 
-- `GET /api/author/:id`
+- `GET /api/author/:author_id`
 
 ### Reviews
 
-- `GET /api/books/:id/reviews`
+- `GET /api/books/:book_id/reviews`
   - index of all reviews for given book
-- `POST /api/books/:id/reviews/new`
-- `PATCH /api/books/:id/reviews/edit`
+- `POST /api/books/:book_id/reviews/new`
+- `PATCH /api/books/:book_id/reviews/edit`
 - `DELETE /api/books/:book_id/reviews/:review_id`
 
 ### Tags
