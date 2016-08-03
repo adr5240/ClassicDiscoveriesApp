@@ -9,13 +9,10 @@ const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 
 //Components
-const SessionsApiUtil = require('./util/sessions_api_util');
+const LoginForm = require('./components/login_form.jsx');
 
 //Misc
-window.SessionsApiUtil = SessionsApiUtil;
-
-
-SessionsApiUtil.signup({username: 'bill1', password: 'starwars'}, () => console.log("YAY"), () => console.log("NAY..."));
+const SessionsApiUtil = require('./util/sessions_api_util');
 
 const App = React.createClass({
   render () {
@@ -32,10 +29,14 @@ const App = React.createClass({
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >
-      <Route path='/login' component={ Login } />
+      <Route path='/login' component={ LoginForm } />
+      <Route path='/signup' component={ LoginForm } />
 
     </Route>
   </Router>
 );
 
-document.addEventListener("DOMContentLoaded", appRouter);
+document.addEventListener("DOMContentLoaded", function () {
+  const root = document.getElementById('main');
+  ReactDOM.render(appRouter, root);
+});

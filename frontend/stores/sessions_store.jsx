@@ -21,7 +21,7 @@ SessionsStore.currentUser = function () {
 };
 
 SessionsStore.isUserLoggedIn = function () {
-  return !!_currentUser.id;
+  return Object.keys(_currentUser).length > 0;
 };
 
 SessionsStore.__onDispatch = function (payload) {

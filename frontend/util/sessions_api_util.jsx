@@ -17,7 +17,9 @@ const SessionsApiUtil = {
       url: 'api/sessions',
       method: 'POST',
       data: { user: { username: user.username, password: user.password }},
-      success,
+      success: function(resp) {
+        success(resp);
+      },
       error
     });
   },
