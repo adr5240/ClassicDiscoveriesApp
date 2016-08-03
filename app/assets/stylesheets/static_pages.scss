@@ -3,18 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .title {
-  font-size: 18pt;
+  font-size: 20pt;
+  font-weight: bold;
   display: inline-block;
-  margin-right: 10px;
+  margin: 15px;
+  float: left;
 }
+
 
 .button {
   width: 60px;
   height: 25px;
   font-size: 10pt;
   background-color: wheat;
-  float: left;
-  margin-right: 5px;
+  float: right;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.welcome-msg {
+  float: right;
+  margin: 15px 10px;
+  font-weight: bold;
 }
 
 .button:hover {

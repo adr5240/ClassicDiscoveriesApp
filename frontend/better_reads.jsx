@@ -34,16 +34,16 @@ const App = React.createClass({
       let currentUser = SessionsStore.currentUser();
       return (
         <hgroup>
-          <h1 className='welcome-msg'>Welcome {currentUser.user.username}!</h1>
           <button className='logout-button button' onClick={this.handleLogout}>Logout</button>
+          <h1 className='welcome-msg'>Welcome {currentUser.user.username}!</h1>
         </hgroup>
       )
     } else {
       if (this.props.location.pathname !== "/login" && this.props.location.pathname !== "/signup") {
         return(
           <hgroup>
-            <button className='login-button button' onClick={this.login} >Login</button>
             <button className='sigup-button button' onClick={this.signup} >Signup</button>
+            <button className='login-button button' onClick={this.login} >Login</button>
           </hgroup>
         )
       }
