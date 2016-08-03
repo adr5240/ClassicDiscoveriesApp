@@ -10,20 +10,20 @@
   float: left;
 }
 
-
 .button {
   width: 60px;
   height: 25px;
   font-size: 10pt;
   background-color: wheat;
   float: right;
-  margin: 10px;
+  margin: 15px;
+  margin-right: 10px;
   border-radius: 5px;
 }
 
 .welcome-msg {
   float: right;
-  margin: 15px 10px;
+  margin: 20px 5px;
   font-weight: bold;
 }
 
@@ -33,5 +33,6 @@
 
 .navBar {
   background-color: #e0d5c2;
-  height: 65px;
+  height: 60px;
+  border-bottom: 1px solid black;
 }
