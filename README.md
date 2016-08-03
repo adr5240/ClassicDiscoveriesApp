@@ -8,8 +8,8 @@
 
 a.	EvenBetterReads will be a site for organizing a user’s current collection of books as well as a platform for them to find other books that match their interests. Should satisfy:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [X] Hosting on Heroku
+- [X] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [ ] Search Box
   - [ ] Should be able to search by title or author
@@ -66,16 +66,16 @@ a.	EvenBetterReads will be a site for organizing a user’s current collection o
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & flux scaffold with skeleton files
-- [ ] setup `APIUtil` to interact with the API
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style signin/signup components
+- [X] create new project
+- [X] create `User` model
+- [X] authentication backend setup
+- [X] create `StaticPages` controller and root view
+- [X] set up webpack & flux scaffold with skeleton files
+- [X] setup `APIUtil` to interact with the API
+- [X] set up flux cycle for frontend auth
+- [X] user signup/signin components
+- [X] blank landing component after signin
+- [X] style signin/signup components
 - [ ] seed users
 
 ### Phase 2: Book Model, API, and components (2 days, W1 F 6pm)

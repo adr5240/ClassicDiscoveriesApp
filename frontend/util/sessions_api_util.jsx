@@ -1,5 +1,3 @@
-
-
 const SessionsApiUtil = {
 
   signup: function (user, success, error) {
