@@ -1,6 +1,7 @@
 const React = require('react');
 const SessionsActions = require('../actions/sessions_actions');
 const SessionsStore = require('../stores/sessions_store');
+const ErrorStore = require('../stores/error_store');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 const Link = require('react-router').Link;
@@ -14,10 +15,23 @@ const LoginForm = React.createClass({
 
   componentDidMount: function () {
     this.sessionsListener = SessionsStore.addListener(this.redirectIfLoggedIn)
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this))
   },
 
   componentWillUnmount: function () {
     this.sessionsListener.remove();
+    this.errorListener.remove();
+  },
+
+  //TODO Fix errors, possible listener
+  
+  _errors() {
+    const errors = ErrorStore.errors(this.formType());
+    const messages = errors.map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
   },
 
   redirectIfLoggedIn: function () {
@@ -63,6 +77,9 @@ const LoginForm = React.createClass({
     return(
       <div className='signin-form-container'>
         <h1>Please {form}</h1>
+
+        { this._errors() }
+
         <form className='signin-form' onSubmit={this.handleSubmit}>
           <input type="text"
                  onChange={this._usernameChange}
