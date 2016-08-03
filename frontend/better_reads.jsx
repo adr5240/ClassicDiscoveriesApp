@@ -52,7 +52,7 @@ const App = React.createClass({
 
   handleLogout: function () {
     let currentUser = SessionsStore.currentUser();
-    SessionsActions.logout(currentUser.user.id)
+    SessionsActions.logout(currentUser.user.id);
   },
 
   render () {
@@ -81,5 +81,6 @@ const appRouter = (
 
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.getElementById('main');
+  SessionsActions.receiveCurrentUser(window.currentUser);
   ReactDOM.render(appRouter, root);
 });

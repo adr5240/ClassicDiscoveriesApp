@@ -19,7 +19,7 @@ SessionsStore.currentUser = function () {
 };
 
 SessionsStore.isUserLoggedIn = function () {
-  return Object.keys(_currentUser).length > 0;
+  return _currentUser.user;
 };
 
 SessionsStore.__onDispatch = function (payload) {
