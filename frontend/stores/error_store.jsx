@@ -10,13 +10,13 @@ let _form;
 let _setErrors = function (form, errors) {
   _form = form;
   _errors = errors;
-  this.__emitChange();
+  ErrorStore.__emitChange();
 };
 
 let _clearErrors = function () {
   _form = "";
   _errors = [];
-  this.__emitChange();
+  ErrorStore.__emitChange();
 };
 
 ErrorStore.errors = function (form) {
@@ -27,10 +27,14 @@ ErrorStore.errors = function (form) {
   return errors;
 };
 
+ErrorStore.form = function () {
+  return _form;
+};
+
 ErrorStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case ErrorConstants.SET_ERRORS:
-      _setErrors(payload.form, payload.errors);
+      _setErrors(payload.form, payload.error);
       this.__emitChange();
       break;
     case ErrorConstants.CLEAR_ERRORS:

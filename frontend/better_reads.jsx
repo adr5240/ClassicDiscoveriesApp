@@ -18,7 +18,7 @@ const App = React.createClass({
   render () {
     return (
       <div>
-        <h1>Better Reads</h1>
+        <h1 className='title'>Better Reads</h1>
         {this.props.children}
       </div>
     );

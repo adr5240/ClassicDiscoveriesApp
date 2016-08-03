@@ -7,8 +7,12 @@ const SessionsApiUtil = {
       url: 'api/users',
       method: 'POST',
       data: { user: { username: user.username, password: user.password }},
-      success,
-      error
+      success: function(resp) {
+        success(resp);
+      },
+      error: function (xhr) {
+        error('signup', xhr.responseJSON);
+      }
     });
   },
 
@@ -20,7 +24,9 @@ const SessionsApiUtil = {
       success: function(resp) {
         success(resp);
       },
-      error
+      error: function (xhr) {
+        error('login', xhr.responseJSON);
+      }
     });
   },
 
@@ -29,8 +35,12 @@ const SessionsApiUtil = {
       url: 'api/sessions',
       method: 'DELETE',
       data: user,
-      success,
-      error
+      success: function(resp) {
+        success(resp);
+      },
+      error: function (xhr) {
+        error('logout', xhr.responseJSON);
+      }
     });
   }
 

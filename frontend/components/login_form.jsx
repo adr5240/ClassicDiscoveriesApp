@@ -2,6 +2,7 @@ const React = require('react');
 const SessionsActions = require('../actions/sessions_actions');
 const SessionsStore = require('../stores/sessions_store');
 const ErrorStore = require('../stores/error_store');
+const ErrorActions = require('../actions/error_actions');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 const Link = require('react-router').Link;
@@ -23,14 +24,11 @@ const LoginForm = React.createClass({
     this.errorListener.remove();
   },
 
-  //TODO Fix errors, possible listener
-  
   _errors() {
     const errors = ErrorStore.errors(this.formType());
     const messages = errors.map( (errorMsg, i) => {
       return <li key={ i }>{ errorMsg }</li>;
     });
-
     return <ul>{ messages }</ul>;
   },
 
@@ -91,7 +89,7 @@ const LoginForm = React.createClass({
                  value={this.state.password}
                  placeholder='Password' />
           <br></br>
-          <input type="submit" value={form} />
+          <input className='submit-button' type="submit" value={form} />
         </form>
         <h5 className='signin-nav'>Or feel free to {navLink}</h5>
       </div>
