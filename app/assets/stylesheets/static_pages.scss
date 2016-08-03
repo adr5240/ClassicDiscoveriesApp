@@ -1,3 +1,27 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title {
+  font-size: 18pt;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.button {
+  width: 60px;
+  height: 25px;
+  font-size: 10pt;
+  background-color: wheat;
+  float: left;
+  margin-right: 5px;
+}
+
+.button:hover {
+  background-color: #ffd88f;
+}
+
+.navBar {
+  background-color: #e0d5c2;
+  height: 65px;
+}

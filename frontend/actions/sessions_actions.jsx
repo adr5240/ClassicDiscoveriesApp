@@ -17,7 +17,7 @@ const SessionsActions = {
   },
 
   logout: function () {
-    SessionsApiUtil.logout(formData, this.removeCurrentUser, ErrorActions.setErrors);
+    SessionsApiUtil.logout(this.removeCurrentUser, ErrorActions.setErrors);
   },
 
   receiveCurrentUser: function (user) {

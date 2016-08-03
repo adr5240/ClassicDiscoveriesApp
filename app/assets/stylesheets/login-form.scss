@@ -1,0 +1,75 @@
+.signin-form-container {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 15%;
+  text-align: center;
+  border: 1px solid black;
+  padding: 30px;
+  background-color: white;
+  color: #633b1d;
+  border-radius: 25px;
+  clear: both;
+}
+
+.signin-form-container h1 {
+  font-size: 32pt;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.signin-form-container input {
+  height: 40px;
+  width: 250px;
+  margin-bottom: 10px;
+  background-color: #dff0ff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15pt;
+  text-align: center;
+}
+
+//errors
+.signin-form-container li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.signin-form-container .button {
+  width: 120px;
+  height: 40px;
+  font-size: 12pt;
+  background-color: wheat;
+  float: left;
+  font-weight: bold;
+}
+
+.signin-form-container .submit-button {
+  margin-left: 50px;
+}
+
+.signin-form-container .guest-button {
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.signin-form-container .button:hover {
+  background-color: #ffd88f;
+}
+
+.signin-form-container .signin-nav {
+  font-weight: 600;
+}
+
+.signin-form-container .signin-nav a {
+  text-decoration: underline;
+}
+
+.signin-form-container .signin-nav a:hover {
+  color: blue;
+}
+
+.signin-form-container .group {
+  display: block;
+  clear: both;
+}

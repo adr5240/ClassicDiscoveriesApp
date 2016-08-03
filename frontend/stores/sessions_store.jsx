@@ -7,13 +7,11 @@ const SessionsStore = new Store(AppDispatcher);
 let _currentUser = {};
 
 let _login = function (user) {
-  _currentUser[user.id] = user;
-  SessionsStore.__emitChange();
+  _currentUser = {user};
 };
 
 let _logout = function (user) {
   _currentUser = {};
-  SessionsStore.__emitChange();
 };
 
 SessionsStore.currentUser = function () {

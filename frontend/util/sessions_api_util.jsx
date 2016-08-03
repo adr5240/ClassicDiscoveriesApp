@@ -30,11 +30,10 @@ const SessionsApiUtil = {
     });
   },
 
-  logout: function (user, success, error) {
+  logout: function (success, error) {
     $.ajax({
       url: 'api/sessions',
       method: 'DELETE',
-      data: user,
       success: function(resp) {
         success(resp);
       },

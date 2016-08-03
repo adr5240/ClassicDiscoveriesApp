@@ -17,6 +17,11 @@ const LoginForm = React.createClass({
   componentDidMount: function () {
     this.sessionsListener = SessionsStore.addListener(this.redirectIfLoggedIn)
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this))
+    ErrorActions.clearErrors();
+  },
+
+  componentWillReceiveProps: function () {
+    ErrorActions.clearErrors();
   },
 
   componentWillUnmount: function () {
@@ -57,19 +62,25 @@ const LoginForm = React.createClass({
     this.setState({ password: e.target.value})
   },
 
-  formType() {
+  formType: function () {
     return this.props.location.pathname.slice(1);
+  },
+
+  guestLogin: function () {
+    let username = 'Guest';
+    let password = 'password';
+    SessionsActions.login({username: username, password: password});
   },
 
   render: function () {
     let form = this.formType();
-    form = form.charAt(0).toUpperCase() + form.slice(1) + '!';
+    form = form.charAt(0).toUpperCase() + form.slice(1);
 
     let navLink;
     if (this.formType() === "login") {
-      navLink = <Link to="/signup">Signup!</Link>
+      navLink = <Link to="/signup">Signup</Link>
     } else {
-      navLink = <Link to="/login">Login!</Link>
+      navLink = <Link to="/login">Login</Link>
     }
 
     return(
@@ -89,9 +100,10 @@ const LoginForm = React.createClass({
                  value={this.state.password}
                  placeholder='Password' />
           <br></br>
-          <input className='submit-button' type="submit" value={form} />
+          <input className='submit-button button' type="submit" value={form} />
         </form>
-        <h5 className='signin-nav'>Or feel free to {navLink}</h5>
+        <button className='guest-button button' onClick={this.guestLogin}>Guest Login</button>
+        <h5 className='signin-nav group'>Or feel free to {navLink}</h5>
       </div>
     );
   }
