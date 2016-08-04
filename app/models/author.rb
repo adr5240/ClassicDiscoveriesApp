@@ -14,13 +14,14 @@
 class Author < ActiveRecord::Base
   validates :fname, :lname, :description, presence: true
 
-  def name
-    return "#{fname} #{mid_name} #{lname}"
-  end
-
-  def find_by_name(full_name)
+  def self.find_by_name(full_name)
     fname = full_name.split(' ')[0]
     lname = full_name.split(' ')[-1]
     return Author.find_by(fname: fname, lname: lname)
   end
+
+  def full_name
+    return "#{fname} #{mid_name} #{lname}"
+  end
+
 end

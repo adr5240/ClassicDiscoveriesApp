@@ -1,18 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all
+
 # Users
+User.destroy_all
 guest = User.create(username: 'Potential_Employer', password: 'password');
 
 
-Book.destroy_all
+# Authors
+Author.destroy_all
+a1 = Author.create(fname: "George",
+                   mid_name: "R.R.",
+                   lname: "Martin",
+                   description: "George R. R. Martin was born September 20, 1948,
+                                 in Bayonne, New Jersey. His father was Raymond
+                                 Collins Martin, a longshoreman, and his mother
+                                 was Margaret Brady Martin. He has two sisters,
+                                 Darleen Martin Lapinski and Janet Martin Patten.")
+
+
 # Books
+Book.destroy_all
 book1 = Book.create(title: 'A Game of Thrones',
                     description: "From a master of contemporary fantasy comes the
                                   first novel of a landmark series unlike any you’ve
@@ -22,7 +28,7 @@ book1 = Book.create(title: 'A Game of Thrones',
                                   romance, and adventure fill the pages of this magnificent
                                   saga, the first volume in an epic series sure to delight
                                   fantasy fans everywhere.",
-                    author_id: Author.find_by_name(full_name: "George R.R. Martin")
+                    author_id: Author.find_by_name("George R.R. Martin").id)
 
 book2 = Book.create(title: 'A Clash of Kings',
                     description: "In this eagerly awaited sequel to A Game of Thrones,
@@ -30,7 +36,7 @@ book2 = Book.create(title: 'A Clash of Kings',
                                   vision, power, and imagination. A Clash of Kings transports
                                   us to a world of revelry and revenge, wizardry and warfare
                                   unlike any you have ever experienced.",
-                    author_id: Author.find_by_name(full_name: "George R.R. Martin")
+                    author_id: Author.find_by_name("George R.R. Martin").id)
 
 book3 = Book.create(title: 'A Storm of Swords',
                     description: "Here is the third volume in George R. R. Martin’s
@@ -42,7 +48,7 @@ book3 = Book.create(title: 'A Storm of Swords',
                                   us to a world unlike any we have ever experienced. Already
                                   hailed as a classic, George R. R. Martin’s stunning series is
                                   destined to stand as one of the great achievements of imaginative fiction.",
-                    author_id: Author.find_by_name(full_name: "George R.R. Martin")
+                    author_id: Author.find_by_name("George R.R. Martin").id)
 
 book4 = Book.create(title: 'A Feast for Crows',
                     description: "Few books have captivated the imagination and won the devotion
@@ -52,7 +58,7 @@ book4 = Book.create(title: 'A Feast for Crows',
                                   landmark series, as a kingdom torn asunder finds itself at last
                                   on the brink of peace . . . only to be launched on an even more
                                   terrifying course of destruction.",
-                    author_id: Author.find_by_name("George R.R. Martin")
+                    author_id: Author.find_by_name("George R.R. Martin").id)
 
 book5 = Book.create(title: 'A Dance with Dragons',
                     description: "Dubbed “the American Tolkien” by Time magazine, George R. R.
@@ -61,4 +67,4 @@ book5 = Book.create(title: 'A Dance with Dragons',
                                   author delivers the fifth book in his landmark series—as both
                                   familiar faces and surprising new forces vie for a foothold
                                   in a fragmented empire. ",
-                    author_id: Author.find_by_name(full_name: "George R.R. Martin")
+                    author_id: Author.find_by_name("George R.R. Martin").id)

@@ -28,7 +28,6 @@ const App = React.createClass({
     hashHistory.push('/signup');
   },
 
-
   greeting: function () {
     if (SessionsStore.isUserLoggedIn()) {
       let currentUser = SessionsStore.currentUser();
