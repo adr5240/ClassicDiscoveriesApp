@@ -18,9 +18,11 @@ const BookIndexItem = React.createClass({
       <div className='book-index-item-container'>
         <ul className='book-index-item'>
           <img onClick={this._handleClick} src={this.props.book.book_cover_url}/>
-          <li><b>Title:</b> {this.props.book.title}</li>
-          <li><b>Description:</b> {this.props.book.description}</li>
-          <li><b>Author:</b> {this.props.book.author}</li>
+          <span className='book-text'>
+            <li className='book-title'><b>Title:</b> {this.props.book.title}</li>
+            <li className='book-description'><b>Description:</b> {this.props.book.description}</li>
+            <li className='book-author'><b>Author:</b> {this.props.book.author}</li>
+          </span>
         </ul>
       </div>
     );

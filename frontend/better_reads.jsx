@@ -13,6 +13,7 @@ const Link = require('react-router').Link;
 const LoginForm = require('./components/login_form.jsx');
 const BookshelfIndex = require('./components/bookshelf_index');
 const BookShow = require('./components/book_show');
+const Browse = require('./components/browse');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
@@ -80,7 +81,7 @@ const App = React.createClass({
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >
-      <IndexRoute component={ BookshelfIndex } />
+      <IndexRoute component={ Browse } />
       <Route path='/login' component={ LoginForm } />
       <Route path='/signup' component={ LoginForm } />
       <Route path='/books' component={ BookshelfIndex } />
