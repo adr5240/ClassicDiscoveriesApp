@@ -49,7 +49,7 @@ const BooksApiUtil = {
     $.ajax({
       url: `api/books/${id}`,
       method: 'DELETE',
-      success: function (resp) {    
+      success: function (resp) {
         success(resp);
       }
     });

@@ -13,8 +13,8 @@ a.	EvenBetterReads will be a site for organizing a user’s current collection o
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [ ] Search Box
   - [ ] Should be able to search by title or author
-- [ ] Books
-  - [ ] Title, author, and a short description of every book
+- [X] Books
+  - [X] Title, author, and a short description of every book
   - [ ] Picture of the book cover
   - [ ] Should include a list of books by the same author
   - [ ] About the author section
@@ -38,14 +38,7 @@ a.	EvenBetterReads will be a site for organizing a user’s current collection o
     - [ ] Have read
     - [ ] Currently reading
     - [ ] Not interested
-- [ ] Bonus
-  - [ ] Ratings
-    - [ ] 5-star rating system
-    - [ ] Only show books with high rating
-  - [ ] Tags
-    - [ ] Books should be listed under certain tags (fiction/nonfiction, action, adventure, mystery, etc.)
-    - [ ] Should be able to search by tags
-    - [ ] Certain tags should be related (help to find new book suggestions)
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -83,11 +76,11 @@ a.	EvenBetterReads will be a site for organizing a user’s current collection o
 **Objective:** Books can be Created, Indexed and Shown through
 the API.
 
-- [ ] create `Book` model
+- [X] create `Book` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for books (`BooksController`)
+- [X] CRUD API for books (`BooksController`)
 - [ ] jBuilder views for books
-- [ ] test out API interaction in the console.
+- [X] test out API interaction in the console.
 - implement each books component, building out the flux loop as needed.
   - [ ] `BooksIndex`
   - [ ] `BookIndexItem`

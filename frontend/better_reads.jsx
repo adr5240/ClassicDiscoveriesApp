@@ -10,18 +10,18 @@ const hashHistory = ReactRouter.hashHistory;
 
 // Components
 const LoginForm = require('./components/login_form.jsx');
+const Search = require('./components/Search');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
 const SessionsStore = require('./stores/sessions_store');
 const SessionsActions = require('./actions/sessions_actions');
+const BookStore = require('./stores/book_store');
+const BookActions = require('./actions/book_actions');
 
 
 // Test
-const BookStore = require('./stores/book_store');
-const BookActions = require('./actions/book_actions');
-window.BookStore = BookStore;
-window.BookActions = BookActions;
+
 
 const App = React.createClass({
 
@@ -78,6 +78,7 @@ const App = React.createClass({
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >
+      <IndexRoute component={ Search } />
       <Route path='/login' component={ LoginForm } />
       <Route path='/signup' component={ LoginForm } />
 
