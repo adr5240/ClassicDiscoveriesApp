@@ -38,4 +38,26 @@
   position: fixed;
   top: 0px;
   width: 100%;
+  z-index: 1;
+}
+
+.bookshelf-index {
+  position: relative;
+  margin-left: 100px;
+  top: 75px;
+  width: 500px;
+}
+
+
+// check book_index_item for <b> tags
+.book-index-item-container {
+
+  margin: 20px;
+}
+
+.book-show-page .book-index-item {
+  top: 50px;
+  margin-left: 20px;
+  position: relative;
+  width: 30%;
 }

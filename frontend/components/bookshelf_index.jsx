@@ -6,7 +6,7 @@ const BookIndexItem = require('./book_index_item');
 const hashHistory = require('react-router').hashHistory;
 
 
-const Search = React.createClass({
+const BookshelfIndex = React.createClass({
 
   getInitialState: function () {
     return(
@@ -32,7 +32,7 @@ const Search = React.createClass({
     let results = Object.keys(self.state.books).map(function (key) {
       let book = self.state.books[key];
       return(
-          <BookIndexItem key={book.id} book={book} />
+        <BookIndexItem key={book.id} book={book} />
       )
     })
     return(
@@ -42,6 +42,7 @@ const Search = React.createClass({
     );
   }
 
+
 });
 
-module.exports = Search;
+module.exports = BookshelfIndex;

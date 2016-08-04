@@ -28,6 +28,11 @@ aside, div, form, ul, li, a, p {
   background: transparent;
 }
 
+img {
+  height: 200px;
+  width: 150px;
+}
+
 body {
   background-color: #f9edd8;
 

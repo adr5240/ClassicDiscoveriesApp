@@ -7,10 +7,12 @@ const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
+const Link = require('react-router').Link;
 
 // Components
 const LoginForm = require('./components/login_form.jsx');
-const Search = require('./components/Search');
+const BookshelfIndex = require('./components/bookshelf_index');
+const BookShow = require('./components/book_show');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
@@ -65,7 +67,7 @@ const App = React.createClass({
     return (
       <div>
         <header className='navBar'>
-          <h1 className='title'>BetterReads</h1>
+          <Link to='/' className='title'>BetterReads</Link>
           {this.greeting()}
         </header>
         {this.props.children}
@@ -78,9 +80,12 @@ const App = React.createClass({
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >
-      <IndexRoute component={ Search } />
+      <IndexRoute component={ BookshelfIndex } />
       <Route path='/login' component={ LoginForm } />
       <Route path='/signup' component={ LoginForm } />
+      <Route path='/books' component={ BookshelfIndex } />
+      <Route path='/books/:book_id' component={ BookShow } />
+
 
     </Route>
   </Router>
