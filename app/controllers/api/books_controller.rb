@@ -1,6 +1,6 @@
 class Api::BooksController < ApplicationController
 
-  before_action :require_logged_in, only: [:create, :update, :destroy]
+  # before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
     @books = Book.all
@@ -25,8 +25,7 @@ class Api::BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-
-    if @book.update
+    if @book.update(book_params)
       render :show
     else
       render json: @book.errors.full_messages, status: 422
@@ -35,13 +34,14 @@ class Api::BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id]).destroy
-    if @book.destory
-      render :index, status: 200
+    book = Book.find(params[:id])
+    if book.destroy
+      @books = Book.all
+      render :index
     else
-      render json: @book.errors.full_messages, status: 422
+      render json: book.errors.full_messages, status: 422
     end
-    
+
   end
 
   def book_params

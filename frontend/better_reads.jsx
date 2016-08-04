@@ -1,20 +1,27 @@
-//React
+// React
 const React = require('react');
 const ReactDOM = require('react-dom');
-//Router
+// Router
 const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 
-//Components
+// Components
 const LoginForm = require('./components/login_form.jsx');
 
-//Misc
+// Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
 const SessionsStore = require('./stores/sessions_store');
 const SessionsActions = require('./actions/sessions_actions');
+
+
+// Test
+const BookStore = require('./stores/book_store');
+const BookActions = require('./actions/book_actions');
+window.BookStore = BookStore;
+window.BookActions = BookActions;
 
 const App = React.createClass({
 

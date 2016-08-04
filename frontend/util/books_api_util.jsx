@@ -47,10 +47,9 @@ const BooksApiUtil = {
 
   deleteBook: function (id, success) {
     $.ajax({
-      url: `api/books/${book.id}`,
+      url: `api/books/${id}`,
       method: 'DELETE',
-      data: id,
-      success: function (resp) {
+      success: function (resp) {    
         success(resp);
       }
     });

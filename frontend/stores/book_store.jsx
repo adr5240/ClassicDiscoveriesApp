@@ -9,8 +9,8 @@ let _books = {};
 
 const resetAllBooks = function (books) {
   _books = {};
-  for (var i = 0; i < books.length; i++) {
-    _books[books[i].id] = books[i];
+  for (let key in books) {
+    _books[key] = books[key];
   }
 };
 
@@ -19,8 +19,14 @@ const resetBook = function (book) {
   _book = {book};
 };
 
-const removeBook = function (book) {
-  delete _books[book.id];
+const addBook = function (book) {
+  _book = {};
+  _book= {book};
+  _books[book.id] = book;
+};
+
+BookStore.currentBook = function () {
+  return _book.book;
 };
 
 BookStore.all = function () {
@@ -37,13 +43,18 @@ BookStore.__onDispatch = function (payload) {
       resetAllBooks(payload.books);
       BookStore.__emitChange();
       break;
+    case BooksConstants.BOOK_UPDATE:
+      addBook(payload.book);
+      break;
     case BooksConstants.BOOK_RECEIVED:
       resetBook(payload.book);
       BookStore.__emitChange();
       break;
     case BooksConstants.BOOK_REMOVED:
-      removeBook(payload.book);
+      resetAllBooks(payload.books);
       BookStore.__emitChange();
       break;
   }
 };
+
+module.exports = BookStore;

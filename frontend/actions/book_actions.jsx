@@ -15,11 +15,11 @@ const BookActions = {
   },
 
   createBook: function (book) {
-    BooksApiUtil.createBook(book, this.receiveBook);
+    BooksApiUtil.createBook(book, this.newBook);
   },
 
   updateBook: function (book) {
-    BooksApiUtil.updateBook(book, this.receiveBook);
+    BooksApiUtil.updateBook(book, this.newBook);
   },
 
   deleteBook: function (id) {
@@ -40,10 +40,17 @@ const BookActions = {
     });
   },
 
-  removeBook: function () {
+  newBook: function (book) {
+    AppDispatcher.dispatch({
+      actionType: BooksConstants.BOOK_UPDATE,
+        book: book
+    });
+  },
+
+  removeBook: function (books) {
     AppDispatcher.dispatch({
       actionType: BooksConstants.BOOK_REMOVED,
-      id: id
+      books: books
     });
   }
 
