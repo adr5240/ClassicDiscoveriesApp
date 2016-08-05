@@ -53,25 +53,12 @@
 // check book_index_item for <b> tags
 .book-index-item-container {
   margin: 20px;
-}
-
-.book-show-page .book-index-item {
-  top: 50px;
-  margin-left: 20px;
-  position: relative;
-  width: 40%;
-  float: left;
-  max-height: 300px;
-  clear: both;
-}
-
-.book-index-item .book-text {
-  float: left;
+  margin-top: 75px;
 }
 
 .book-index-item li {
-  max-width: 300px;
-  margin: 10px;
+  // max-width: 300px;
+  // margin: 10px;
   list-style: none;
 }
 

@@ -2,4 +2,28 @@
   border: 2px solid black;
   height: 400px;
   width: 275px;
+  float: left;
+  clear: both;
+}
+
+.book-show-page span {
+  float: left;
+  margin-left: 20px;
+  font-size: 16pt;
+  white-space: pre-wrap;
+  width: 40%;
+}
+
+.book-show-page .book-index-item ul {
+  width: 700px;
+  margin-left: 20px;
+  position: relative;
+  width: 50%;
+  float: left;
+  max-height: 500px;
+}
+
+.book-show-page li {
+  margin-bottom: 30px;
+  border-bottom: 3px dashed brown;
 }

@@ -13,7 +13,6 @@ const BookShow = React.createClass({
   },
 
   _onChange: function () {
-    BookActions.getBook(this.props.params.book_id);
     let currentBook = BookStore.currentBook();
     this.setState({ book: currentBook, id: currentBook.id })
   },

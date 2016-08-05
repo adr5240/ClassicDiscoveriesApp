@@ -17,6 +17,7 @@ const Browse = React.createClass({
 
   _onChange: function () {
     this.setState({ books: BookStore.all() });
+    this.shuffleBooks();
   },
 
   componentDidMount: function () {
@@ -28,30 +29,37 @@ const Browse = React.createClass({
     this.bookListener.remove();
   },
 
-  shuffle: function (array) {
-  var m = array.length, t, i;
-
-  // While there remain elements to shuffle…
-  while (m) {
-    // Pick a remaining element…
-    i = Math.floor(Math.random() * m--);
-    // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
-
-  return array;
-},
-
-  render: function () {
+  shuffleBooks: function () {
     let self = this;
-    let results = Object.keys(this.state.books).map(function (key) {
+    let bookArray = Object.keys(this.state.books).map(function (key) {
       let book = self.state.books[key];
-      return( <BrowseItem key={book.id} book={book} /> )
+      return book;
     });
 
-    this.shuffle(results);
+    var m = bookArray.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+      // And swap it with the current element.
+      t = bookArray[m];
+      bookArray[m] = bookArray[i];
+      bookArray[i] = t;
+    }
+
+    // debugger
+    this.shuffledBooks = bookArray;
+    this.forceUpdate();
+    return bookArray;
+  },
+
+  render: function () {
+    let results = <h1>Loading</h1>;
+    if (this.shuffledBooks) {
+      results = this.shuffledBooks.map(function (book) {
+        return( <BrowseItem key={book.id} book={book} /> );
+      });
+    }
 
     return(
       <div className='browse-box'>

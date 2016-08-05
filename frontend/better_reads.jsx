@@ -87,7 +87,6 @@ const appRouter = (
       <Route path='/books' component={ BookshelfIndex } />
       <Route path='/books/:book_id' component={ BookShow } />
 
-
     </Route>
   </Router>
 );
