@@ -4,6 +4,7 @@ const BookActions = require('../actions/book_actions');
 const BookStore = require('../stores/book_store');
 const BrowseItem = require('./browse_item');
 
+
 const Browse = React.createClass({
 
   getInitialState: function () {
@@ -47,7 +48,6 @@ const Browse = React.createClass({
       bookArray[i] = t;
     }
 
-    // debugger
     this.shuffledBooks = bookArray;
     this.forceUpdate();
     return bookArray;

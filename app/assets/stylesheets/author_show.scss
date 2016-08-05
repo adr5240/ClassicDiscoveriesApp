@@ -1,28 +1,30 @@
-.book-show-page img {
+.author-show-page img {
   border: 2px solid black;
   height: 400px;
-  width: 275px;
+  width: auto;
   float: left;
 }
 
-.book-show-page span {
+.author-show-page span {
   float: left;
+  margin-top: 30px;
   margin-left: 20px;
   font-size: 16pt;
   white-space: pre-wrap;
-  width: 40%;
+  width: 65%;
+  list-style: none;
 }
 
-.book-show-page .book-index-item ul {
-  width: 700px;
+.author-show-page .author-index-item {
+  top: 70px;
   margin-left: 20px;
   position: relative;
-  width: 50%;
+  width: 90%;
   float: left;
   max-height: 500px;
 }
 
-.book-show-page li {
+.author-show-page li {
   margin-bottom: 30px;
   border-bottom: 3px dashed brown;
 }

@@ -2,7 +2,7 @@
 
 # Users
 User.destroy_all
-guest = User.create(username: 'Potential_Employer', password: 'password');
+guest = User.create(username: 'Guest', password: 'password');
 
 
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -12,66 +12,79 @@ Author.destroy_all
 a1 = Author.create(fname: "George",
                    mid_name: "R.R.",
                    lname: "Martin",
+                   image: File.open('app/assets/images/authors/george-rr-martin.jpg'),
                    description: "George R. R. Martin was born September 20, 1948, in Bayonne, New Jersey. His father was Raymond Collins Martin, a longshoreman, and his mother was Margaret Brady Martin. He has two sisters, Darleen Martin Lapinski and Janet Martin Patten.")
 
 a2 = Author.create(fname: "J.K.",
                    mid_name: "",
                    lname: "Rowling",
+                   image: File.open('app/assets/images/authors/jk-rowling.jpg'),
                    description: "Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name. As she had no middle name, she chose K as the second initial of her pen name, from her paternal grandmother Kathleen Ada Bulgen Rowling. She calls herself Jo and has said, \"No one ever called me 'Joanne' when I was young, unless they were angry.\" Following her marriage, she has sometimes used the name Joanne Murray when conducting personal business. During the Leveson Inquiry she gave evidence under the name of Joanne Kathleen Rowling. In a 2012 interview, Rowling noted that she no longer cared that people pronounced her name incorrectly.")
 
 a3 = Author.create(fname: 'J.R.R.',
                    mid_name: '',
                    lname: 'Tolkien',
+                   image: File.open('app/assets/images/authors/jrr-tolkien.jpg'),
                    description: "John Ronald Reuel Tolkien, CBE, was an English writer, poet, WWI veteran (a First Lieutenant in the Lancashire Fusiliers, British Army), philologist, and university professor, best known as the author of the high fantasy classic works The Hobbit and The Lord of the Rings.\n\nTolkien was Rawlinson and Bosworth Professor of Anglo-Saxon at Oxford from 1925 to 1945, and Merton Professor of English language and literature from 1945 to 1959. He was a close friend of C.S. Lewis.\n\nChristopher Tolkien published a series of works based on his father\'s extensive notes and unpublished manuscripts, including The Silmarillion . These, together with The Hobbit and The Lord of the Rings, form a connected body of tales, poems, fictional histories, invented languages, and literary essays about an imagined world called Arda, and Middle-earth within it. Between 1951 and 1955, Tolkien applied the word \"legendarium\" to the larger part of these writings.")
 
 a4 = Author.create(fname: 'Leigh',
                    mid_name: '',
                    lname: 'Bardugo',
+                   image: File.open('app/assets/images/authors/leigh-bardugo.jpg'),
                    description: "Leigh Bardugo is the New York Times and USA Today bestselling author of the Grisha Trilogy (Shadow and Bone, Siege and Storm, and Ruin and Rising).\n\nShe was born in Jerusalem, grew up in Los Angeles, and graduated from Yale University, and has worked in advertising, journalism, and most recently, makeup and special effects. These days, she’s lives and writes in Hollywood where she can occasionally be heard singing with her band. Her new book, Six of Crows, arrives fall 2015.")
 
 a5 = Author.create(fname: 'Suzanne',
                    mid_name: '',
                    lname: 'Brockmann',
+                   image: File.open('app/assets/images/authors/suzanne-brockmann.jpg'),
                    description: "Suzanne Brockmann was born in 1960. Married with Ed Gaffney, a lawyer and published writer. They have two grown children: Melanie, who is a personal trainer and author, and Jason, who is an actor and tap dancer. They divide their time between Boston, Massachusetts, Sarasota, Florida and New York City.\n\nPublished since 1993, Suzanne is widely recognized as one of the leading voices in suspense romance genre. She has been on the USA Today and New York Times bestseller lists and has received many awards including being named Romance Writers of America’s #1 Favorite Book of the Year three times. She has also received two RITAs and Romantic Times Reviewers’ Choice Awards.\n\nWhen Suzanne isn't writing, she's busy making music. Formerly the lead singer and songwriter for an original Boston rock band, she is now vocal arranger, director, and lead alto of the eight-voice a cappella group Serious Fun. She is one of the founders and volunteer organizers of Natick's Appalachian Benefit Coffeehouse, raising money for the Cabell/Lincoln Country Workcamp, which rebuilds housing for the poor, elderly and disabled in West Virginia. She is a proud member of PFLAG -- Parents, Families and Friends of Lesbians and Gays. She is also a card-carrying member of the American Civil Liberties Union, the Human Rights Campaign, and MassEquality. A firm believer in civil rights for all people, she has fought hard to bring equal marriage rights to all citizens of her home state, Massachusetts. ")
 
 a6 = Author.create(fname: 'Dan',
                    mid_name: '',
                    lname: 'Brown',
+                   image: File.open('app/assets/images/authors/dan-brown.jpg'),
                    description: "Dan Brown is the author of numerous #1 bestselling novels, including The Da Vinci Code, which has become one of the best selling novels of all time as well as the subject of intellectual debate among readers and scholars. Brown’s novels are published in 52 languages around the world with 200 million copies in print.\n\nIn 2005, Brown was named one of the 100 Most Influential People in the World by TIME Magazine, whose editors credited him with “keeping the publishing industry afloat; renewed interest in Leonardo da Vinci and early Christian history; spiking tourism to Paris and Rome; a growing membership in secret societies; the ire of Cardinals in Rome; eight books denying the claims of the novel and seven guides to read along with it; a flood of historical thrillers; and a major motion picture franchise.”\n\nThe son of a mathematics teacher and a church organist, Brown was raised on a prep school campus where he developed a fascination with the paradoxical interplay between science and religion. These themes eventually formed the backdrop for his books. He is a graduate of Amherst College and Phillips Exeter Academy, where he later returned to teach English before focusing his attention full time to writing.\n\nBrown is currently at work on a new book as well as the Columbia Pictures film version of his most recent novel.")
 
 a7 = Author.create(fname: 'Tom',
                    mid_name: '',
                    lname: 'Clancy',
+                   image: File.open('app/assets/images/authors/tom-clancy.jpg'),
                    description: "Tom Clancy was an English major at Baltimore’s Loyola College. As a Maryland insurance broker with a passion for naval history, his dream of writing a novel came true with his first effort, The Hunt for Red October (1984).\n\nHe since wrote more than a dozen novels, which have a blend of realism and authenticity, intricate plotting, and razor-sharp suspense. Ten of the novels, including The Teeth of the Tiger (Berkley, 2004), feature the character Jack Ryan, former stock broker and CIA employee.\n\nClancy’s non-fiction works include a series of guided tours of America’s warfighting assets, Submarine, Armored Cav, Fighter Wing, Marine, and Airborne.\n\nHe lived in Maryland.")
 
 a8 = Author.create(fname: 'Daniel',
                    mid_name: '',
                    lname: 'Quinn',
+                   image: File.open('app/assets/images/authors/daniel-quinn.jpg'),
                    description: "I had and did the usual things -- childhood, schools, universities (St. Louis, Vienna, Loyola of Chicago), then embarked on a career in publishing in Chicago. Within a few years I was the head of the Biography & Fine Arts Department of the American Peoples Encyclopedia; when that was subsumed by a larger outfit and moved to New York, I stayed behind and moved into educational publishing, beginning at Science Research Associates (a division of IBM) and ending as Editorial Director of The Society for Vision Education (a division of the Singer Corporation).\n\nIn 1977 I walked away from SVE and this very successful career when it became clear that I was not going to able to do there what I really wanted to do...which was not entirely clear. A few months later I set my feet on a path that would change my life completely. It was a path made up of books -- or rather versions of a book that, after twelve years, would turn out to be ISHMAEL.")
 
 a9 = Author.create(fname: 'Orson',
                    mid_name: 'Scott',
                    lname: 'Card',
+                   image: File.open('app/assets/images/authors/orson-scott-card.jpg'),
                    description: "Orson Scott Card is the author of the novels Ender's Game, Ender's Shadow, and Speaker for the Dead, which are widely read by adults and younger readers, and are increasingly used in schools.\n\nBesides these and other science fiction novels, Card writes contemporary fantasy (Magic Street, Enchantment, Lost Boys), biblical novels (Stone Tables, Rachel and Leah), the American frontier fantasy series The Tales of Alvin Maker (beginning with Seventh Son), poetry (An Open Book), and many plays and scripts.\n\nCard was born in Washington and grew up in California, Arizona, and Utah. He served a mission for the LDS Church in Brazil in the early 1970s. Besides his writing, he teaches occasional classes and workshops and directs plays. He recently began a longterm position as a professor of writing and literature at Southern Virginia University.\n\nCard currently lives in Greensboro, North Carolina, with his wife, Kristine Allen Card, and their youngest child, Zina Margaret.")
 
 a10 = Author.create(fname: 'Suzanne',
                     mid_name: '',
                     lname: 'Collins',
+                    image: File.open('app/assets/images/authors/suzanne-collins.jpg'),
                     description: "Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo. For preschool viewers, she penned multiple stories for the Emmy-nominated Little Bear and Oswald. She also co-wrote the critically acclaimed Rankin/Bass Christmas special, Santa, Baby! Most recently she was the Head Writer for Scholastic Entertainment’s Clifford’s Puppy Days.\n\nWhile working on a Kids WB show called Generation O! she met children’s author James Proimos, who talked her into giving children’s books a try.\n\nThinking one day about Alice in Wonderland, she was struck by how pastoral the setting must seem to kids who, like her own, lived in urban surroundings. In New York City, you’re much more likely to fall down a manhole than a rabbit hole and, if you do, you’re not going to find a tea party. What you might find...? Well, that’s the story of Gregor the Overlander, the first book in her five-part series, The Underland Chronicles. Suzanne also has a rhyming picture book illustrated by Mike Lester entitled When Charlie McButton Lost Power.\n\nShe currently lives in Connecticut with her family and a pair of feral kittens they adopted from their backyard.")
 
 a11 = Author.create(fname: 'Harper',
                     mid_name: '',
                     lname: 'Lee',
+                    image: File.open('app/assets/images/authors/harper-lee.jpg'),
                     description: "Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\n\nAfter graduating from high school in Monroeville, Lee enrolled at the all-female Huntingdon College in Montgomery (1944-45), and then pursued a law degree at the University of Alabama (1945-50), pledging the Chi Omega sorority. While there, she wrote for several student publications and spent a year as editor of the campus humor magazine, \"Ramma-Jamma\". Though she did not complete the law degree, she studied for a summer in Oxford, England, before moving to New York in 1950, where she worked as a reservation clerk with Eastern Air Lines and BOAC.\n\nLee continued as a reservation clerk until the late 50s, when she devoted herself to writing. She lived a frugal life, traveling between her cold-water-only apartment in New York to her family home in Alabama to care for her father.\n\nHaving written several long stories, Harper Lee located an agent in November 1956. The following month at the East 50th townhouse of her friends Michael Brown and Joy Williams Brown, she received a gift of a year's wages with a note: \"You have one year off from your job to write whatever you please. Merry Christmas.\"\n\nWithin a year, she had a first draft. Working with J. B. Lippincott & Co. editor Tay Hohoff, she completed To Kill a Mockingbird in the summer of 1959. Published July 11, 1960, the novel was an immediate bestseller and won great critical acclaim, including the Pulitzer Prize for Fiction in 1961. It remains a bestseller with more than 30 million copies in print. In 1999, it was voted \"Best Novel of the Century\" in a poll by the Library Journal.")
 
 a12 = Author.create(fname: 'F.',
                     mid_name: 'Scott',
                     lname: 'Fitzgerald',
+                    image: File.open('app/assets/images/authors/f-scott-fitzgerald.jpg'),
                     description: "Francis Scott Key Fitzgerald was an American writer of novels and short stories, whose works have been seen as evocative of the Jazz Age, a term he himself allegedly coined. He is regarded as one of the greatest twentieth century writers. Fitzgerald was of the self-styled \"Lost Generation,\" Americans born in the 1890s who came of age during World War I. He finished four novels, left a fifth unfinished, and wrote dozens of short stories that treat themes of youth, despair, and age. He was married to Zelda Fitzgerald.")
 
 a13 = Author.create(fname: 'William',
                     mid_name: '',
                     lname: 'Golding',
+                    image: File.open('app/assets/images/authors/william-golding.jpg'),
                     description: "Sir William Gerald Golding was a British novelist, poet, and playwright best known for his 1954 novel Lord of the Flies. He was awarded the Booker Prize for literature in 1980 for his novel Rites of Passage, the first book of the trilogy To the Ends of the Earth. He was awarded the Nobel Prize for Literature in 1983 and was knighted in 1988.\n\nIn 2008, The Times ranked Golding third on their list of \"The 50 greatest British writers since 1945\".")
 
 

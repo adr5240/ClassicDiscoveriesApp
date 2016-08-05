@@ -14,6 +14,7 @@ const LoginForm = require('./components/login_form.jsx');
 const BookshelfIndex = require('./components/bookshelf_index');
 const BookShow = require('./components/book_show');
 const Browse = require('./components/browse');
+const AuthorShow = require('./components/author_show');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
@@ -24,6 +25,7 @@ const BookActions = require('./actions/book_actions');
 
 
 // Test
+
 
 
 const App = React.createClass({
@@ -86,6 +88,7 @@ const appRouter = (
       <Route path='/signup' component={ LoginForm } />
       <Route path='/books' component={ BookshelfIndex } />
       <Route path='/books/:book_id' component={ BookShow } />
+      <Route path='/authors/:author_id' component={ AuthorShow } />
 
     </Route>
   </Router>

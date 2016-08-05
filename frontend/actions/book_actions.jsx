@@ -1,8 +1,6 @@
-const React = require('react');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BooksApiUtil = require('../util/books_api_util');
 const BooksConstants = require('../constants/books_constants');
-const hashHistory = require('react-router').hashHistory;
 
 const BookActions = {
 
