@@ -13,6 +13,14 @@
   width: 40%;
 }
 
+.book-show-page a {
+  text-decoration: underline;
+}
+
+.book-show-page a:hover {
+  color: blue;
+}
+
 .book-show-page .book-index-item ul {
   width: 700px;
   margin-left: 20px;

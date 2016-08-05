@@ -8,6 +8,7 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 const Link = require('react-router').Link;
+const Modal = require('react-modal');
 
 // Components
 const LoginForm = require('./components/login_form.jsx');
@@ -96,6 +97,7 @@ const appRouter = (
 
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.getElementById('main');
+  Modal.setAppElement(document.body);
   SessionsActions.receiveCurrentUser(window.currentUser);
   ReactDOM.render(appRouter, root);
 });

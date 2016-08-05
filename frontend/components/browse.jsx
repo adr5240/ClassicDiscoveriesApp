@@ -4,6 +4,7 @@ const BookActions = require('../actions/book_actions');
 const BookStore = require('../stores/book_store');
 const BrowseItem = require('./browse_item');
 
+const Modal = require('react-modal');
 
 const Browse = React.createClass({
 
@@ -57,7 +58,11 @@ const Browse = React.createClass({
     let results = <h1>Loading</h1>;
     if (this.shuffledBooks) {
       results = this.shuffledBooks.map(function (book) {
-        return( <BrowseItem key={book.id} book={book} /> );
+        return(
+          <Modal>
+            <BrowseItem key={book.id} book={book} />
+          </Modal>
+        );
       });
     }
 
