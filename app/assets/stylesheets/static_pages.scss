@@ -8,6 +8,7 @@
   display: inline-block;
   margin: 15px;
   float: left;
+  color: #633b1d;
 }
 
 .button {
@@ -88,4 +89,8 @@
 .browse-item {
   float: left;
   margin: 20px;
+}
+
+.browse-item img {
+  border: 2px solid black;
 }

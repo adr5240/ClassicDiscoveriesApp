@@ -30,7 +30,7 @@ const BookShow = React.createClass({
   render: function () {
     return (
       <div className='book-show-page'>
-        <BookIndexItem book={this.state.book} />
+        <BookIndexItem className='book-show-item' book={this.state.book} />
       </div>
     );
   }

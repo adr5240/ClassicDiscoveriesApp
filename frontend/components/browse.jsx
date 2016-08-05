@@ -55,6 +55,7 @@ const Browse = React.createClass({
 
     return(
       <div className='browse-box'>
+        <h1 className='browse-title'>Browse</h1>
         {results}
       </div>
     );
