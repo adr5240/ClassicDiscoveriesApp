@@ -5,11 +5,12 @@ const BookStore = require('../stores/book_store');
 const BrowseItem = require('./browse_item');
 
 const Modal = require('react-modal');
+const ModalStyle = require('../constants/modal_style');
 
 const Browse = React.createClass({
 
   getInitialState: function () {
-    return { books: BookStore.all() };
+    return { books: BookStore.all(), modalOpen: false, modalObject: "" };
   },
 
   _handleClick: function (e) {
@@ -20,6 +21,27 @@ const Browse = React.createClass({
   _onChange: function () {
     this.setState({ books: BookStore.all() });
     this.shuffleBooks();
+  },
+
+  _handleModal: function (e) {
+    e.preventDefault();
+    let self = this;
+    var timer;
+    var delay = 1000;
+
+    this.setState({ modalObject: e.target });
+
+    $(e.target).hover(function() {
+      timer = setTimeout(function() {
+        self.setState({ modalOpen: true });
+      }, delay);
+    }, function() {
+      clearTimeout(timer);
+    });
+  },
+
+  _onModalClose: function () {
+    this.setState({ modalOpen: false });
   },
 
   componentDidMount: function () {
@@ -55,21 +77,35 @@ const Browse = React.createClass({
   },
 
   render: function () {
+
     let results = <h1>Loading</h1>;
     if (this.shuffledBooks) {
-      results = this.shuffledBooks.map(function (book) {
+      results = this.shuffledBooks.map((book) => {
         return(
-          // <Modal>
-            <BrowseItem key={book.id} book={book} />
-          // </Modal>
+          <BrowseItem key={book.id} book={book} />
         );
       });
     }
 
+    let modStyle = {
+      height: '400px',
+      width: '275px'
+    };
+
     return(
       <div className='browse-box'>
         <h1 className='browse-title'>Browse</h1>
-        {results}
+        <div onMouseOver={this._handleModal}>
+          {results}
+        </div>
+
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this._onModalClose}
+          style={ ModalStyle }>
+          <img src={this.state.modalObject.src} style={modStyle}></img>
+          <button onClick={this._onModalClose}>Close</button>
+        </Modal>
       </div>
     );
   }

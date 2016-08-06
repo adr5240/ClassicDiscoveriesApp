@@ -96,8 +96,8 @@ const appRouter = (
 );
 
 document.addEventListener("DOMContentLoaded", function () {
-  const root = document.getElementById('main');
   Modal.setAppElement(document.body);
+  const root = document.getElementById('main');
   SessionsActions.receiveCurrentUser(window.currentUser);
   ReactDOM.render(appRouter, root);
 });
