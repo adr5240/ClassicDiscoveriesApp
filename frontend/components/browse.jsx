@@ -59,9 +59,9 @@ const Browse = React.createClass({
     if (this.shuffledBooks) {
       results = this.shuffledBooks.map(function (book) {
         return(
-          <Modal>
+          // <Modal>
             <BrowseItem key={book.id} book={book} />
-          </Modal>
+          // </Modal>
         );
       });
     }
