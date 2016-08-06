@@ -16,6 +16,7 @@ const BookshelfIndex = require('./components/bookshelf_index');
 const BookShow = require('./components/book_show');
 const Browse = require('./components/browse');
 const AuthorShow = require('./components/author_show');
+const AuthorIndex = require('./components/author_index');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
@@ -49,7 +50,7 @@ const App = React.createClass({
           <button className='logout-button button' onClick={this.handleLogout}>Logout</button>
           <h1 className='welcome-msg'>Welcome {currentUser.user.username}!</h1>
         </hgroup>
-      )
+      );
     } else {
       if (this.props.location.pathname !== "/login" && this.props.location.pathname !== "/signup") {
         return(
@@ -57,7 +58,7 @@ const App = React.createClass({
             <button className='sigup-button button' onClick={this.signup} >Signup</button>
             <button className='login-button button' onClick={this.login} >Login</button>
           </hgroup>
-        )
+        );
       }
     }
   },
@@ -89,6 +90,7 @@ const appRouter = (
       <Route path='/signup' component={ LoginForm } />
       <Route path='/books' component={ BookshelfIndex } />
       <Route path='/books/:book_id' component={ BookShow } />
+      <Route path='/authors' component={ AuthorIndex } />
       <Route path='/authors/:author_id' component={ AuthorShow } />
 
     </Route>
@@ -96,8 +98,8 @@ const appRouter = (
 );
 
 document.addEventListener("DOMContentLoaded", function () {
-  Modal.setAppElement(document.body);
   const root = document.getElementById('main');
+  Modal.setAppElement(root);
   SessionsActions.receiveCurrentUser(window.currentUser);
   ReactDOM.render(appRouter, root);
 });

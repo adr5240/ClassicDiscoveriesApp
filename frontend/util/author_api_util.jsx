@@ -2,7 +2,7 @@ const AuthorApiUtil = {
 
   fetchAllAuthors: function (success) {
     $.ajax({
-      url: `api/books`,
+      url: `api/authors`,
       method: 'GET',
       success: function (resp) {
         success(resp);

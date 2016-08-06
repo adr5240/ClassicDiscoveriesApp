@@ -1,5 +1,10 @@
 class Api::AuthorsController < ApplicationController
 
+  def index
+    @authors = Author.all
+    render :index
+  end
+
   def create
     @author = Author.new(author_params)
 

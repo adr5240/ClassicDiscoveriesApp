@@ -27,7 +27,7 @@ const Browse = React.createClass({
     e.preventDefault();
     let self = this;
     var timer;
-    var delay = 1000;
+    var delay = 750;
 
     this.setState({ modalObject: e.target });
 
@@ -40,7 +40,12 @@ const Browse = React.createClass({
     });
   },
 
+  _onModalOpen: function () {
+    ModalStyle.content.opacity = 100;
+  },
+
   _onModalClose: function () {
+    ModalStyle.content.opacity = 0;
     this.setState({ modalOpen: false });
   },
 
@@ -102,6 +107,7 @@ const Browse = React.createClass({
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this._onModalClose}
+          onAfterOpen={this._onModalOpen}
           style={ ModalStyle }>
           <img src={this.state.modalObject.src} style={modStyle}></img>
           <button onClick={this._onModalClose}>Close</button>

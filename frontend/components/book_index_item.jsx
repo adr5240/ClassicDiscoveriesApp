@@ -10,7 +10,7 @@ const BookIndexItem = React.createClass({
 
   _handleBookClick: function (e) {
     e.preventDefault();
-    hashHistory.push(`/books/${this.props.book.id}`)
+    hashHistory.push(`/books/${this.props.book.id}`);
   },
 
   render: function () {
@@ -18,7 +18,6 @@ const BookIndexItem = React.createClass({
     if (this.props.book.author !== undefined) {
       author_id = `/authors/${this.props.book.author_id}`;
     }
-
     return(
       <div className='book-index-item-container'>
         <ul className='book-index-item'>
