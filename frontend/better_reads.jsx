@@ -73,6 +73,7 @@ const App = React.createClass({
       <div>
         <header className='navBar'>
           <Link to='/' className='title'>BetterReads</Link>
+          
           {this.greeting()}
         </header>
         {this.props.children}

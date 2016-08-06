@@ -21,6 +21,10 @@ const AuthorShow = React.createClass({
     AuthorActions.getAuthor(this.state.id);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    AuthorActions.getAuthor(newProps.params.author_id);
+  },
+
   componentWillUnmount: function () {
     this.authorListener.remove();
   },
