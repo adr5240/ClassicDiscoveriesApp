@@ -123,6 +123,11 @@ a19 = Author.create(fname: "C.S.",
                     image: File.open('app/assets/images/authors/cs-lewis.jpg'),
                     description: "CLIVE STAPLES LEWIS (1898–1963) was one of the intellectual giants of the twentieth century and arguably one of the most influential writers of his day. He was a Fellow and Tutor in English Literature at Oxford University until 1954. He was unanimously elected to the Chair of Medieval and Renaissance Literature at Cambridge University, a position he held until his retirement. He wrote more than thirty books, allowing him to reach a vast audience, and his works continue to attract thousands of new readers every year. His most distinguished and popular accomplishments include Mere Christianity, Out of the Silent Planet, The Great Divorce, The Screwtape Letters, and the universally acknowledged classics The Chronicles of Narnia. To date, the Narnia books have sold over 100 million copies and been transformed into three major motion pictures.")
 
+a20 = Author.create(fname: "Douglas",
+                    mid_name: "",
+                    lname: "Adams",
+                    image: File.open('app/assets/images/authors/douglas-adams.jpg'),
+                    description: "Douglas Noël Adams was an English author, comic radio dramatist, and musician. He is best known as the author of the Hitchhiker's Guide to the Galaxy series. Hitchhiker's began on radio, and developed into a \"trilogy\" of five books (which sold more than fifteen million copies during his lifetime) as well as a television series, a comic book series, a computer game, and a feature film that was completed after Adams' death. The series has also been adapted for live theatre using various scripts; the earliest such productions used material newly written by Adams. He was known to some fans as Bop Ad (after his illegible signature), or by his initials \"DNA\".\n\nIn addition to The Hitchhiker's Guide to the Galaxy, Douglas Adams wrote or co-wrote three stories of the science fiction television series Doctor Who and served as Script Editor during the seventeenth season. His other written works include the Dirk Gently novels, and he co-wrote two Liff books and Last Chance to See, itself based on a radio series. Adams also originated the idea for the computer game Starship Titanic, which was produced by a company that Adams co-founded, and adapted into a novel by Terry Jones. A posthumous collection of essays and other material, including an incomplete novel, was published as The Salmon of Doubt in 2002.\n\nHis fans and friends also knew Adams as an environmental activist and a lover of fast cars, cameras, the Macintosh computer, and other \"techno gizmos\". \n\nToward the end of his life he was a sought-after lecturer on topics including technology and the environment.")
 
 
 #Sample Author
@@ -332,7 +337,6 @@ b39 = Book.create(title: 'Charlotte\'s Web',
                   author_id: Author.find_by_name("E.B. White").id,
                   book_cover: File.open('app/assets/images/book_covers/charlottes-web.jpg'))
 
-  # TODO Start here
 b40 = Book.create(title: "The Magician's Nephew",
                   description: "When Digory and Polly are tricked by Digory's peculiar Uncle Andrew into becoming part of an experiment, they set off on the adventure of a lifetime. What happens to the children when they touch Uncle Andrew's magic rings is far beyond anything even the old magician could have imagined.\n\nHurtled into the Wood between the Worlds, the children soon find that they can enter many worlds through the mysterious pools there. In one world they encounter the evil Queen Jadis, who wreaks havoc in the streets of London when she is accidentally brought back with them. When they finally manage to pull her out of London, unintentionally taking along Uncle Andrew and a coachman with his horse, they find themselves in what will come to be known as the land of Narnia.",
                   author_id: Author.find_by_name("C.S. Lewis").id,
@@ -368,7 +372,25 @@ b46 = Book.create(title: "The Last Battle",
                   author_id: Author.find_by_name("C.S. Lewis").id,
                   book_cover: File.open('app/assets/images/book_covers/Narnia/last-battle.jpg'))
 
+b47 = Book.create(title: "The Hitchhiker's Guide to the Galaxy",
+                  description: "Seconds before the Earth is demolished to make way for a galactic freeway, Arthur Dent is plucked off the planet by his friend Ford Prefect, a researcher for the revised edition of The Hitchhiker's Guide to the Galaxy who, for the last fifteen years, has been posing as an out-of-work actor.\n\nTogether this dynamic pair begin a journey through space aided by quotes from The Hitchhiker's Guide (\"A towel is about the most massively useful thing an interstellar hitchhiker can have\") and a galaxy-full of fellow travelers: Zaphod Beeblebrox--the two-headed, three-armed ex-hippie and totally out-to-lunch president of the galaxy; Trillian, Zaphod's girlfriend (formally Tricia McMillan), whom Arthur tried to pick up at a cocktail party once upon a time zone; Marvin, a paranoid, brilliant, and chronically depressed robot; Veet Voojagig, a former graduate student who is obsessed with the disappearance of all the ballpoint pens he bought over the years.",
+                  author_id: Author.find_by_name("Douglas Adams").id,
+                  book_cover: File.open('app/assets/images/book_covers/Hitchhikers_Guide/hitchhikers-guide.jpg'))
 
+b48 = Book.create(title: "The Restaurant at the End of the Universe",
+                  description: "Facing annihilation at the hands of the warlike Vogons is a curious time to have a craving for tea. It could only happen to the cosmically displaced Arthur Dent and his curious comrades in arms as they hurtle across space powered by pure improbabilityband desperately in search of a place to eat.\n\nAmong Arthur's motley shipmates are Ford Prefect, a longtime friend and expert contributor to the Hitchhiker's Guide to the Galaxy; Zaphod Beeblebrox, the three-armed, two-headed ex-president of the galaxy; Tricia McMillan, a fellow Earth refugee who's gone native (her name is Trillian now); and Marvin, the moody android who suffers nothing and no one very gladly. Their destination? The ultimate hot spot for an evening of apocalyptic entertainment and fine dining, where the food (literally) speaks for itself.\n\nWill they make it? The answer: hard to say. But bear in mind that the Hitchhiker's Guide deleted the term \"Future Perfect\" from its pages, since it was discovered not to be!\n\n\"What's such fun is how amusing the galaxy looks through Adams' sardonically silly eyes.\"",
+                  author_id: Author.find_by_name("Douglas Adams").id,
+                  book_cover: File.open('app/assets/images/book_covers/Hitchhikers_Guide/restaurant-at-the-end.jpg'))
+
+b49 = Book.create(title: "Life, the Universe and Everything",
+                  description: "The unhappy inhabitants of planet Krikkit are sick of looking at the night sky above their heads–so they plan to destroy it. The universe, that is. Now only five individuals stand between the killer robots of Krikkit and their goal of total annihilation.\n\nThey are Arthur Dent, a mild-mannered space and time traveler who tries to learn how to fly by throwing himself at the ground and missing; Ford Prefect, his best friend, who decides to go insane to see if he likes it; Slartibartfast, the indomitable vice president of the Campaign for Real Time, who travels in a ship powered by irrational behavior; Zaphod Beeblebrox, the two-headed, three-armed ex-president of the galazy; and Trillian, the sexy space cadet who is torn between a persistent Thunder God and a very depressed Beeblebrox.\n\nHow will it all end? Will it end? Only this stalwart crew knows as they try to avert “universal” Armageddon and save life as we know it–and don’t know it!",
+                  author_id: Author.find_by_name("Douglas Adams").id,
+                  book_cover: File.open('app/assets/images/book_covers/Hitchhikers_Guide/life-universe-everything.jpg'))
+
+
+
+
+  # TODO Start here
 # SAMPLE BOOK
 # b41 = Book.create(title: "",
 #                   description: "",
