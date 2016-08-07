@@ -126,11 +126,11 @@ a19 = Author.create(fname: "C.S.",
 
 
 #Sample Author
-a16 = Author.create(fname: "",
-                    mid_name: "",
-                    lname: "",
-                    image: File.open('app/assets/images/authors/{ FILE_NAME }'),
-                    description: "")
+# a16 = Author.create(fname: "",
+#                     mid_name: "",
+#                     lname: "",
+#                     image: File.open('app/assets/images/authors/{ FILE_NAME }'),
+#                     description: "")
 
 
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -370,7 +370,7 @@ b46 = Book.create(title: "The Last Battle",
 
 
 # SAMPLE BOOK
-b41 = Book.create(title: "",
-                  description: "",
-                  author_id: Author.find_by_name("").id,
-                  book_cover: File.open('app/assets/images/book_covers/{ FILE_NAME }'))
+# b41 = Book.create(title: "",
+#                   description: "",
+#                   author_id: Author.find_by_name("").id,
+#                   book_cover: File.open('app/assets/images/book_covers/{ FILE_NAME }'))
