@@ -90,8 +90,8 @@ a13 = Author.create(fname: 'William',
 a14 = Author.create(fname: 'Stieg',
                     mid_name: '',
                     lname: 'Larsson',
-                    image: File.open('app/assets/images/authors/stieg-larsson.jpg')
-                    description: "Stieg Larsson (born as Karl Stig-Erland Larsson) was a Swedish journalist and writer who passed away in 2004.\n\nAs a journalist and editor of the magazine Expo , Larsson was active in documenting and exposing Swedish extreme right and racist organisations. When he died at the age of 50, Larsson left three unpublished thrillers and unfinished manuscripts for more. The first three books ( The Girl With the Dragon Tattoo , The Girl Who Played With Fire and The Girl Who Kicked the Hornets' Nest ) have since been printed as the Millenium series. These books are all bestsellers in Sweden and in several other countries, including the United States and Canada.")
+                    image: File.open('app/assets/images/authors/stieg-larsson.jpg'),
+                    description: "Stieg Larsson \\(born as Karl Stig-Erland Larsson\\) was a Swedish journalist and writer who passed away in 2004.\n\nAs a journalist and editor of the magazine Expo , Larsson was active in documenting and exposing Swedish extreme right and racist organisations. When he died at the age of 50, Larsson left three unpublished thrillers and unfinished manuscripts for more. The first three books \\( The Girl With the Dragon Tattoo , The Girl Who Played With Fire and The Girl Who Kicked the Hornets' Nest \\) have since been printed as the Millenium series. These books are all bestsellers in Sweden and in several other countries, including the United States and Canada.")
 
 a15 = Author.create(fname: 'Miguel',
                     mid_name: 'de Cervantes',

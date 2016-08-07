@@ -1,7 +1,4 @@
 const React = require('react');
-const SessionStore = require('../stores/sessions_store');
-const BookStore = require('../stores/book_store');
-const BookActions = require('../actions/book_actions');
 const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
 
