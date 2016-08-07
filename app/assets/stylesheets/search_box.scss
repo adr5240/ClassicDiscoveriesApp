@@ -2,7 +2,7 @@
   float: left;
   margin-left: 25%;
   margin-right: auto;
-  margin-top: 10px;
+  margin-top: 15px;
   height: 25px;
   width: 200px;
 }
@@ -54,4 +54,9 @@
 .navBar .search-box .search-results li .book-author {
   font-size: 10pt;
   margin: 15px;
+}
+
+.navBar .search-box .search-results li .book-author:hover {
+  color: blue;
+  text-decoration: underline;
 }

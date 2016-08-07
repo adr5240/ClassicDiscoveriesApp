@@ -6,9 +6,10 @@
 }
 
 .author-index .author-index-item span {
-  margin-top: 20px;
+  margin-left: 20px;
   float: left;
   list-style: none;
+  max-width: 400px;
 }
 
 .author-index .author-index-item li {
@@ -16,9 +17,10 @@
 }
 
 .author-index .author-index-item {
+  padding-bottom: 20px;
   margin: 50px;
   border-bottom: 3px dashed brown;
-  width: 50%;
+  width: 100%;
   overflow: auto;
   clear: both;
 }
@@ -33,6 +35,7 @@
 }
 
 .author-index {
+  margin-left: 15%;
   top: 70px;
   position: absolute;
 }
