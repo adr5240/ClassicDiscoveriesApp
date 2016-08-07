@@ -2,6 +2,7 @@ const React = require('react');
 const ReactRouter = require('react-router');
 const SessionsStore = require('../stores/sessions_store');
 const SessionsActions = require('../actions/sessions_actions');
+const Search = require('./search_box');
 const hashHistory = ReactRouter.hashHistory;
 const Link = ReactRouter.Link;
 
@@ -49,7 +50,7 @@ const App = React.createClass({
       <div>
         <header className='navBar'>
           <Link to='/' className='title'>BetterReads</Link>
-        
+          <Search />
           {this.greeting()}
         </header>
         {this.props.children}

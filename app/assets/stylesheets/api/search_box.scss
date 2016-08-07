@@ -1,0 +1,57 @@
+.navBar .search-box {
+  float: left;
+  margin-left: 25%;
+  margin-right: auto;
+  margin-top: 10px;
+  height: 25px;
+  width: 200px;
+}
+
+.navBar .search-box input {
+  height: inherit;
+  width: inherit;
+  font-size: 13pt;
+  text-align: center;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.navBar .search-box .search-results {
+  color: #333333;
+  background: white;
+  position: absolute;
+  width: 400px;
+  z-index: 70;
+}
+
+.navBar .search-box .search-results li {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  padding-right: 16px;
+  border: 1px solid black;
+  clear: both;
+  overflow: auto;
+}
+
+.navBar .search-box .search-results li img {
+  height: 100px;
+  width: auto;
+  float: left;
+}
+
+.navBar .search-box .search-results li span {
+  max-width: 300px;
+  float: left;
+
+}
+
+.navBar .search-box .search-results li .title {
+  font-size: 13pt;
+  font-weight: 550;
+}
+
+.navBar .search-box .search-results li .book-author {
+  font-size: 10pt;
+  margin: 15px;
+}

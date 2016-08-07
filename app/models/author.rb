@@ -17,18 +17,19 @@
 
 class Author < ActiveRecord::Base
   validates :fname, :lname, :description, presence: true
-  
+
   has_attached_file :image, default_url: "authors/missing.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def self.find_by_name(full_name)
-    fname = full_name.split(' ')[0]
     lname = full_name.split(' ')[-1]
+    index = full_name.index(lname)
+    fname = full_name.slice(0, index - 1)
     return Author.find_by(fname: fname, lname: lname)
   end
 
   def full_name
-    return "#{fname} #{mid_name} #{lname}"
+    return "#{fname} #{lname}"
   end
 
 end
