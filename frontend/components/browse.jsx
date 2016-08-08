@@ -10,7 +10,7 @@ const ModalStyle = require('../constants/modal_style');
 const Browse = React.createClass({
 
   getInitialState: function () {
-    return { books: BookStore.all(), modalOpen: false, modalObject: "" };
+    return { books: {}, modalOpen: false, modalObject: "" };
   },
 
   _handleClick: function (e) {

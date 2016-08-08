@@ -18,7 +18,7 @@ const Search = React.createClass({
     this.authors = {};
     this.books = {};
     this.searchItems = [];
-    BookActions.fetchAllBooks();
+    // BookActions.fetchAllBooks();
     AuthorActions.fetchAllAuthors();
     this.authorListener = AuthorStore.addListener(this._onChange);
     this.bookListener = BookStore.addListener(this._onChange);
