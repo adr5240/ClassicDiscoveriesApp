@@ -28,6 +28,7 @@ const BookActions = require('./actions/book_actions');
 
 
 // Test
+window.BookshelfActions = require('./actions/bookshelf_actions');
 
 
 const appRouter = (
@@ -40,7 +41,7 @@ const appRouter = (
       <Route path='/books/:book_id' component={ BookShow } />
       <Route path='/authors' component={ AuthorIndex } />
       <Route path='/authors/:author_id' component={ AuthorShow } />
-      <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookshelfIndex } />
+      <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookIndex } />
 
     </Route>
   </Router>

@@ -19,6 +19,11 @@ class Api::BookshelvesController < ApplicationController
 
   def update
     @bookshelf = Bookshelf.find(params[:id])
+    if params[:book_id]
+      debugger
+      render json: ['fuck the world']
+    end
+
     if @bookshelf.update(bookshelf_params)
       render :show
     else
@@ -43,7 +48,7 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:title, :user_id, :description)
+    params.require(:bookshelf).permit(:title, :user_id, :description, :book_id)
   end
 
 end

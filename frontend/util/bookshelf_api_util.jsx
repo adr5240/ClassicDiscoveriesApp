@@ -12,6 +12,27 @@ const BookshelfApiUtil = {
     });
   },
 
+  addBookToShelf: function (bookshelf_id, book_id, success, error) {
+    $.ajax({
+      url: `api/users/${bookshelf.user_id}/bookshelves/${bookshelf.id}`,
+      method: 'PATCH',
+      data: { bookshelf: { title: bookshelf.title,
+                           description: bookshelf.description,
+                           user_id: bookshelf.user_id,
+                           book_id: book_id }},
+      success: function (resp) {
+        success(resp);
+      },
+      error: function (resp) {
+        error('bookshelf', resp);
+      }
+    });
+  },
+
+  removeBookFromShelf: function (bookshelf_id, book_id, success, error) {
+
+  },
+
   createBookshelf: function (bookshelf, success, error) {
     $.ajax({
       url: `api/users/${bookshelf.user_id}/bookshelves`,

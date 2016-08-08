@@ -33,8 +33,8 @@ const BookIndex = React.createClass({
       let book = self.state.books[key];
       return(
         <BookIndexItem key={book.id} book={book} />
-      )
-    })
+      );
+    });
     return(
       <div className='book-index'>
         {results}

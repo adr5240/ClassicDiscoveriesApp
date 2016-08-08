@@ -1,40 +1,40 @@
-.bookshelf-index .book-index-item span {
+.book-index .book-index-item span {
   margin: 15px;
   float: left;
   max-width: 400px;
   white-space: pre-wrap;
 }
 
-.bookshelf-index .book-index-item img {
+.book-index .book-index-item img {
   float: left;
   margin: 15px 0;
   border: 2px solid black;
 }
 
-.bookshelf-index .book-index-item {
+.book-index .book-index-item {
   margin-left: 20px;
   width: 650px;
   clear: both;
 }
 
-.bookshelf-index {
+.book-index {
   margin-left: 15%;
 }
 
-.bookshelf-index .book-index-item .book-description {
+.book-index .book-index-item .book-description {
   margin: 15px 0;
 }
 
-.bookshelf-index .book-index-item-container {
+.book-index .book-index-item-container {
   overflow: auto;
   width: 600px;
   border-bottom: 3px dashed brown;
 }
 
-.bookshelf-index .book-index-item a {
+.book-index .book-index-item a {
   text-decoration: underline;
 }
 
-.bookshelf-index .book-index-item a:hover {
+.book-index .book-index-item a:hover {
   color: blue;
 }
