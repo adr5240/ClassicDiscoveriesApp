@@ -26,10 +26,9 @@ const SessionsActions = require('./actions/sessions_actions');
 const BookStore = require('./stores/book_store');
 const BookActions = require('./actions/book_actions');
 
-
 // Test
 window.BookshelfActions = require('./actions/bookshelf_actions');
-
+window.BookshelfStore = require('./stores/bookshelf_store');
 
 const appRouter = (
   <Router history={ hashHistory } >

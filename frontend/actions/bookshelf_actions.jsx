@@ -9,12 +9,12 @@ const BookshelfActions = {
     BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves, ErrorActions.setErrors);
   },
 
-  addBookToShelf: function (bookshelf_id, book_id) {
-    BookshelfApiUtil.addBookToShelf(bookshelf_id, book_id, this.addNewBook, ErrorActions.setErrors);
+  addBookToShelf: function (bookshelf, book_id) {
+    BookshelfApiUtil.addBookToShelf(bookshelf, book_id, this.addNewBook, ErrorActions.setErrors);
   },
 
-  removeBookFromShelf: function (bookshelf_id, book_id) {
-    BookshelfApiUtil.removeBookFromShelf(bookshelf_id, book_id, this.removeBook, ErrorActions.setErrors);
+  removeBookFromShelf: function (bookshelf, book_id) {
+    BookshelfApiUtil.removeBookFromShelf(bookshelf, book_id, this.removeBook, ErrorActions.setErrors);
   },
 
   createBookshelf: function (bookshelf) {
@@ -29,17 +29,17 @@ const BookshelfActions = {
     BookshelfApiUtil.deleteBookshelf(bookshelf, this.removeBookshelf, ErrorActions.setErrors);
   },
 
-  addNewBook: function (book) {
+  addNewBook: function (bookshelf) {
     AppDispatcher.dispatch({
       actionType: BookshelfConstants.BOOK_RECEIVED,
-      bookshelves: bookshelves
+      bookshelf: bookshelf
     });
   },
 
   removeBook: function (bookshelf) {
     AppDispatcher.dispatch({
       actionType: BookshelfConstants.BOOKSHELVES_RECEIVED,
-      bookshelves: bookshelves
+      bookshelf: bookshelf
     });
   },
 

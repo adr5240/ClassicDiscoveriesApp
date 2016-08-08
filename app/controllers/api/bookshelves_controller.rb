@@ -19,9 +19,11 @@ class Api::BookshelvesController < ApplicationController
 
   def update
     @bookshelf = Bookshelf.find(params[:id])
-    if params[:book_id]
-      debugger
-      render json: ['fuck the world']
+
+    if params[:bookshelf][:book_id] && params[:bookshelf][:add]
+      @bookshelf.addBook(params[:bookshelf][:book_id])
+    elsif params[:bookshelf][:book_id]
+      @bookshelf.removeBook(params[:bookshelf][:book_id])
     end
 
     if @bookshelf.update(bookshelf_params)
@@ -48,7 +50,7 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:title, :user_id, :description, :book_id)
+    params.require(:bookshelf).permit(:title, :user_id, :description)
   end
 
 end

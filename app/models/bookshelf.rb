@@ -33,4 +33,13 @@ class Bookshelf < ActiveRecord::Base
     source: :books
   )
 
+  def addBook(book_id)
+    currentBooks = self.book_ids
+    self.book_ids = currentBooks.concat([book_id])
+  end
+
+  def removeBook(book_id)
+    self.books.delete(Book.find(book_id))
+  end
+
 end

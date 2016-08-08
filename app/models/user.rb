@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many(
     :bookshelves,
     class_name: 'Bookshelf',
+    dependent: :destroy,
     primary_key: :id,
     foreign_key: :user_id
   )

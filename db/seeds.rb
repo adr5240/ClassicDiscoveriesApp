@@ -4,6 +4,10 @@
 User.destroy_all
 guest = User.create(username: 'Guest', password: 'password');
 
+s1 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: guest.id)
+s2 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: guest.id)
+s3 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: guest.id)
+s4 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: guest.id)
 
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________

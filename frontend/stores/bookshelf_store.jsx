@@ -14,8 +14,6 @@ const resetAllBookshelves = function (bookshelves) {
 };
 
 const addBookshelf = function (bookshelf) {
-  _bookshelf = {};
-  _bookshelf= {bookshelf};
   _bookshelves[bookshelf.id] = bookshelf;
 };
 
