@@ -1,11 +1,14 @@
 const AuthorApiUtil = {
 
-  fetchAllAuthors: function (success) {
+  fetchAllAuthors: function (success, error) {
     $.ajax({
       url: `api/authors`,
       method: 'GET',
       success: function (resp) {
         success(resp);
+      },
+      error: function (resp) {
+        error(resp);
       }
     });
   },
@@ -17,6 +20,9 @@ const AuthorApiUtil = {
       success: function (resp) {
         success(resp);
       },
+      error: function (resp) {
+        error(resp);
+      }
     });
   }
 

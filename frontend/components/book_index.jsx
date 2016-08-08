@@ -6,7 +6,7 @@ const BookIndexItem = require('./book_index_item');
 const hashHistory = require('react-router').hashHistory;
 
 
-const BookshelfIndex = React.createClass({
+const BookIndex = React.createClass({
 
   getInitialState: function () {
     return(
@@ -36,7 +36,7 @@ const BookshelfIndex = React.createClass({
       )
     })
     return(
-      <div className='bookshelf-index'>
+      <div className='book-index'>
         {results}
       </div>
     );
@@ -45,4 +45,4 @@ const BookshelfIndex = React.createClass({
 
 });
 
-module.exports = BookshelfIndex;
+module.exports = BookIndex;

@@ -1,23 +1,24 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BookshelfApiUtil = require('../util/bookshelf_api_util');
 const BookshelfConstants = require('../constants/bookshelf_constants');
+const ErrorActions = require('./error_actions');
 
 const BookshelfActions = {
 
   fetchAllBookshelves: function (user_id) {
-    BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves);
+    BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves, ErrorActions.setErrors);
   },
 
   createBookshelf: function (bookshelf) {
-    BookshelfApiUtil.createBookshelf(bookshelf, this.newBookshelf);
+    BookshelfApiUtil.createBookshelf(bookshelf, this.newBookshelf, ErrorActions.setErrors);
   },
 
   updateBookshelf: function (bookshelf) {
-    BookshelfApiUtil.updateBookshelf(bookshelf, this.newBookshelf);
+    BookshelfApiUtil.updateBookshelf(bookshelf, this.newBookshelf, ErrorActions.setErrors);
   },
 
   deleteBookshelf: function (bookshelf) {
-    BookshelfApiUtil.deleteBookshelf(bookshelf, this.removeBookshelf);
+    BookshelfApiUtil.deleteBookshelf(bookshelf, this.removeBookshelf, ErrorActions.setErrors);
   },
 
   receiveAllBookshelves: function (bookshelves) {

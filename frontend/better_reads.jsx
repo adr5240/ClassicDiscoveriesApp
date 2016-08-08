@@ -13,7 +13,7 @@ const Modal = require('react-modal');
 // Components
 const App = require('./components/app');
 const LoginForm = require('./components/login_form.jsx');
-const BookshelfIndex = require('./components/bookshelf_index');
+const BookIndex = require('./components/book_index');
 const BookShow = require('./components/book_show');
 const Browse = require('./components/browse');
 const AuthorShow = require('./components/author_show');
@@ -36,7 +36,7 @@ const appRouter = (
       <IndexRoute component={ Browse } />
       <Route path='/login' component={ LoginForm } />
       <Route path='/signup' component={ LoginForm } />
-      <Route path='/books' component={ BookshelfIndex } />
+      <Route path='/books' component={ BookIndex } />
       <Route path='/books/:book_id' component={ BookShow } />
       <Route path='/authors' component={ AuthorIndex } />
       <Route path='/authors/:author_id' component={ AuthorShow } />

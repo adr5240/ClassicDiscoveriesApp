@@ -11,12 +11,12 @@ const Link = require('react-router').Link;
 const LoginForm = React.createClass({
 
   getInitialState: function () {
-    return ({ username: "", password: "" })
+    return ({ username: "", password: "" });
   },
 
   componentDidMount: function () {
-    this.sessionsListener = SessionsStore.addListener(this.redirectIfLoggedIn)
-    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this))
+    this.sessionsListener = SessionsStore.addListener(this.redirectIfLoggedIn);
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     ErrorActions.clearErrors();
   },
 
@@ -54,12 +54,12 @@ const LoginForm = React.createClass({
 
   _usernameChange: function (e) {
     e.preventDefault();
-    this.setState({ username: e.target.value})
+    this.setState({ username: e.target.value});
   },
 
   _passwordChange: function (e) {
     e.preventDefault();
-    this.setState({ password: e.target.value})
+    this.setState({ password: e.target.value});
   },
 
   formType: function () {
@@ -78,9 +78,9 @@ const LoginForm = React.createClass({
 
     let navLink;
     if (this.formType() === "login") {
-      navLink = <Link to="/signup">Signup</Link>
+      navLink = <Link to="/signup">Signup</Link>;
     } else {
-      navLink = <Link to="/login">Login</Link>
+      navLink = <Link to="/login">Login</Link>;
     }
 
     return(

@@ -1,27 +1,28 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BooksApiUtil = require('../util/books_api_util');
 const BooksConstants = require('../constants/books_constants');
+const ErrorActions = require('./error_actions');
 
 const BookActions = {
 
   fetchAllBooks: function () {
-    BooksApiUtil.fetchAllBooks(this.receiveAllBooks);
+    BooksApiUtil.fetchAllBooks(this.receiveAllBooks, ErrorActions.setErrors);
   },
 
   getBook: function (id) {
-    BooksApiUtil.getBook(id, this.receiveBook);
+    BooksApiUtil.getBook(id, this.receiveBook, ErrorActions.setErrors);
   },
 
   createBook: function (book) {
-    BooksApiUtil.createBook(book, this.newBook);
+    BooksApiUtil.createBook(book, this.newBook, ErrorActions.setErrors);
   },
 
   updateBook: function (book) {
-    BooksApiUtil.updateBook(book, this.newBook);
+    BooksApiUtil.updateBook(book, this.newBook, ErrorActions.setErrors);
   },
 
   deleteBook: function (id) {
-    BooksApiUtil.deleteBook(id, this.removeBook);
+    BooksApiUtil.deleteBook(id, this.removeBook, ErrorActions.setErrors);
   },
 
   receiveAllBooks: function (books) {
