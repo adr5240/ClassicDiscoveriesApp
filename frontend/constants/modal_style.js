@@ -9,11 +9,13 @@ module.exports = {
   },
 
   content: {
-    position: 'sticky',
+    position: 'relative',
     top: '100px',
     left: '300px',
     right: '300px',
     bottom: '100px',
+    height: '450px',
+    width: '600px',
     backgroundColor: '#eee',
     border: '1px solid black',
     background: '#fff',

@@ -29,7 +29,8 @@ rating      | integer   | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-book_id     | integer   | not null, foreign key (references books), indexed, unique [shelf_id]
+book_id     | integer   | not null, foreign key (references books), indexed, unique [book_id, shelf_id]
+shelf_id    | integer   | not null, foreign key (references bookshelf), indexed
 
 ## users
 column name     | data type | details

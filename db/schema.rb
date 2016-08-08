@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805192307) do
+ActiveRecord::Schema.define(version: 20160808033229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20160805192307) do
     t.string   "description",        null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "mid_name"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -47,6 +46,25 @@ ActiveRecord::Schema.define(version: 20160805192307) do
 
   add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
   add_index "books", ["title"], name: "index_books_on_title", using: :btree
+
+  create_table "bookshelves", force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.string  "title",       null: false
+    t.string  "description"
+  end
+
+  add_index "bookshelves", ["title"], name: "index_bookshelves_on_title", using: :btree
+  add_index "bookshelves", ["user_id", "title"], name: "index_bookshelves_on_user_id_and_title", unique: true, using: :btree
+  add_index "bookshelves", ["user_id"], name: "index_bookshelves_on_user_id", using: :btree
+
+  create_table "shelves", force: :cascade do |t|
+    t.integer "book_id",  null: false
+    t.integer "shelf_id", null: false
+  end
+
+  add_index "shelves", ["book_id"], name: "index_shelves_on_book_id", using: :btree
+  add_index "shelves", ["shelf_id", "book_id"], name: "index_shelves_on_shelf_id_and_book_id", unique: true, using: :btree
+  add_index "shelves", ["shelf_id"], name: "index_shelves_on_shelf_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

@@ -27,4 +27,18 @@ class Book < ActiveRecord::Base
     foreign_key: :author_id
   )
 
+  has_many(
+    :shelves,
+    dependent: :destroy,
+    class_name: 'Shelf',
+    primary_key: :id,
+    foreign_key: :book_id
+  )
+
+  has_many(
+    :bookshelves,
+    through: :shelves,
+    source: :bookshelves
+  )
+
 end

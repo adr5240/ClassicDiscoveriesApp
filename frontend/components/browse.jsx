@@ -96,7 +96,6 @@ const Browse = React.createClass({
       height: '400px',
       width: '275px'
     };
-
     return(
       <div className='browse-box'>
         <h1 className='browse-title'>Browse</h1>
