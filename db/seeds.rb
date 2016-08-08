@@ -109,6 +109,32 @@ a20 = Author.create(fname: "Douglas",
                     image: File.open('app/assets/images/authors/douglas-adams.jpg'),
                     description: "Douglas Noël Adams was an English author, comic radio dramatist, and musician. He is best known as the author of the Hitchhiker's Guide to the Galaxy series. Hitchhiker's began on radio, and developed into a \"trilogy\" of five books (which sold more than fifteen million copies during his lifetime) as well as a television series, a comic book series, a computer game, and a feature film that was completed after Adams' death. The series has also been adapted for live theatre using various scripts; the earliest such productions used material newly written by Adams. He was known to some fans as Bop Ad (after his illegible signature), or by his initials \"DNA\".\n\nIn addition to The Hitchhiker's Guide to the Galaxy, Douglas Adams wrote or co-wrote three stories of the science fiction television series Doctor Who and served as Script Editor during the seventeenth season. His other written works include the Dirk Gently novels, and he co-wrote two Liff books and Last Chance to See, itself based on a radio series. Adams also originated the idea for the computer game Starship Titanic, which was produced by a company that Adams co-founded, and adapted into a novel by Terry Jones. A posthumous collection of essays and other material, including an incomplete novel, was published as The Salmon of Doubt in 2002.\n\nHis fans and friends also knew Adams as an environmental activist and a lover of fast cars, cameras, the Macintosh computer, and other \"techno gizmos\". \n\nToward the end of his life he was a sought-after lecturer on topics including technology and the environment.")
 
+a21 = Author.create(fname: "Veronica",
+                    lname: "Roth",
+                    image: File.open('app/assets/images/authors/veronica-roth.jpg'),
+                    description: "Veronica Roth is from a Chicago suburb. She studied creative writing at Northwestern University, and wrote DIVERGENT (Katherine Tegen Books, May 2011) and INSURGENT (May 2012). The third and final book in The Divergent Trilogy, ALLEGIANT, will come out on October 22, 2013. In the meantime she will spend endless hours browsing Wikipedia in her pajamas as she eats corn flakes. (Or some other kind of bland breakfast cereal.)")
+
+a22 = Author.create(fname: "James",
+                    lname: "Dashner",
+                    image: File.open('app/assets/images/authors/james-dashner.jpg'),
+                    description: "James is the author of THE MAZE RUNNER trilogy and THE 13TH REALITY series. He also published a series (beginning with A DOOR IN THE WOODS) with a small publisher several years ago. He lives and writes in the Rocky Mountains.")
+
+a23 = Author.create(fname: "Gillian",
+                    lname: "Flynn",
+                    image: File.open('app/assets/images/authors/gillian-flynn.jpg'),
+                    description: "Gillian Flynn is an American author and television critic for Entertainment Weekly. She has so far written three novels, Sharp Objects, for which she won the 2007 Ian Fleming Steel Dagger for the best thriller; Dark Places; and her best-selling third novel Gone Girl.\n\nHer book has received wide praise, including from authors such as Stephen King. The dark plot revolves around a serial killer in a Missouri town, and the reporter who has returned from Chicago to cover the event. Themes include dysfunctional families,violence and self-harm.\n\nIn 2007 the novel was shortlisted for the Mystery Writers of America Edgar for Best First Novel by an American Writer, Crime Writers' Association Duncan Lawrie, CWA New Blood and Ian Fleming Steel Daggers, winning in the last two categories.\n\nFlynn, who lives in Chicago, grew up in Kansas City, Missouri. She graduated at the University of Kansas, and qualified for a Master's degree from Northwestern University.")
+
+a24 = Author.create(fname: "Paula",
+                    lname: "Hawkins",
+                    image: File.open('app/assets/images/authors/paula-hawkins.jpg'),
+                    description: "Paula Hawkins worked as a journalist for fifteen years before turning her hand to fiction.\n\nBorn and brought up in Zimbabwe, Paula moved to London in 1989 and has lived there ever since. The Girl on the Train is her first thriller.")
+
+a16 = Author.create(fname: "Jeanne",
+                    lname: "DuPrau",
+                    image: File.open('app/assets/images/authors/jeanne-duprau.jpg'),
+                    description: "Jeanne DuPrau spends several hours of every day at her computer, thinking up sentences. She has this quote taped to her wall: \"A writer is someone for whom writing is harder than it is for other people\" (Thomas Mann).\n\nThis gives her courage, because she finds writing very hard. So many words to choose from! So many different things that could happen in a story at any moment! Writing is one tough decision after another. \n\nBut it's also the most satisfying thing she knows how to do. So she keeps doing it. So far, she has written four novels, six books of non-fiction, and quite a few essays and stories. \n\nJeanne DuPrau doesn't write every minute of every day. She also putters around in her garden. She lives in California, where it's easy to grow everything from apples to zinnias.\n\nJeanne DuPrau doesn't have children, but she has two nephews, a niece, and a dog. The dog lives with her. His name is Ethan. Jeanne and Ethan get along well, though their interests are different. Ethan is not very fond of reading, for example, and Jeanne doesn't much like chasing squirrels. But they agree on walks, naps, and trips in the car to surprise destinations. Ethan also likes to help in the garden.")
+
+
 
 #Sample Author
 # a16 = Author.create(fname: "",
@@ -366,6 +392,70 @@ b49 = Book.create(title: "Life, the Universe and Everything",
                   author_id: Author.find_by_name("Douglas Adams").id,
                   book_cover: File.open('app/assets/images/book_covers/Hitchhikers_Guide/life-universe-everything.jpg'))
 
+b50 = Book.create(title: "Divergent",
+                  description: "In Beatrice Prior's dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent). On an appointed day of every year, all sixteen-year-olds must select the faction to which they will devote the rest of their lives. For Beatrice, the decision is between staying with her family and being who she really is—she can't have both. So she makes a choice that surprises everyone, including herself.\n\nDuring the highly competitive initiation that follows, Beatrice renames herself Tris and struggles alongside her fellow initiates to live out the choice they have made. Together they must undergo extreme physical tests of endurance and intense psychological simulations, some with devastating consequences. As initiation transforms them all, Tris must determine who her friends really are—and where, exactly, a romance with a sometimes fascinating, sometimes exasperating boy fits into the life she's chosen. But Tris also has a secret, one she's kept hidden from everyone because she's been warned it can mean death. And as she discovers unrest and growing conflict that threaten to unravel her seemingly perfect society, she also learns that her secret might help her save those she loves . . . or it might destroy her.",
+                  author_id: Author.find_by_name("Veronica Roth").id,
+                  book_cover: File.open('app/assets/images/book_covers/Divergent/divergent.jpg'))
+
+b51 = Book.create(title: "Insurgent",
+                  description: "One choice can transform you—or it can destroy you. But every choice has consequences, and as unrest surges in the factions all around her, Tris Prior must continue trying to save those she loves—and herself—while grappling with haunting questions of grief and forgiveness, identity and loyalty, politics and love.\n\nTris's initiation day should have been marked by celebration and victory with her chosen faction; instead, the day ended with unspeakable horrors. War now looms as conflict between the factions and their ideologies grows. And in times of war, sides must be chosen, secrets will emerge, and choices will become even more irrevocable—and even more powerful. Transformed by her own decisions but also by haunting grief and guilt, radical new discoveries, and shifting relationships, Tris must fully embrace her Divergence, even if she does not know what she may lose by doing so.\n\nNew York Times bestselling author Veronica Roth's much-anticipated second book of the dystopian DIVERGENT series is another intoxicating thrill ride of a story, rich with hallmark twists, heartbreaks, romance, and powerful insights about human nature.",
+                  author_id: Author.find_by_name("Veronica Roth").id,
+                  book_cover: File.open('app/assets/images/book_covers/Divergent/insurgent.jpg'))
+
+b52 = Book.create(title: "Allegiant",
+                  description: "The faction-based society that Tris Prior once believed in is shattered - fractured by violence and power struggles and scarred by loss and betrayal. So when offered a chance to explore the world past the limits she's known, Tris is ready. Perhaps beyond the fence, she and Tobias will find a simple new life together, free from complicated lies, tangled loyalties, and painful memories.\n\nBut Tris's new reality is even more alarming than the one she left behind. Old discoveries are quickly rendered meaningliess. Explosive new truths change the hearts of those she loves. And once again, Tris must battle to comprehend to complexities of human nature - and of herself - while facing impossible choices about courage, allegiance, sacrifice, and love.\n\nTold from a riveting dual perspective, ALLEGIANT, by #1 New York Times best-selling author Veronica Roth, brings the DIVERGENT series to a powerful conclusion while revealing the secrets of the dystopian world that has captivated millions of readers in DIVERGENT and INSURGENT.",
+                  author_id: Author.find_by_name("Veronica Roth").id,
+                  book_cover: File.open('app/assets/images/book_covers/Divergent/allegiant.jpg'))
+
+b53 = Book.create(title: "The Maze Runner",
+                  description: "If you ain’t scared, you ain’t human.\n\nWhen Thomas wakes up in the lift, the only thing he can remember is his name. He’s surrounded by strangers—boys whose memories are also gone.\n\nNice to meet ya, shank. Welcome to the Glade.\n\nOutside the towering stone walls that surround the Glade is a limitless, ever-changing maze. It’s the only way out—and no one’s ever made it through alive.\n\nEverything is going to change.\n\nThen a girl arrives. The first girl ever. And the message she delivers is terrifying.\n\nRemember. Survive. Run.",
+                  author_id: Author.find_by_name("James Dashner").id,
+                  book_cover: File.open('app/assets/images/book_covers/Mazerunner/maze-runner.jpg'))
+
+b54 = Book.create(title: "The Scorch Trials",
+                  description: "Solving the Maze was supposed to be the end.\n\nThomas was sure that escape from the Maze would mean freedom for him and the Gladers. But WICKED isn’t done yet. Phase Two has just begun. The Scorch. \n\nThere are no rules. There is no help. You either make it or you die.\n\nThe Gladers have two weeks to cross through the Scorch—the most burned-out section of the world. And WICKED has made sure to adjust the variables and stack the odds against them. \n\nFriendships will be tested. Loyalties will be broken. All bets are off.\n\nThere are others now. Their survival depends on the Gladers’ destruction—and they’re determined to survive.",
+                  author_id: Author.find_by_name("James Dashner").id,
+                  book_cover: File.open('app/assets/images/book_covers/Mazerunner/scorch-trials.jpg'))
+
+b55 = Book.create(title: "The Death Cure",
+                  description: "It’s the end of the line.\n\nWICKED has taken everything from Thomas: his life, his memories, and now his only friends—the Gladers. But it’s finally over. The trials are complete, after one final test.\n\nWill anyone survive?\n\nWhat WICKED doesn’t know is that Thomas remembers far more than they think. And it’s enough to prove that he can’t believe a word of what they say.\n\nThe truth will be terrifying.\n\nThomas beat the Maze. He survived the Scorch. He’ll risk anything to save his friends. But the truth might be what ends it all.\n\nThe time for lies is over.",
+                  author_id: Author.find_by_name("James Dashner").id,
+                  book_cover: File.open('app/assets/images/book_covers/Mazerunner/death-cure.jpg'))
+
+b56 = Book.create(title: "The Kill Order",
+                  description: "The prequel to the New York Times bestselling Maze Runner series.\n\nBefore WICKED was formed, before the Glade was built, before Thomas entered the Maze, sun flares hit the earth and mankind fell to disease.\n\nMark and Trina were there when it happened, and they survived. But surviving the sun flares was easy compared to what came next. Now a disease of rage and lunacy races across the eastern United States, and there’s something suspicious about its origin. Worse yet, it’s mutating, and all evidence suggests that it will bring humanity to its knees.\n\nMark and Trina are convinced there’s a way to save those left living from descending into madness. And they’re determined to find it—if they can stay alive. Because in this new, devastated world, every life has a price. And to some, you’re worth more dead than alive.",
+                  author_id: Author.find_by_name("James Dashner").id,
+                  book_cover: File.open('app/assets/images/book_covers/Mazerunner/kill-order.jpg'))
+
+b57 = Book.create(title: "Gone Girl",
+                  description: "On a warm summer morning in North Carthage, Missouri, it is Nick and Amy Dunne’s fifth wedding anniversary. Presents are being wrapped and reservations are being made when Nick’s clever and beautiful wife disappears. Husband-of-the-Year Nick isn’t doing himself any favors with cringe-worthy daydreams about the slope and shape of his wife’s head, but passages from Amy's diary reveal the alpha-girl perfectionist could have put anyone dangerously on edge. Under mounting pressure from the police and the media—as well as Amy’s fiercely doting parents—the town golden boy parades an endless series of lies, deceits, and inappropriate behavior. Nick is oddly evasive, and he’s definitely bitter—but is he really a killer?",
+                  author_id: Author.find_by_name("Gillian Flynn").id,
+                  book_cover: File.open('app/assets/images/book_covers/gone-girl.jpg'))
+
+b58 = Book.create(title: "The Girl on the Train",
+                  description: "EVERY DAY THE SAME\n\nRachel takes the same commuter train every morning and night. Every day she rattles down the track, flashes past a stretch of cozy suburban homes, and stops at the signal that allows her to daily watch the same couple breakfasting on their deck. She’s even started to feel like she knows them. Jess and Jason, she calls them. Their life—as she sees it—is perfect. Not unlike the life she recently lost.\n\nUNTIL TODAY\n\nAnd then she sees something shocking. It’s only a minute until the train moves on, but it’s enough. Now everything’s changed. Unable to keep it to herself, Rachel goes to the police. But is she really as unreliable as they say? Soon she is deeply entangled not only in the investigation but in the lives of everyone involved. Has she done more harm than good?",
+                  author_id: Author.find_by_name("Paula Hawkins").id,
+                  book_cover: File.open('app/assets/images/book_covers/girl-on-the-train.jpg'))
+
+b59 = Book.create(title: "The City of Ember",
+                  description: "Many hundreds of years ago, the city of Ember was created by the Builders to contain everything needed for human survival. It worked…but now the storerooms are almost out of food, crops are blighted, corruption is spreading through the city and worst of all—the lights are failing. Soon Ember could be engulfed by darkness…\n\nBut when two children, Lina and Doon, discover fragments of an ancient parchment, they begin to wonder if there could be a way out of Ember. Can they decipher the words from long ago and find a new future for everyone? Will the people of Ember listen to them?",
+                  author_id: Author.find_by_name("Jeanne DuPrau").id,
+                  book_cover: File.open('app/assets/images/book_covers/Books_of_Ember/city-of-ember.jpg'))
+
+b60 = Book.create(title: "The People of Sparks",
+                  description: "“It is green here and very big. Light comes from the sky…”\n\nWhen Lina and Doon lead their people up from the underground city of Ember, they discover a surface world of color and life. The people of a small village called Sparks agree to help the Emberites, but the villagers have never had to share their world before. Soon differences between the two groups escalate, and it's up to Lina and Doon to find a way to avoid war!\n\nIn the riveting sequel to the highly acclaimed The City of Ember, Jeanne DuPrau explores the nature of conflict and the strength and courage necessary to overcome it.",
+                  author_id: Author.find_by_name("Jeanne DuPrau").id,
+                  book_cover: File.open('app/assets/images/book_covers/Books_of_Ember/people-of-sparks.jpg'))
+
+b61 = Book.create(title: "The Prophet of Yonwood",
+                  description: "It’s 50 years before the settlement of the city of Ember, and the world is in crisis. War looms on the horizon as 11-year-old Nickie and her aunt travel to the small town of Yonwood, North Carolina. There, one of the town’s respected citizens has had a terrible vision of fire and destruction. Her garbled words are taken as prophetic instruction on how to avoid the coming disaster. If only they can be interpreted correctly. . . .\n\nAs the people of Yonwood scramble to make sense of the woman’s mysterious utterances, Nickie explores the oddities she finds around town—her great-grandfather’s peculiar journals and papers, a reclusive neighbor who studies the heavens, a strange boy who is fascinated with snakes—all while keeping an eye out for ways to help the world. Is this vision her chance? Or is it already too late to avoid a devastating war?\n\nIn this prequel to the acclaimed The City of Ember and The People of Sparks, Jeanne DuPrau investigates how, in a world that seems out of control, hope and comfort can be found in the strangest of places.",
+                  author_id: Author.find_by_name("Jeanne DuPrau").id,
+                  book_cover: File.open('app/assets/images/book_covers/Books_of_Ember/prophet-of-yonwood.jpg'))
+
+b62 = Book.create(title: "The Diamond of Darkhold",
+                  description: "It’s been several months since Lina and Doon escaped the dying city of Ember and, along with the rest of their people, joined the town of Sparks. Now, struggling through the harsh winter aboveground, they find an unusual book. Torn up and missing most of its pages, it alludes to a mysterious device from before the Disaster, which they believe is still in Ember. Together, Lina and Doon must go back underground to retrieve what was lost and bring light to a dark world.\n\nIn the fourth Book of Ember, bestselling author Jeanne DuPrau juxtaposes yet another action-packed adventure with powerful themes about hope, learning, and the search for truth.",
+                  author_id: Author.find_by_name("Jeanne DuPrau").id,
+                  book_cover: File.open('app/assets/images/book_covers/Books_of_Ember/diamond-of-darkhold.jpg'))
 
 
 
