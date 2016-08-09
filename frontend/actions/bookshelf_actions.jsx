@@ -9,6 +9,11 @@ const BookshelfActions = {
     BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves, ErrorActions.setErrors);
   },
 
+  fetchBookshelf: function (user_id, bookshelf_id) {
+    BookshelfApiUtil.fetchBookshelf(user_id, bookshelf_id, this.receiveBookshelf, ErrorActions.setErrors);
+  },
+
+
   addBookToShelf: function (bookshelf, book_id) {
     BookshelfApiUtil.addBookToShelf(bookshelf, book_id, this.addNewBook, ErrorActions.setErrors);
   },
@@ -47,6 +52,13 @@ const BookshelfActions = {
     AppDispatcher.dispatch({
       actionType: BookshelfConstants.BOOKSHELVES_RECEIVED,
       bookshelves: bookshelves
+    });
+  },
+
+  receiveBookshelf: function (bookshelf) {
+    AppDispatcher.dispatch({
+      actionType: BookshelfConstants.BOOKSHELF_RECEIVED,
+      bookshelf: bookshelf
     });
   },
 

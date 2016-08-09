@@ -12,6 +12,19 @@ const BookshelfApiUtil = {
     });
   },
 
+  fetchBookshelf: function (user_id, bookshelf_id, success, error) {
+    $.ajax({
+      url: `api/users/${user_id}/bookshelves/${bookshelf_id}`,
+      method: 'GET',
+      success: function (resp) {
+        success(resp);
+      },
+      error: function (resp) {
+        error('bookshelf', resp);
+      }
+    });
+  },
+
   addBookToShelf: function (bookshelf, book_id, success, error) {
     $.ajax({
       url: `api/users/${bookshelf.user_id}/bookshelves/${bookshelf.id}`,

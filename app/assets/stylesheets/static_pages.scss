@@ -6,11 +6,16 @@
   font-size: 20pt;
   font-weight: bold;
   display: inline-block;
-  margin: 15px;
-  position: relative;
-  left: 30px;
+  padding: 15px;
+  position: absolute;;
+  left: 7%;
   float: left;
   color: #633b1d;
+}
+
+.title:hover {
+  background-color: #633b1d;
+  color: white;
 }
 
 .button {
@@ -48,14 +53,6 @@
   width: 100%;
   z-index: 1;
 }
-
-.bookshelf-index {
-  position: relative;
-  margin-left: 15%;
-  top: 75px;
-  width: 500px;
-}
-
 
 // check book_index_item for <b> tags
 .book-index-item-container {

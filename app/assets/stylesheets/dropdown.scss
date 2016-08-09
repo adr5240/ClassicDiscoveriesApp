@@ -4,12 +4,22 @@
   font-weight: 600;
   position: absolute;
   left: 23%;
-  padding: 17px 30px;
+  padding: 0 15px;
   border-radius: 20px;
 }
 
 .navBar .dropDown .explore {
-  margin-bottom: 15.5px;
+  padding: 16.5px 15px;
+  position: relative;
+  width: 90px;
+}
+
+.navBar .dropDown .exploring {
+  padding: 16.5px 15px;
+  position: relative;
+  width: 90px;
+  background-color: #633b1d;
+  color: white;
 }
 
 .navBar .dropDown li {

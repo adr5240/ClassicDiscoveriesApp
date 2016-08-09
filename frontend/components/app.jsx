@@ -10,15 +10,15 @@ const Link = ReactRouter.Link;
 const App = React.createClass({
 
   getInitialState: function () {
-    return ({ dropDown: false, bookshelf: 'list-of-bookshelves' });
+    return ({ dropDown: false, bookshelf: 'list-of-bookshelves', explore: 'explore' });
   },
 
   _openDropDown: function () {
-    this.setState({ dropDown: true });
+    this.setState({ dropDown: true, explore: 'exploring' });
   },
 
   _closeDropDown: function () {
-    this.setState({ dropDown: false });
+    this.setState({ dropDown: false, explore: 'explore' });
     this._bookshelvesOff();
   },
 
@@ -114,7 +114,7 @@ const App = React.createClass({
           <Link to='/' className='title'>BetterReads</Link>
 
           <ul className='dropDown' onMouseEnter={this._openDropDown} onMouseLeave={this._closeDropDown} onClick={this._closeDropDown}>
-            <h3 className='explore'>Explore</h3>
+            <h3 className={this.state.explore}>Explore</h3>
             {this._dropDown()}
           </ul>
 

@@ -94,8 +94,10 @@ const Browse = React.createClass({
 
     let modStyle = {
       height: '400px',
-      width: '275px'
+      width: '275px',
+      border: '2px solid black'
     };
+
     return(
       <div className='browse-box'>
         <h1 className='browse-title'>Browse</h1>
