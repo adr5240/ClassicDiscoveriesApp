@@ -30,7 +30,7 @@
   text-decoration: none;
   display: block;
   padding: 8px;
-  padding-right: 16px;
+  padding-right: 10px;
   border: 1px solid black;
   clear: both;
   overflow: auto;
@@ -42,20 +42,20 @@
   float: left;
 }
 
-.navBar .search-box .search-results li span {
-  max-width: 300px;
+.navBar .search-box .search-results li div {
+  max-width: 250px;
   float: left;
-
+  margin-left: 15px;
 }
 
-.navBar .search-box .search-results li .title {
+.navBar .search-box .search-results li .search-title {
   font-size: 13pt;
   font-weight: 550;
+  font-weight: bold;
 }
 
 .navBar .search-box .search-results li .book-author {
   font-size: 10pt;
-  margin: 15px;
 }
 
 .navBar .search-box .search-results li .book-author:hover {

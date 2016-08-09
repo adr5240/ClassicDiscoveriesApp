@@ -18,7 +18,6 @@ const Search = React.createClass({
     this.authors = {};
     this.books = {};
     this.searchItems = [];
-    // BookActions.fetchAllBooks();
     AuthorActions.fetchAllAuthors();
     this.authorListener = AuthorStore.addListener(this._onChange);
     this.bookListener = BookStore.addListener(this._onChange);
@@ -87,11 +86,11 @@ const Search = React.createClass({
               <Link to={`/books/${item.id}`}
                     className='book-img'><img src={item.book_cover_url}/>
               </Link>
-              <span>
-                <Link to={`/books/${item.id}`} className='title' >{item.title}</Link>
+              <div>
+                <Link to={`/books/${item.id}`} className='search-title' >{item.title}</Link>
                 <br/>
                 <Link to={`/authors/${item.author_id}`} className='book-author'>{item.author}</Link>
-              </span>
+              </div>
             </li>
           );
         } else if (item.full_name) {
@@ -100,8 +99,9 @@ const Search = React.createClass({
               <Link to={`/authors/${item.id}`}
                     className='author-img'><img src={item.image_url}/>
               </Link>
-
-              <Link to={`/authors/${item.id}`} className='title' >{item.full_name}</Link>
+              <div>
+                <Link to={`/authors/${item.id}`} className='search-title' >{item.full_name}</Link>
+              </div>
             </li>
           );
         }
