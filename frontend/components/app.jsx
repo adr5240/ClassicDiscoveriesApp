@@ -19,6 +19,7 @@ const App = React.createClass({
 
   _closeDropDown: function () {
     this.setState({ dropDown: false });
+    this._bookshelvesOff();
   },
 
   _bookshelvesOn: function () {
@@ -112,8 +113,8 @@ const App = React.createClass({
         <header className='navBar'>
           <Link to='/' className='title'>BetterReads</Link>
 
-          <ul className='dropDown' onMouseEnter={this._openDropDown} onMouseLeave={this._closeDropDown}>
-            Explore
+          <ul className='dropDown' onMouseEnter={this._openDropDown} onMouseLeave={this._closeDropDown} onClick={this._closeDropDown}>
+            <h3 className='explore'>Explore</h3>
             {this._dropDown()}
           </ul>
 

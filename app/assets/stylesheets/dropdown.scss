@@ -8,6 +8,10 @@
   border-radius: 20px;
 }
 
+.navBar .dropDown .explore {
+  margin-bottom: 15.5px;
+}
+
 .navBar .dropDown li {
   list-style: none;
   width: 200px;
@@ -16,6 +20,11 @@
   text-align: justify;
   background-color: white;
   border: 2px solid #955c1d;
+  border-top: 0;
+}
+
+.navBar .dropDown li:hover {
+  background-color: #e0d5c2;
 }
 
 .navBar .dropDown .list-of-bookshelves {
@@ -30,7 +39,11 @@
   z-index: 80;
 }
 
-.navBar .dropDown .list-of-bookshelves .bookshelves {
+.navBar .dropDown .list-of-bookshelves .bookshelves:first-child {
+  border-top: 2px solid #955c1d;
+}
+
+.navBar .dropDown .bookshelves {
   display: inherit;
   margin-left: 50px;
 }
