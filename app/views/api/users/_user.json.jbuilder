@@ -1,1 +1,2 @@
-json.extract! user, :id, :username
+json.user user
+json.bookshelves user.bookshelves

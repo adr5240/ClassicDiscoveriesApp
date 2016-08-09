@@ -9,6 +9,67 @@ const Link = ReactRouter.Link;
 
 const App = React.createClass({
 
+  getInitialState: function () {
+    return ({ dropDown: false, bookshelf: 'list-of-bookshelves' });
+  },
+
+  _openDropDown: function () {
+    this.setState({ dropDown: true });
+  },
+
+  _closeDropDown: function () {
+    this.setState({ dropDown: false });
+  },
+
+  _bookshelvesOn: function () {
+    this.setState({ bookshelf: 'list-of-bookshelves dropOpen' });
+  },
+
+  _bookshelvesOff: function () {
+    this.setState({ bookshelf: 'list-of-bookshelves' });
+  },
+
+  _dropDown: function () {
+    let self = this;
+
+    if (this.state.dropDown) {
+      let user = SessionsStore.currentUser().user;
+      let results;
+      if (user) {
+        results = user.bookshelves.map( function (shelf) {
+          return(
+            <li className='bookshelves' key={shelf.id}>
+              <Link to={`/users/${user.user.id}/bookshelves/${shelf.id}`}>{shelf.title}</Link>
+            </li>
+          );
+        });
+      } else {
+        results = <li className='bookshelves'>
+                    <Link to='/login'>You must be signed in to view bookshelves</Link>
+                  </li>;
+      }
+
+      return(
+        <div>
+          <li>
+            <Link to='/books'>Books</Link>
+          </li>
+          <li>
+            <Link to='/authors'>Authors</Link>
+          </li>
+          <li className='bookshelf-selector' onMouseEnter={this._bookshelvesOn} >
+            Bookshelves
+          </li>
+          <ul className={this.state.bookshelf} onMouseLeave={this._bookshelvesOff}>
+            {results}
+          </ul>
+        </div>
+      );
+    } else {
+      return (<div/>);
+    }
+  },
+
   login: function (e) {
     e.preventDefault();
     hashHistory.push('/login');
@@ -21,20 +82,20 @@ const App = React.createClass({
 
   greeting: function () {
     if (SessionsStore.isUserLoggedIn()) {
-      let currentUser = SessionsStore.currentUser();
+      let currentUser = SessionsStore.currentUser().user;
       return (
-        <hgroup>
+        <div className='right-group'>
           <button className='logout-button button' onClick={this.handleLogout}>Logout</button>
           <h1 className='welcome-msg'>Welcome {currentUser.user.username}!</h1>
-        </hgroup>
+        </div>
       );
     } else {
       if (this.props.location.pathname !== "/login" && this.props.location.pathname !== "/signup") {
         return(
-          <hgroup>
+          <div className='right-group'>
             <button className='sigup-button button' onClick={this.signup} >Signup</button>
             <button className='login-button button' onClick={this.login} >Login</button>
-          </hgroup>
+          </div>
         );
       }
     }
@@ -50,6 +111,12 @@ const App = React.createClass({
       <div>
         <header className='navBar'>
           <Link to='/' className='title'>BetterReads</Link>
+
+          <ul className='dropDown' onMouseEnter={this._openDropDown} onMouseLeave={this._closeDropDown}>
+            Explore
+            {this._dropDown()}
+          </ul>
+
           <Search />
           {this.greeting()}
         </header>

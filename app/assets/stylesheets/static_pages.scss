@@ -7,24 +7,31 @@
   font-weight: bold;
   display: inline-block;
   margin: 15px;
+  position: relative;
+  left: 30px;
   float: left;
   color: #633b1d;
 }
 
 .button {
   width: 60px;
-  height: 25px;
+  height: 35px;
   font-size: 10pt;
   background-color: wheat;
   float: right;
-  margin: 15px;
-  margin-right: 10px;
+  margin: 12px 0;
+  margin-right: 15px;
   border-radius: 5px;
+}
+
+.navBar .right-group {
+  position: absolute;
+  right: 15%;
 }
 
 .welcome-msg {
   float: right;
-  margin: 20px 5px;
+  margin: 23px 15px;
   font-weight: bold;
 }
 
@@ -57,13 +64,16 @@
 }
 
 .book-index-item li {
-  // max-width: 300px;
-  // margin: 10px;
   list-style: none;
 }
 
 .book-index-item img {
   margin: 0 auto;
+}
+
+img {
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .browse-box {

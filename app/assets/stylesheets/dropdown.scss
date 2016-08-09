@@ -1,0 +1,36 @@
+.navBar .dropDown {
+  float: left;
+  font-size: 18pt;
+  font-weight: 600;
+  position: absolute;
+  left: 23%;
+  padding: 17px 30px;
+  border-radius: 20px;
+}
+
+.navBar .dropDown li {
+  list-style: none;
+  width: 200px;
+  padding: 10px;
+  margin-left: -20px;
+  text-align: justify;
+  background-color: white;
+  border: 2px solid #955c1d;
+}
+
+.navBar .dropDown .list-of-bookshelves {
+  display: none;
+}
+
+.navBar .dropDown .dropOpen {
+  display: block;
+  position: relative;
+  font-size: 14pt;
+  font-weight: 400;
+  z-index: 80;
+}
+
+.navBar .dropDown .list-of-bookshelves .bookshelves {
+  display: inherit;
+  margin-left: 50px;
+}
