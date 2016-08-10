@@ -1,14 +1,9 @@
 const React = require('react');
-const BookshelfStore = require('../stores/bookshelf_store');
-const BookshelfActions = require('../actions/bookshelf_actions');
 const SessionsStore = require('../stores/sessions_store');
-const SessionsActions = require('../actions/sessions_actions');
 const BrowseItem = require('./browse_item');
 
 const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
-
-const hashHistory = require('react-router').hashHistory;
 
 
 const BookshelfIndex = React.createClass({

@@ -1,9 +1,5 @@
 const React = require('react');
-const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
-const AuthorStore = require('../stores/author_store');
-const AuthorActions = require('../actions/author_actions');
-const hashHistory = require('react-router').hashHistory;
 
 const AddBook = React.createClass({
 

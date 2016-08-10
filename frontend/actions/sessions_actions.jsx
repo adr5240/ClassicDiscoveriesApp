@@ -1,4 +1,3 @@
-const React = require('react');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionsConstants = require('../constants/sessions_constants');
 const SessionsApiUtil = require('../util/sessions_api_util');

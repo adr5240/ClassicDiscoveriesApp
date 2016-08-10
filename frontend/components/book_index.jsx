@@ -3,9 +3,6 @@ const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 const BookIndexItem = require('./book_index_item');
 
-const hashHistory = require('react-router').hashHistory;
-
-
 const BookIndex = React.createClass({
 
   getInitialState: function () {

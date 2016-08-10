@@ -97,7 +97,6 @@ const Search = React.createClass({
   _handleModal: function () {
     this._clearSearchBox();
     if(SessionsStore.isUserLoggedIn()) {
-      let input = this.state.inputVal;
       this.setState({ modalOpen: true });
     } else {
       this.forceUpdate();
