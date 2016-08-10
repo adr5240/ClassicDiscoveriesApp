@@ -224,6 +224,20 @@ a42 = Author.create(fname: "Lynne Reid",
                     image: File.open('app/assets/images/authors/lynne-reid-banks.jpg'),
                     description: "Lynne Reid Banks is a British author of books for children and adults. She has written forty books, including the best-selling children's novel The Indian in the Cupboard, which has sold over 10 million copies and been made into a film.\n\nBanks was born in London, the only child of James and Muriel Reid Banks. She was evacuated to Saskatoon, Saskatchewan, Canada during World War II but returned after the war was over. She attended St Teresa's School in Surrey. Prior to becoming a writer Banks was an actress, and also worked as a television journalist in Britain, one of the first women to do so. Her first novel, The L-Shaped Room, was published in 1960.\n\nIn 1962 Banks emigrated to Israel, where she taught for eight years on an Israeli kibbutz Yasur. In 1965 she married Chaim Stephenson, with whom she had three sons. Although the family returned to England in 1971 and Banks now lives in Dorset with her husband, the influence of her time in Israel can be seen in some of her books which are set partially or mainly on kibbutzim. ")
 
+a43 = Author.create(fname: "Matthew Neill",
+                    lname: "Null",
+                    image: File.open('app/assets/images/authors/matthew-null.jpg'),
+                    description: "Matthew Neill Null is a writer from West Virginia, a graduate of the Iowa Writers’ Workshop, and a winner of the O. Henry Award, the Mary McCarthy Prize, and the Joseph Brodsky Rome Prize from the American Academy of Arts and Letters. He is author of the novel HONEY FROM THE LION and the story collection ALLEGHENY FRONT.")
+
+a44 = Author.create(fname: "Andrew Michael",
+                    lname: "Hurley",
+                    image: File.open('app/assets/images/authors/andrew-hurley.jpg'),
+                    description: "Andrew Michael Hurley (born 1975) is a British writer whose debut novel, The Loney, was published in a limited edition of 300 copies in 2014 by Tartarus Press and was published under Hodder and Stoughton's John Murray imprint in 2015 (ISBN 9781473619821).] He was interviewed on BBC Radio 4's Open Book programme \"British Gothic\" in October 2015.\n\nThe Loney has been reviewed in The Guardian and The Telegraph. It is set in the area of Morecambe Bay in north west England, described in the text as \"that strange nowhere between the Wyre and the Lune\". Hurley has said that the novel's two starting points were \"to write a kind of dark version of the Nativity [...] and exploring ideas of faith and belief\" and \"various wild, lonely places on the north west coast of Lancashire [...] a sense of imminent menace or dormant power lying just under the sand and the water\". It is the winner of the 2015 Costa Book Awards First Novel Award as well as the British Book Industry award for best debut fiction and book of the year.\n\nHurley has previously had two volumes of short stories published by the Lime Tree Press (Cages and Other Stories, 2006, ISBN 9781411699021, and The Unusual Death of Julie Christie and Other Stories, 2008, ISBN 9780955981401). He lives in Lancashire, where he teaches English literature and creative writing.")
+
+a45 = Author.create(fname: "Dr.",
+                    lname: "Seuss",
+                    image: File.open('app/assets/images/authors/dr-seuss.jpg'),
+                    description: "Theodor Seuss Geisel was born 2 March 1904 in Springfield, MA. He graduated Dartmouth College in 1925, and proceeded on to Oxford University with the intent of acquiring a doctorate in literature. At Oxford he met Helen Palmer, who he wed in 1927. He returned from Europe in 1927, and began working for a magazine called Judge, the leading humor magazine in America at the time, submitting both cartoons and humorous articles for them. Additionally, he was submitting cartoons to Life, Vanity Fair and Liberty. In some of his works, he'd made reference to an insecticide called Flit. These references gained notice, and led to a contract to draw comic ads for Flit. This association lasted 17 years, gained him national exposure, and coined the catchphrase \"Quick, Henry, the Flit!\"\n\nIn 1936 on the way to a vaction in Europe, listening to the rhythm of the ship's engines, he came up with And to Think That I Saw It on Mulberry Street, which was then promptly rejected by the first 43 publishers he showed it to. Eventually in 1937 a friend published the book for him, and it went on to at least moderate success. \n\nDuring WW II, Geisel joined the army and was sent to Hollywood. Captain Geisel would write for Frank Capra's Signal Corps Unit (for which he won the Legion of Merit) and do documentaries (he won Oscar's for Hitler Lives and Design for Death). He also created a cartoon called Gerald McBoing-Boing which also won him an Oscar. \n\nIn May of 1954, Life published a report concerning illiteracy among school children. The report said, among other things, that children were having trouble to read because their books were boring. This inspired Geisel's publisher, and prompted him to send Geisel a list of 400 words he felt were important, asked him to cut the list to 250 words (the publishers idea of how many words at one time a first grader could absorb), and write a book. Nine months later, Geisel, using 220 of the words given to him published The Cat in the Hat, which went on to instant success.\n\nIn 1960 Bennett Cerf bet Geisel $50 that he couldn't write an entire book using only fifty words. The result was Green Eggs and Ham. Cerf never paid the $50 from the bet. \n\nHelen Palmer Geisel died in 1967. Theodor Geisel married Audrey Stone Diamond in 1968. Theodor Seuss Geisel died 24 September 1991.\n\nAlso worked under the pen name: Theo Le Sieg.")
 
 
 #TODO start here
@@ -724,11 +738,61 @@ b97 = Book.create(title: "The Key to the Indian",
                   author_id: Author.find_by_name("Lynne Reid Banks").id,
                   book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/key-to-the-indian.jpg'))
 
+b98 = Book.create(title: "Allegheny Front",
+                  description: "\"Allegheny Front has few sentimental trappings. . . . Men's stubbornness is a rock face, in these intelligent and unpretentious stories, their anger a crown fire, their occasional tenderness a rill. . . . It remains at a distance from judgment, at a remove from easy definitions, unspooling a lucid and often painful history of appetite, exploitation, and bereavement.\"—Lydia Millet, from the introduction\n\nSet in the author's homeland of West Virginia, this panoramic collection of stories traces the people and animals who live in precarious balance in the mountains of Appalachia over a span of two hundred years, in a disappearing rural world. With omniscient narration, rich detail, and lyrical prose, Matthew Neill Null brings his landscape and characters vividly to life.\n\nMatthew Neill Null is the author of the novel Honey from the Lion (Lookout Books). A graduate of the Iowa Writers' Workshop and a winner of the PEN/O. Henry Award, his short fiction has appeared in the Oxford American, Ploughshares, the Mississippi Review, American Short Fiction, Ecotone, and elsewhere. He divides his time between West Virginia and Provincetown, Massachusetts, where he coordinates the writing fellowship at the Fine Arts Work Center.",
+                  author_id: Author.find_by_name("Matthew Neill Null").id,
+                  book_cover: File.open('app/assets/images/book_covers/allegheny-front.jpg'))
+
+b99 = Book.create(title: "The Loney",
+                  description: "If it had another name, I never knew, but the locals called it the Loney - that strange nowhere between the Wyre and the Lune where Hanny and I went every Easter time with Mummer, Farther, Mr and Mrs Belderboss and Father Wilfred, the parish priest.\n\nIt was impossible to truly know the place. It changed with each influx and retreat, and the neap tides would reveal the skeletons of those who thought they could escape its insidious currents. No one ever went near the water. No one apart from us, that is.\n\nI suppose I always knew that what happened there wouldn't stay hidden for ever, no matter how much I wanted it to. No matter how hard I tried to forget...",
+                  author_id: Author.find_by_name("Andrew Michael Hurley").id,
+                  book_cover: File.open('app/assets/images/book_covers/loney.jpg'))
+
+b100 = Book.create(title: "Oh, The Places You'll Go!",
+                  description: "In this joyous ode to life, Dr. Seuss addresses graduates of all ages, from nursery school to medical school, and gives them the get-up-and-go to move mountains with the unrivaled exuberance and charm that have made Dr. Seuss's books favorites for years.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/places-youll-go.jpg'))
+
+b101 = Book.create(title: "Green Eggs and Ham",
+                  description: "“Do you like green eggs and ham?” asks Sam-I-am in this Beginner Book by Dr. Seuss. In a house or with a mouse? In a boat or with a goat? On a train or in a tree? Sam keeps asking persistently. With unmistakable characters and signature rhymes, Dr. Seuss’s beloved favorite has cemented its place as a children’s classic. In this most famous of cumulative tales, the list of places to enjoy green eggs and ham, and friends to enjoy them with, gets longer and longer. Follow Sam-I-am as he insists that this unusual treat is indeed a delectable snack to be savored everywhere and in every way. \n\nOriginally created by Dr. Seuss, Beginner Books encourage children to read all by themselves, with simple words and illustrations that give clues to their meaning.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/green-eggs-and-ham.jpg'))
+
+b102 = Book.create(title: "The Butter Battle Book",
+                  description: "The Butter Battle Book, Dr. Seuss's classic cautionary tale, introduces readers to the important lesson of respecting differences. The Yooks and Zooks share a love of buttered bread, but animosity brews between the two groups because they prefer to enjoy the tasty treat differently. The timeless and topical rhyming text is an ideal way to teach young children about the issues of tolerance and respect. Whether in the home or in the classroom, The Butter Battle Book is a must-have for readers of all ages.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/butter-book.jpg'))
+
+b103 = Book.create(title: "And to Think That I Saw it on Mulberry Street",
+                  description: "A plain horse and wagon on Mulberry Street grows into a story that no one can beat! In this tale, Young Marco allows his imagination to run riot as he travels home from school one day, to the extent that a horse and cart is soon transformed into a chaotic carnival of colourful creatures in his own mind.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/mulberry-street.jpg'))
+
+b104 = Book.create(title: "How the Grinch Stole Christmas",
+                  description: "\"The Grinch hated Christmas! The whole Christmas season!\n\nNow, please don't ask why. No one quite knows the reason.\"\n\nDr. Seuss's small-hearted Grinch ranks right up there with Scrooge when it comes to the crankiest, scowling holiday grumps of all time. For 53 years, the Grinch has lived in a cave on the side of a mountain, looming above the Whos in Whoville. The noisy holiday preparations and infernal singing of the happy little citizens below annoy him to no end. The Grinch decides this frivolous merriment must stop. His \"wonderful, awful\" idea is to don a Santa outfit, strap heavy antlers on his poor, quivering dog Max, construct a makeshift sleigh, head down to Whoville, and strip the chafingly cheerful Whos of their Yuletide glee once and for all.\n\nLooking quite out of place and very disturbing in his makeshift Santa get-up, the Grinch slithers down chimneys with empty bags and stealing the Whos' presents, their food, even the logs from their humble Who-fires. He takes the ramshackle sleigh to Mt. Crumpit to dump it and waits to hear the sobs of the Whos when they wake up and discover the trappings of Christmas have disappeared. Imagine the Whos' dismay when they discover the evil-doings of Grinch in his anti-Santa guise. But what is that sound? It's not sobbing, but singing! Children simultaneously adore and fear this triumphant, twisted Seussian testimonial to the undaunted cheerfulness of the Whos, the transcendent nature of joy, and of course, the growth potential of a heart that's two sizes too small.\n\nThis holiday classic is perfect for reading aloud to your favorite little Whos.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/grinch-stole-christmas.jpg'))
+
+b105 = Book.create(title: "One Fish, Two Fish, Red Fish, Blue Fish",
+                  description: "One Fish Two Fish Red Fish Blue Fish is a 1960 children's book by Dr. Seuss (Theodor Seuss Geisel). A simple rhyming book for learner readers, it is a book with a freewheeling plot about a boy and a girl, and the many amazing creatures they have for friends and pets. One Fish Two Fish Red Fish Blue Fish was part of the Beginner Book Video series which included Oh, the Thinks You Can Think! and The Foot Book.",
+                  author_id: Author.find_by_name("Dr. Seuss").id,
+                  book_cover: File.open('app/assets/images/book_covers/one-fish-two-fish.jpg'))
+
+
 
 # TODO Start here
 
 # SAMPLE BOOK
-# b90 = Book.create(title: "",
+# b100 = Book.create(title: "",
 #                   description: "",
 #                   author_id: Author.find_by_name("").id,
 #                   book_cover: File.open('app/assets/images/book_covers/{ FILE_NAME }'))
+
+
+# Adding Books to Shelves
+
+s2.book_ids = [b1.id, b6.id, b8.id, b50.id]
+s3.book_ids = [b20.id, b46.id, b88.id, b90.id, b95.id]
+s4.book_ids = [b11.id, b46.id, b58.id]
+
+s1.book_ids = [b1.id, b6.id, b8.id, b11.id, b20.id, b46.id, b50.id, b58.id, b88.id, b90.id, b95.id]

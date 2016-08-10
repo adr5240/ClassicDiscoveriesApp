@@ -59,23 +59,43 @@ const AddBook = React.createClass({
   },
 
   render: function () {
+
+    (function() {
+    $('form > input').keyup(function() {
+
+        var empty = false;
+        $('form > #required').each(function() {
+            if ($(this).val() === '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#register').attr('disabled', 'disabled'); 
+        } else {
+            $('#register').removeAttr('disabled');
+        }
+    });
+  })();
+
     return(
-      <form className='add-book-form'>
+      <form className='add-book-form' onSubmit={this._handleSubmit}>
         Create A Book
         <br/>
-        <input type="text" onChange={this.updateTitle} value={this.state.title}/> Book Title *
+        <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Book Title *
         <br/>
-        <input type="text" onChange={this.updateDescription}/> Book Description *
+        <input id='required' type="text" onChange={this.updateDescription}/> Book Description *
         <br/>
-        <input type="text" onChange={this.updateAuthorName}/> {"Author's Name *"}
+        <input id='required' type="text" onChange={this.updateAuthorName}/> {"Author's Name *"}
         <br/>
-        <input type="text" onChange={this.updateAuthorDescription}/> Author Description *
+        <input id='required' type="text" onChange={this.updateAuthorDescription}/> Author Description *
         <br/>
         <input type="file" onChange={this.updateFile}/>
         <br/>
         <img src={this.state.imageUrl}/>
         <br/>
-        <button onClick={this._handleSubmit}>Add to our Collection!</button>
+        <input type="submit" id="register" value="Add to Our Collection!" disabled="disabled"/>
+
         <br/>
         <h4>* indicates required field</h4>
       </form>

@@ -23,9 +23,11 @@ const BookIndexItem = React.createClass({
     BookshelfActions.addBookToShelf(currentShelf, this.props.book.id);
 
     if (currentShelf.title !== 'All') {
-      let allShelf = this.currentUser.bookshelves[0];
-      BookshelfActions.addBookToShelf(allShelf, this.props.book.id);
+      let allShelf = this.currentUser.bookshelves.filter( (shelf) => { if (shelf.title === 'All') return true; });
+      BookshelfActions.addBookToShelf(allShelf[0], this.props.book.id);
     }
+
+    this.closeBookshelfMenu();
   },
 
   bookshelfMenu: function () {
@@ -37,22 +39,24 @@ const BookIndexItem = React.createClass({
         options = bookshelves.map( (shelf) => {
           i++;
           return (
-            <li onClick={this._handleSelection} value={i} className='option-items' key={shelf.id}>
+            <li className='option-items' onClick={this._handleSelection} value={i} key={shelf.id}>
               {shelf.title}
             </li>
           );
         });
         return options;
       } else {
-        return(<li/>);
+        return([]);
       }
   },
 
   openBookshelfMenu: function () {
+    this.bookshelf_menu = 'opened';
     this.setState({ dropDown: true });
   },
 
   closeBookshelfMenu: function () {
+    this.bookshelf_menu = 'closed';
     this.setState({ dropDown: false });
   },
 
@@ -64,13 +68,17 @@ const BookIndexItem = React.createClass({
 
     let menu = [];
     if (this.currentUser) {
-      menu = (<ul className='bookshelf-menu' onMouseEnter={this.openBookshelfMenu}
+      menu = (<ul className={`bookshelf-menu ${this.bookshelf_menu}`} onMouseEnter={this.openBookshelfMenu}
           onMouseLeave={this.closeBookshelfMenu}>
-        Add to Shelf
+        Add to Shelf  ↓
         {this.bookshelfMenu()}
       </ul>);
     } else {
-      menu = (<Link to={'/login'}>Sign In to add to your bookshelves!</Link>);
+      menu = (
+        <ul className='bookshelf-menu'>
+          <Link to={'/login'} className={'.option-items'}>Sign In to add to your bookshelves!</Link>
+        </ul>
+      );
     }
 
     return(

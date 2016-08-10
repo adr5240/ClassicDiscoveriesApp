@@ -61,14 +61,15 @@ const BookshelfApiUtil = {
     });
   },
 
-  createBookshelf: function (bookshelf, success, error) {
+  createBookshelf: function (formData, user_id, close, success, error) {
     $.ajax({
-      url: `api/users/${bookshelf.user_id}/bookshelves`,
+      url: `api/users/${user_id}/bookshelves`,
       method: 'POST',
-      data: { bookshelf: { title: bookshelf.title,
-                           description: bookshelf.description,
-                           user_id: bookshelf.user_id }},
+      processData: false,
+      contentType: false,
+      data: formData,
       success: function (resp) {
+        close(resp);
         success(resp);
       },
       error: function (resp) {

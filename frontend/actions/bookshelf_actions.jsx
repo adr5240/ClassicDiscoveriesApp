@@ -22,8 +22,8 @@ const BookshelfActions = {
     BookshelfApiUtil.removeBookFromShelf(bookshelf, book_id, this.removeBook, ErrorActions.setErrors);
   },
 
-  createBookshelf: function (bookshelf) {
-    BookshelfApiUtil.createBookshelf(bookshelf, this.newBookshelf, ErrorActions.setErrors);
+  createBookshelf: function (formData, user_id, close) {
+    BookshelfApiUtil.createBookshelf(formData, user_id, close, this.newBookshelf, ErrorActions.setErrors);
   },
 
   updateBookshelf: function (bookshelf) {

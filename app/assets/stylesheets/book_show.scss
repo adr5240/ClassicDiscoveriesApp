@@ -13,6 +13,40 @@
   width: 40%;
 }
 
+.book-show-page .book-index-item .bookshelf-menu {
+  background-color: #409d69;
+  text-align: center;
+  max-width: 200px;
+  position: absolute;
+  left: 40%;
+  padding: 10px 0;
+  border: 2px solid black;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.book-show-page .book-index-item .opened {
+  padding-bottom: 0;
+}
+
+.book-show-page .book-index-item .bookshelf-menu .option-items {
+  border-top: 2px solid black;
+  border-bottom: none;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 14pt;
+  font-weight: normal;
+}
+
+.book-show-page .book-index-item .bookshelf-menu .option-items:hover {
+  background-color: #358257;
+}
+
+.book-show-page .book-index-item .bookshelf-menu .option-items:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .book-show-page a {
   text-decoration: underline;
 }

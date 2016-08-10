@@ -28,7 +28,7 @@ const Browse = React.createClass({
     let self = this;
     var timer;
     var delay = 750;
-
+    
     this.setState({ modalObject: e.target });
 
     $(e.target).hover(function() {
