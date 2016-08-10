@@ -25,7 +25,6 @@
 .navBar .dropDown li {
   list-style: none;
   width: 200px;
-  padding: 10px;
   margin-left: -20px;
   text-align: justify;
   background-color: white;
@@ -37,8 +36,19 @@
   background-color: #e0d5c2;
 }
 
+.navBar .dropDown li a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+
 .navBar .dropDown .list-of-bookshelves {
   display: none;
+}
+
+.navBar .dropDown .bookshelf-selector {
+  padding: 10px 0 10px 10px;
+  max-width: 190px;
 }
 
 .navBar .dropDown .dropOpen {

@@ -3,7 +3,13 @@ const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 const AuthorStore = require('../stores/author_store');
 const AuthorActions = require('../actions/author_actions');
+const AddBook = require('./add_book_modal');
+const SessionsStore = require('../stores/sessions_store');
+const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
+
+const Modal = require('react-modal');
+const ModalStyle = require('../constants/modal_style');
 
 String.prototype.contains = function(substring) { return this.indexOf(substring) != -1; };
 
@@ -11,7 +17,7 @@ String.prototype.contains = function(substring) { return this.indexOf(substring)
 const Search = React.createClass({
 
   getInitialState: function () {
-    return ({ inputVal: '' });
+    return ({ inputVal: '', modalOpen: false, modalObject: "" });
   },
 
   componentWillMount: function () {
@@ -75,6 +81,31 @@ const Search = React.createClass({
     this.setState({ inputVal: '' });
   },
 
+  _addBook: function (book) {
+    BookActions.createBook(book);
+  },
+
+  _onModalOpen: function () {
+    ModalStyle.content.opacity = 100;
+  },
+
+  _onModalClose: function () {
+    ModalStyle.content.opacity = 0;
+    this.setState({ modalOpen: false });
+  },
+
+  _handleModal: function () {
+    this._clearSearchBox();
+    if(SessionsStore.isUserLoggedIn()) {
+      let input = this.state.inputVal;
+      this.setState({ modalOpen: true });
+    } else {
+      this.forceUpdate();
+      hashHistory.push('/login');
+      setTimeout(() => alert("You must be logged in to add books!"), 200);
+    }
+  },
+
   render: function () {
     this.results = [];
 
@@ -106,6 +137,12 @@ const Search = React.createClass({
           );
         }
       });
+    } else if (this.state.inputVal.length > 2) {
+      this.results.push(
+        <li className='not-found' key='not-found' onClick={ this._handleModal }>
+          Book not found... Click here to add it!
+        </li>
+      );
     }
 
     return (
@@ -118,6 +155,17 @@ const Search = React.createClass({
         <ul className='search-results'>
           {this.results}
         </ul>
+
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this._onModalClose}
+          onAfterOpen={this._onModalOpen}
+          style={ ModalStyle }>
+
+          <button onClick={this._onModalClose}>Close</button>
+          <br/>
+          <AddBook close={this._onModalClose}/>
+        </Modal>
       </div>
     );
   }

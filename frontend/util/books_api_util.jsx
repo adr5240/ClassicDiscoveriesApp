@@ -1,3 +1,5 @@
+const hashHistory = require('react-router').hashHistory;
+
 const BooksApiUtil = {
   fetchAllBooks: function (success, error) {
     $.ajax({
@@ -25,14 +27,16 @@ const BooksApiUtil = {
     });
   },
 
-  createBook: function (book, success, error) {
+  createBook: function (formData, close, success, error) {
     $.ajax({
       url: `api/books`,
       method: 'POST',
-      data: { book: { title: book.title,
-                      description: book.description,
-                      author_id: book.author_id }},
+      processData: false,
+      contentType: false,
+      data: formData,
       success: function (resp) {
+        close();
+        hashHistory.push(`/books/${resp.id}`);
         success(resp);
       },
       error: function (resp) {

@@ -1,6 +1,6 @@
 class Api::BooksController < ApplicationController
 
-  # before_action :require_logged_in, only: [:create, :update, :destroy]
+  before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
     @books = Book.all
@@ -13,6 +13,18 @@ class Api::BooksController < ApplicationController
   end
 
   def create
+    lname = params[:author][:name].split(' ')[-1]
+    index = params[:author][:name].index(lname)
+    fname = params[:author][:name].slice(0, index - 1)
+
+    author = Author.find_by_name(params[:author][:name]) ||
+             Author.create!(fname: fname, lname: lname, description: params[:author][:description])
+
+    params[:book][:author_id] = author.id
+    if params[:book][:book_cover] == 'null'
+      params[:book][:book_cover] = File.open('app/assets/images/book_covers/defbookcover.jpg')
+    end
+
     @book = Book.new(book_params)
 
     if @book.save
@@ -46,6 +58,10 @@ class Api::BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :description, :author_id, :book_cover)
+  end
+
+  def author_params
+    params.require(:author).permit(:name, :description)
   end
 
 end

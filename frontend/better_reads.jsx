@@ -40,7 +40,6 @@ const appRouter = (
       <Route path='/books/:book_id' component={ BookShow } />
       <Route path='/authors' component={ AuthorIndex } />
       <Route path='/authors/:author_id' component={ AuthorShow } />
-      <Route path='/users/:user_id/bookshelves/' component={ BookshelfIndex } />
       <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookshelfIndex } />
 
     </Route>

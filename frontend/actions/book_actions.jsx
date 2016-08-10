@@ -13,8 +13,8 @@ const BookActions = {
     BooksApiUtil.getBook(id, this.receiveBook, ErrorActions.setErrors);
   },
 
-  createBook: function (book) {
-    BooksApiUtil.createBook(book, this.newBook, ErrorActions.setErrors);
+  createBook: function (book, close) {
+    BooksApiUtil.createBook(book, close, this.newBook, ErrorActions.setErrors);
   },
 
   updateBook: function (book) {

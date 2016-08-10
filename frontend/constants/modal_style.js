@@ -1,8 +1,8 @@
 module.exports = {
   overlay: {
-    position: 'fixed',
+    position: 'absolute',
     top: '10%',
-    left: 0,
+    left: '13%',
     right: 0,
     bottom: 0,
     backgroundColor: 'rgba(255, 255, 255, 0.75_)'

@@ -9,6 +9,7 @@ s2 = Bookshelf.create(title: "Read", description: "All the books you have read."
 s3 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: guest.id)
 s4 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: guest.id)
 
+
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # Authors
@@ -198,12 +199,37 @@ a37 = Author.create(fname: "Ruth",
                     image: File.open('app/assets/images/authors/ruth-ware.jpg'),
                     description: "Ruth Ware grew up in Sussex, on the south coast of England. After graduating from Manchester University she moved to Paris, before settling in North London. She has worked as a waitress, a bookseller, a teacher of English as a foreign language and a press officer. She is married with two small children, and In a Dark, Dark Wood is her début thriller.")
 
+a38 = Author.create(fname: "Daniel James",
+                    lname: "Brown",
+                    image: File.open('app/assets/images/authors/daniel-brown.jpg'),
+                    description: "Daniel James Brown fell in love with the written word when he was five and his mother first read Danny and the Dinosaur to him. Since then he has earned a BA in English from the University of California at Berkeley and an MA in English from UCLA. He has taught writing at San Jose State University and Stanford University and now lives in the country east of Redmond, Washington, where he writes nonfiction books about compelling historical events.\n\nBrown's newest book is the New York Times bestseller--The Boys in the Boat: Nine Americans and Their Quest for Gold at the 1936 Berlin Olympics. The book chronicles the extraordinary saga of nine working class boys who stormed the rowing world, transformed the sport, and galvanized the attention of millions of Americans in the midst of the Great Depression. The Weinstein Company has purchased the rights to adapt the book for a feature film.\n\nHis previous book--The Indifferent Stars Above: The Harrowing Saga of a Donner Party Bride--was Chosen as an INDIE NEXT NOTABLE SELECTION by the American Bookseller's Association, it recounts the extraordinary journey of a young woman whose fate became entangled with that of the infamous Donner Party in 1846. His earlier book--Under a Flaming Sky: The Great Hinckley Firestorm of 1894--takes the reader back to the events of September 1, 1894, when his great-grandfather and more than 300 other people died in one of America's greatest forest-fire disasters. That book was selected as a Barnes and Noble Discover Great New Writers pick, was named one of the Best Books of 2006 by Booklist magazine, and was a finalist for the Washington State Book Award.")
+
+a39 = Author.create(fname: "Emma",
+                    lname: "Cline",
+                    image: File.open('app/assets/images/authors/emma-cline.jpg'),
+                    description: "Emma Cline is from California. Her fiction has appeared in Tin House and The Paris Review, and she was the recipient of the 2014 Paris Review Plimpton Prize.")
+
+a40 = Author.create(fname: "Jojo",
+                    lname: "Moyes",
+                    image: File.open('app/assets/images/authors/jojo-moyes.jpg'),
+                    description: "Jojo Moyes is a British novelist.\n\nMoyes studied at Royal Holloway, University of London. She won a bursary financed by The Independent newspaper to study journalism at City University and subsequently worked for The Independent for 10 years. In 2001 she became a full time novelist. \n\nMoyes' novel Foreign Fruit won the Romantic Novelists' Association (RNA) Romantic Novel of the Year in 2004.\n\nShe is married to journalist Charles Arthur and has three children.")
+
+a41 = Author.create(fname: "Stephen",
+                    lname: "King",
+                    image: File.open('app/assets/images/authors/stephen-king.jpg'),
+                    description: "Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\n\nStephen attended the grammar school in Durham and Lisbon Falls High School, graduating in 1966. From his sophomore year at the University of Maine at Orono, he wrote a weekly column for the school newspaper, THE MAINE CAMPUS. He was also active in student politics, serving as a member of the Student Senate. He came to support the anti-war movement on the Orono campus, arriving at his stance from a conservative view that the war in Vietnam was unconstitutional. He graduated in 1970, with a B.A. in English and qualified to teach on the high school level. A draft board examination immediately post-graduation found him 4-F on grounds of high blood pressure, limited vision, flat feet, and punctured eardrums.\n\nHe met Tabitha Spruce in the stacks of the Fogler Library at the University, where they both worked as students; they married in January of 1971. As Stephen was unable to find placement as a teacher immediately, the Kings lived on his earnings as a laborer at an industrial laundry, and her student loan and savings, with an occasional boost from a short story sale to men's magazines.\n\nStephen made his first professional short story sale (\"The Glass Floor\") to Startling Mystery Stories in 1967. Throughout the early years of his marriage, he continued to sell stories to men's magazines. Many were gathered into the Night Shift collection or appeared in other anthologies.\n\nIn the fall of 1971, Stephen began teaching English at Hampden Academy, the public high school in Hampden, Maine. Writing in the evenings and on the weekends, he continued to produce short stories and to work on novels.")
+
+a42 = Author.create(fname: "Lynne Reid",
+                    lname: "Banks",
+                    image: File.open('app/assets/images/authors/lynne-reid-banks.jpg'),
+                    description: "Lynne Reid Banks is a British author of books for children and adults. She has written forty books, including the best-selling children's novel The Indian in the Cupboard, which has sold over 10 million copies and been made into a film.\n\nBanks was born in London, the only child of James and Muriel Reid Banks. She was evacuated to Saskatoon, Saskatchewan, Canada during World War II but returned after the war was over. She attended St Teresa's School in Surrey. Prior to becoming a writer Banks was an actress, and also worked as a television journalist in Britain, one of the first women to do so. Her first novel, The L-Shaped Room, was published in 1960.\n\nIn 1962 Banks emigrated to Israel, where she taught for eight years on an Israeli kibbutz Yasur. In 1965 she married Chaim Stephenson, with whom she had three sons. Although the family returned to England in 1971 and Banks now lives in Dorset with her husband, the influence of her time in Israel can be seen in some of her books which are set partially or mainly on kibbutzim. ")
+
 
 
 #TODO start here
 
 #Sample Author
-# a32 = Author.create(fname: "",
+# a40 = Author.create(fname: "",
 #                     lname: "",
 #                     image: File.open('app/assets/images/authors/{ FILE_NAME }'),
 #                     description: "")
@@ -623,11 +649,86 @@ b82 = Book.create(title: "The Woman in Cabin 10",
                   author_id: Author.find_by_name("Ruth Ware").id,
                   book_cover: File.open('app/assets/images/book_covers/woman-in-cabin-10.jpg'))
 
+b83 = Book.create(title: "The Boys in the Boat: ",
+                  description: "For readers of Laura Hillenbrand's Seabiscuit and Unbroken, the dramatic story of the American rowing team that stunned the world at Hitler's 1936 Berlin Olympics\n\nDaniel James Brown’s robust book tells the story of the University of Washington’s 1936 eight-oar crew and their epic quest for an Olympic gold medal, a team that transformed the sport and grabbed the attention of millions of Americans. The sons of loggers, shipyard workers, and farmers, the boys defeated elite rivals first from eastern and British universities and finally the German crew rowing for Adolf Hitler in the Olympic games in Berlin, 1936.\n\nThe emotional heart of the story lies with one rower, Joe Rantz, a teenager without family or prospects, who rows not for glory, but to regain his shattered self-regard and to find a place he can call home. The crew is assembled  by an enigmatic coach and mentored by a visionary, eccentric British boat builder, but it is their trust in each other that makes them a victorious team. They remind the country of what can be done when everyone quite literally pulls together—a perfect melding of commitment, determination, and optimism.\n\nDrawing on the boys’ own diaries and journals, their photos and memories of a once-in-a-lifetime shared dream, The Boys in the Boat is an irresistible story about beating the odds and finding hope in the most desperate of times—the improbable, intimate story of nine working-class boys from the American west who, in the depths of the Great Depression, showed the world what true grit really meant. It will appeal to readers of Erik Larson, Timothy Egan, James Bradley, and David Halberstam's The Amateurs.",
+                  author_id: Author.find_by_name("Daniel James Brown").id,
+                  book_cover: File.open('app/assets/images/book_covers/boys-in-the-boat.jpg'))
+
+b84 = Book.create(title: "The Girls",
+                  description: "Northern California, during the violent end of the 1960s. At the start of summer, a lonely and thoughtful teenager, Evie Boyd, sees a group of girls in the park, and is immediately caught by their freedom, their careless dress, their dangerous aura of abandon. Soon, Evie is in thrall to Suzanne, a mesmerizing older girl, and is drawn into the circle of a soon-to-be infamous cult and the man who is its charismatic leader. Hidden in the hills, their sprawling ranch is eerie and run down, but to Evie, it is exotic, thrilling, charged—a place where she feels desperate to be accepted. As she spends more time away from her mother and the rhythms of her daily life, and as her obsession with Suzanne intensifies, Evie does not realize she is coming closer and closer to unthinkable violence, and to that moment in a girl’s life when everything can go horribly wrong.",
+                  author_id: Author.find_by_name("Emma Cline").id,
+                  book_cover: File.open('app/assets/images/book_covers/the-girls.jpg'))
+
+b85 = Book.create(title: "Me Before You",
+                  description: "Lou Clark knows lots of things. She knows how many footsteps there are between the bus stop and home. She knows she likes working in The Buttered Bun tea shop and she knows she might not love her boyfriend Patrick.\n\nWhat Lou doesn't know is she's about to lose her job or that knowing what's coming is what keeps her sane.\n\nWill Traynor knows his motorcycle accident took away his desire to live. He knows everything feels very small and rather joyless now and he knows exactly how he's going to put a stop to that.\n\nWhat Will doesn't know is that Lou is about to burst into his world in a riot of colour. And neither of them knows they're going to change the other for all time.",
+                  author_id: Author.find_by_name("Jojo Moyes").id,
+                  book_cover: File.open('app/assets/images/book_covers/me-before-you.jpg'))
+
+b86 = Book.create(title: "Mr. Mercedes",
+                  description: "In the frigid pre-dawn hours, in a distressed Midwestern city, hundreds of desperate unemployed folks are lined up for a spot at a job fair. Without warning, a lone driver plows through the crowd in a stolen Mercedes, running over the innocent, backing up, and charging again. Eight people are killed; fifteen are wounded. The killer escapes.\n\nIn another part of town, months later, a retired cop named Bill Hodges is still haunted by the unsolved crime. When he gets a crazed letter from someone who self-identifies as the \"perk\" and threatens an even more diabolical attack, Hodges wakes up from his depressed and vacant retirement, hell-bent on preventing another tragedy.\n\nBrady Hartfield lives with his alcoholic mother in the house where he was born. He loved the feel of death under the wheels of the Mercedes, and he wants that rush again.\n\nOnly Bill Hodges, with a couple of highly unlikely allies, can apprehend the killer before he strikes again. And they have no time to lose, because Brady’s next mission, if it succeeds, will kill or maim thousands.\n\nMr. Mercedes is a war between good and evil, from the master of suspense whose insight into the mind of this obsessed, insane killer is chilling and unforgettable.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/Bill_Hodges/mr-mercedes.jpg'))
+
+b87 = Book.create(title: "Finders Keepers",
+                  description: "“Wake up, genius.” So begins King’s instantly riveting story about a vengeful reader. The genius is John Rothstein, an iconic author who created a famous character, Jimmy Gold, but who hasn’t published a book for decades. Morris Bellamy is livid, not just because Rothstein has stopped providing books, but because the nonconformist Jimmy Gold has sold out for a career in advertising. Morris kills Rothstein and empties his safe of cash, yes, but the real treasure is a trove of notebooks containing at least one more Gold novel.\n\nMorris hides the money and the notebooks, and then he is locked away for another crime. Decades later, a boy named Pete Saubers finds the treasure, and now it is Pete and his family that Bill Hodges, Holly Gibney, and Jerome Robinson must rescue from the ever-more deranged and vengeful Morris when he’s released from prison after thirty-five years.\n\nNot since Misery has King played with the notion of a reader whose obsession with a writer gets dangerous. Finders Keepers is spectacular, heart-pounding suspense, but it is also King writing about how literature shapes a life—for good, for bad, forever.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/Bill_Hodges/finders-keepers.jpg'))
+
+b88 = Book.create(title: "End of Watch",
+                  description: "Brady Hartsfield, perpetrator of the Mercedes Massacre, where eight people were killed and many more were badly injured, has been in the Traumatic Brain Injury Clinic for five years, in a vegetative state. According to his doctors, anything approaching a complete recovery is unlikely. But behind the drool and stare, Brady is awake, and in possession of deadly new powers that allow him to wreak unimaginable havoc without ever leaving his hospital room.\n\nRetired police detective Bill Hodges, the unlikely hero of Mr. Mercedes and Finders Keepers, now runs an investigation agency with his partner, Holly Gibney, who delivered the blow to Hartsfield's head that put him on the brain injury ward. Brady also remembers that. When Bill and Holly are called to a murder-suicide with ties to the Mercedes Massacre, they find themselves pulled into their most dangerous case yet, one that will put not only their lives at risk, but those of Hodges’s friend Jerome Robinson and his teenage sister, Barbara. Because Brady Hartsfield is back, and planning revenge not just on Bill Hodges and his friends, but on an entire city.\n\nIn End of Watch, Stephen King brings the Hodges trilogy to a sublimely terrifying conclusion, combining the detective fiction of Mr. Mercedes and Finders Keepers with the supernatural suspense that has been his trademark. The result is an unnerving look at human vulnerability and up-all-night entertainment.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/Bill_Hodges/end-of-watch.jpg'))
+
+b89 = Book.create(title: "Misery",
+                  description: "Paul Sheldon. He's a bestselling novelist who has finally met his biggest fan. Her name is Annie Wilkes and she is more than a rabid reader - she is Paul's nurse, tending his shattered body after an automobile accident. But she is also his captor, keeping him prisoner in her isolated house.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/misery.jpg'))
+
+b90 = Book.create(title: "It",
+                  description: "To the children, the town was their whole world. To the adults, knowing better, Derry, Maine was just their home town: familiar, well-ordered for the most part. A good place to live.\n\nIt was the children who saw - and felt - what made Derry so horribly different. In the storm drains, in the sewers, IT lurked, taking on the shape of every nightmare, each one's deepest dread. Sometimes IT reached up, seizing, tearing, killing . . .\n\nThe adults, knowing better, knew nothing.\n\nTime passed and the children grew up, moved away. The horror of IT was deep-buried, wrapped in forgetfulness. Until they were called back, once more to confront IT as IT stirred and coiled in the sullen depths of their memories, reaching up again to make their past nightmares a terrible present reality.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/it.jpg'))
+
+b91 = Book.create(title: "Under the Dome",
+                  description: "On an entirely normal, beautiful fall day in Chester's Mill, Maine, the town is inexplicably and suddenly sealed off from the rest of the world by an invisible force field. Planes crash into it and fall from the sky in flaming wreckage, a gardener's hand is severed as \"the dome\" comes down on it, people running errands in the neighboring town are divided from their families, and cars explode on impact. No one can fathom what this barrier is, where it came from, and when -- or if -- it will go away.\n\nDale Barbara, Iraq vet and now a short-order cook, finds himself teamed with a few intrepid citizens -- town newspaper owner Julia Shumway, a physician's assistant at the hospital, a select-woman, and three brave kids. Against them stands Big Jim Rennie, a politician who will stop at nothing -- even murder -- to hold the reins of power, and his son, who is keeping a horrible secret in a dark pantry. But their main adversary is the Dome itself. Because time isn't just short. It's running out.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/under-the-dome.jpg'))
+
+b92 = Book.create(title: "Cell",
+                  description: "Witness Stephen King's triumphant, blood-spattered return to the genre that made him famous. Cell, the king of horror's homage to zombie films (the book is dedicated in part to George A. Romero) is his goriest, most horrific novel in years, not to mention the most intensely paced. Casting aside his love of elaborate character and town histories and penchant for delayed gratification, King yanks readers off their feet within the first few pages; dragging them into the fray and offering no chance catch their breath until the very last page.\n\nIn Cell King taps into readers fears of technological warfare and terrorism. Mobile phones deliver the apocalypse to millions of unsuspecting humans by wiping their brains of any humanity, leaving only aggressive and destructive impulses behind. Those without cell phones, like illustrator Clayton Riddell and his small band of \"normies,\" must fight for survival, and their journey to find Clayton's estranged wife and young son rockets the book toward resolution.\n\nFans that have followed King from the beginning will recognize and appreciate Cell as a departure--King's writing has not been so pure of heart and free of hang-ups in years (wrapping up his phenomenal Dark Tower series and receiving a medal from the National Book Foundation doesn't hurt either). \"Retirement\" clearly suits King, and lucky for us, having nothing left to prove frees him up to write frenzied, juiced-up horror-thrillers like Cell.",
+                  author_id: Author.find_by_name("Stephen King").id,
+                  book_cover: File.open('app/assets/images/book_covers/cell.jpg'))
+
+b93 = Book.create(title: "The Indian in the Cupboard",
+                  description: "At first, Omri is unimpressed with the plastic Indian toy he is given for his birthday. But when he puts it in his old cupboard and turns the key, something extraordinary happens that will change Omri's life for ever.\n\nFor Little Bull, the Iroquois Indian brave, comes to life...",
+                  author_id: Author.find_by_name("Lynne Reid Banks").id,
+                  book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/indian-in-the-cupboard.jpg'))
+
+b94 = Book.create(title: "The Return of the Indian",
+                  description: "Omri can hardly contain his excitement when he wins first prize in a national writing contest. But he feels he must share the good news with Little Bear, his miniature Indian friend who inspired the winning entry. Omri isn't prepared for what he finds when he ventures back into the cupboard that magically transforms the plastic toy into a real live Iroquois Indian. Desperate to help Little Bear, Omri must find a way to transport himself to the world of the Native Americans. In the process he learns a lot about these amazing people, as well as about himself.",
+                  author_id: Author.find_by_name("Lynne Reid Banks").id,
+                  book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/return-of-the-indian.jpg'))
+
+b95 = Book.create(title: "The Secret of the Indian",
+                  description: "The adventure deepens . . . In The Return of the Indian, Omri found he could transport himself and his friend Patrick back in history to the dangerous days of his miniature companions. Now, in the secret of the indian, Patrick time-travels back to the rough-and-tumble frontier age of his cowboy friend, Boone. When he returns to the present day, he's accompanied by a disastrous bit of Texas weather that devastates half of England.",
+                  author_id: Author.find_by_name("Lynne Reid Banks").id,
+                  book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/secret-of-the-indian.jpg'))
+
+b96 = Book.create(title: "The Mystery of the Cupboard",
+                  description: "In the fourth book in Bank's acclaimed INDIAN IN THE CUPBOARD saga, Omri and his family move to an old farmhouse, where he finds an ancient notebook that reveals a family secret-and the mysterious origins of his magical cupboard.",
+                  author_id: Author.find_by_name("Lynne Reid Banks").id,
+                  book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/mystery-of-the-cupboard.jpg'))
+
+b97 = Book.create(title: "The Key to the Indian",
+                  description: "He felt a draft of cold air. Instinctively he put his arms around his body. Then he looked down at himself and got a shock. He was naked...His first instinct was to hid. he scrambled over the earth floor of the longhouse and ducked under the curtain. Beyond was deeper darkness, but he could make out a sort of room with a raised section against the wall. On this was a mountain range covered with fur, in the shape of a sleeping giant.Omri stared all around, feeling the beginnings of panic. \"Dad!\" he whispered as loudly as he dared...\n\nThere was no answer. Omri felt intensely vulnerable with no clothes on. Cold air embraced his skin from head to foot. He felt a sudden longing to go home. He hadn't reckoned on this--being separated from his dad, it being so dark and cold, so strange, so lonely.",
+                  author_id: Author.find_by_name("Lynne Reid Banks").id,
+                  book_cover: File.open('app/assets/images/book_covers/Indian_in_the_Cupboard/key-to-the-indian.jpg'))
+
 
 # TODO Start here
 
 # SAMPLE BOOK
-# b83 = Book.create(title: "",
+# b90 = Book.create(title: "",
 #                   description: "",
 #                   author_id: Author.find_by_name("").id,
 #                   book_cover: File.open('app/assets/images/book_covers/{ FILE_NAME }'))
