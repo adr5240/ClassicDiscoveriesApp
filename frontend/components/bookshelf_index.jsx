@@ -1,7 +1,8 @@
 const React = require('react');
 const SessionsStore = require('../stores/sessions_store');
 const BrowseItem = require('./browse_item');
-
+const BookshelfActions = require('../actions/bookshelf_actions');
+const BookshelfStore = require('../stores/bookshelf_store');
 const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 
