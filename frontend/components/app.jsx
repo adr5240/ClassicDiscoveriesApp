@@ -113,7 +113,10 @@ const App = React.createClass({
         <header className='navBar'>
           <Link to='/' className='title'>BetterReads</Link>
 
-          <ul className='dropDown' onMouseEnter={this._openDropDown} onMouseLeave={this._closeDropDown} onClick={this._closeDropDown}>
+          <ul className='dropDown' onMouseEnter={this._openDropDown}
+              onMouseLeave={this._closeDropDown}
+              onClick={this._closeDropDown}>
+              
             <h3 className={this.state.explore}>Explore</h3>
             {this._dropDown()}
           </ul>

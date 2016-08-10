@@ -65,7 +65,7 @@ const BookshelfIndex = React.createClass({
     }
 
     if (books.length === 0) {
-      books = <h1 className='empty-bookshelf'>"There doesn't seem to be anything here..."</h1>;
+      books = <h1 className='empty-bookshelf'>{"There doesn't seem to be anything here..."}</h1>;
     }
 
     return (
