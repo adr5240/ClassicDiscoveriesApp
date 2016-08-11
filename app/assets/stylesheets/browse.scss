@@ -9,3 +9,11 @@
   cursor: pointer;
   box-shadow: 10px 5px 5px #6b6b6b;
 }
+
+.modText {
+  float: left;
+  max-width: 450px;
+  padding: 10px;
+  margin-left: 10px;
+  white-space: pre-line;
+}

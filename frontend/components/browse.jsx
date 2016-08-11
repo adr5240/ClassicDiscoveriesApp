@@ -28,9 +28,9 @@ const Browse = React.createClass({
     let self = this;
     var timer;
     var delay = 750;
-    
-    this.setState({ modalObject: e.target });
 
+    this.currentBookId = e.target.getAttribute('data-book-id');
+    this.setState({ modalObject: e.target });
     $(e.target).hover(function() {
       timer = setTimeout(function() {
         self.setState({ modalOpen: true });
@@ -45,6 +45,7 @@ const Browse = React.createClass({
   },
 
   _onModalClose: function () {
+    this.currentBookId = null;
     ModalStyle.content.opacity = 0;
     this.setState({ modalOpen: false });
   },
@@ -95,8 +96,14 @@ const Browse = React.createClass({
     let modStyle = {
       height: '400px',
       width: '275px',
-      border: '2px solid black'
+      border: '2px solid black',
+      float: 'left'
     };
+
+    let book = {title: "", description: ""};
+    if (this.currentBookId) {
+      book = BookStore.find(parseInt(this.currentBookId));
+    }
 
     return(
       <div className='browse-box'>
@@ -110,7 +117,15 @@ const Browse = React.createClass({
           onRequestClose={this._onModalClose}
           onAfterOpen={this._onModalOpen}
           style={ ModalStyle }>
-          <img src={this.state.modalObject.src} style={modStyle}></img>
+          <img src={this.state.modalObject.src} style={modStyle} />
+
+          <div className='modText'>
+            <h1><b>Title:</b> {book.title}</h1>
+            <br/>
+            <h1><b>Description:</b> {book.description}</h1>
+          </div>
+
+          <br/>
           <button onClick={this._onModalClose}>Close</button>
         </Modal>
       </div>

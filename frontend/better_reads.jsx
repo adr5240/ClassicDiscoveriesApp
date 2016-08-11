@@ -29,7 +29,6 @@ const BookActions = require('./actions/book_actions');
 
 // Test
 
-
 const appRouter = (
   <Router history={ hashHistory } >
     <Route path='/' component={ App } >

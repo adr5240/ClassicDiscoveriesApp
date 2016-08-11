@@ -13,7 +13,7 @@ const BrowseItem = React.createClass({
 
     return(
       <div className='browse-item'>
-        <img onClick={this._handleClick} src={this.props.book.book_cover_url}/>
+        <img onClick={this._handleClick} data-book-id={this.props.book.id} src={this.props.book.book_cover_url}/>
       </div>
     );
   }
