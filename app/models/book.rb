@@ -28,6 +28,13 @@ class Book < ActiveRecord::Base
   )
 
   has_many(
+    :reviews,
+    class_name: 'Review',
+    primary_key: :id,
+    foreign_key: :book_id
+  )
+
+  has_many(
     :shelves,
     dependent: :destroy,
     class_name: 'Shelf',

@@ -23,7 +23,7 @@ const resetBook = function (book) {
 
 const addBook = function (book) {
   _book = {};
-  _book= {book};
+  _book = {book};
   _books[book.id] = book;
 };
 

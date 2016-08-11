@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :bookshelves, except: [:edit, :new]
     end
-    resources :books, only: [:index, :show, :create, :update, :destroy]
+    resources :books, only: [:index, :show, :create, :update, :destroy] do
+      resources :reviews, only: [:create]
+    end
     resources :authors, only: [:index, :show, :create]
     resource :sessions, only: [:create, :destroy]
   end
