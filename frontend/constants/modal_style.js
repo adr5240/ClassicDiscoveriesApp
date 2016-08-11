@@ -11,8 +11,8 @@ module.exports = {
   content: {
     position: 'relative',
     top: '100px',
-    left: '300px',
-    right: '300px',
+    left: '15%',
+    // right: '300px',
     bottom: '100px',
     height: '600px',
     width: '800px',

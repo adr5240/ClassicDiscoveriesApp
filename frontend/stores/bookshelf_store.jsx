@@ -32,6 +32,7 @@ BookshelfStore.__onDispatch = function (payload) {
       break;
     case BookshelfConstants.BOOKSHELF_UPDATE:
       addBookshelf(payload.bookshelf);
+      BookshelfStore.__emitChange();
       break;
     case BookshelfConstants.BOOKSHELF_REMOVED:
       resetAllBookshelves(payload.bookshelves);

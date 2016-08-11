@@ -36,14 +36,14 @@ const BookshelfActions = {
 
   addNewBook: function (bookshelf) {
     AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOK_RECEIVED,
+      actionType: BookshelfConstants.BOOKSHELF_UPDATE,
       bookshelf: bookshelf
     });
   },
 
   removeBook: function (bookshelf) {
     AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELVES_RECEIVED,
+      actionType: BookshelfConstants.BOOKSHELF_UPDATE,
       bookshelf: bookshelf
     });
   },

@@ -2,6 +2,8 @@ const React = require('react');
 const SessionsStore = require('../stores/sessions_store');
 const BookshelfActions = require('../actions/bookshelf_actions');
 const BookshelfStore = require('../stores/bookshelf_store');
+const BookStore = require('../stores/book_store');
+const BookActions = require('../actions/book_actions');
 const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
 
@@ -18,9 +20,12 @@ const BookIndexItem = React.createClass({
     if (this.currentUser) {
       BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
     }
+    BookActions.getBook(this.props.book.id);
   },
 
   componentWillUnmount: function () {
+    this.currentUser = null;
+    this.bookshelves = null;
     this.bookshelfListener.remove();
   },
 
@@ -32,35 +37,41 @@ const BookIndexItem = React.createClass({
   _handleSelection: function (e) {
     let list_id = e.currentTarget.value;
     let currentShelf = BookshelfStore.find(list_id);
-    BookshelfActions.addBookToShelf(currentShelf, this.props.book.id);
+    BookshelfActions.addBookToShelf(currentShelf, this.book.id);
 
     if (currentShelf.title !== 'All') {
-      BookshelfActions.addBookToShelf(this.allShelf, this.props.book.id);
+      BookshelfActions.addBookToShelf(this.allShelf, this.book.id);
     }
 
     this.closeBookshelfMenu();
-    this.forceUpdate();
+    BookActions.getBook(this.props.book.id);
   },
 
   _onChange: function () {
+    this.bookshelves = [];
+    this.currentUser = SessionsStore.currentUser().user;
+
+    let shelfObj = BookshelfStore.all();
+    for(let shelf in shelfObj) {
+      this.bookshelves.push(shelfObj[shelf]);
+    }
+
     if (this.currentUser) {
-      this.allShelf = this.allShelf || BookshelfStore.find(this.currentUser.bookshelves[0].id);
-      this.bookshelves = this.bookshelves || this.currentUser.bookshelves.map( (shelf) => {
+      this.allShelf = BookshelfStore.find(this.currentUser.bookshelves[0].id);
+      this.bookshelves.map( (shelf) => {
         return BookshelfStore.find(shelf.id);
       });
     }
-
-    this.createMenu();
   },
 
   removeBook: function (e) {
     let bookshelfId = e.target.value;
     let bookshelf = BookshelfStore.find(parseInt(bookshelfId));
 
-    if (this.props.book.bookshelf_ids.length <= 2) {
-      BookshelfActions.removeBookFromShelf(this.allShelf, this.props.book.id);
+    if (this.book.bookshelf_ids.length <= 2) {
+      BookshelfActions.removeBookFromShelf(this.allShelf, this.book.id);
     } else {
-      BookshelfActions.removeBookFromShelf(bookshelf, this.props.book.id);
+      BookshelfActions.removeBookFromShelf(bookshelf, this.book.id);
     }
 
     this.bookshelves = this.currentUser.bookshelves.map( (shelf) => {
@@ -68,9 +79,11 @@ const BookIndexItem = React.createClass({
     });
 
     this.closeBookshelfMenu();
+    BookActions.getBook(this.props.book.id);
   },
 
   createMenu: function () {
+
     this.menu = [];
     if (this.currentUser) {
       this.menu = (
@@ -92,12 +105,16 @@ const BookIndexItem = React.createClass({
   bookshelfMenu: function () {
       let options = [];
       let self = this;
-      if(this.state.dropDown) {
-        let i = -1;
+
+      this.book = BookStore.currentBook();
+      this.bookshelves = this.currentUser.bookshelves.map( (shelf) => {
+        return BookshelfStore.find(shelf.id);
+      });
+      if (this.state.dropDown) {
         options = this.bookshelves.map( (shelf) => {
-          if (self.props.book.bookshelf_ids.includes(shelf.id)) {
+          if (this.book.bookshelf_ids.includes(shelf.id)) {
             return (
-              <li className='option-items remove-box' onClick={self.removeBook} value={shelf.id} key={shelf.id}>
+              <li className='option-items remove-box ${}' onClick={self.removeBook} value={shelf.id} key={shelf.id}>
                 Remove from {shelf.title}
               </li>
             );
@@ -109,7 +126,6 @@ const BookIndexItem = React.createClass({
             );
           }
         });
-
         return options;
       } else {
         return([]);
