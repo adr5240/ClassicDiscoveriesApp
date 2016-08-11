@@ -39,10 +39,6 @@ const App = React.createClass({
     this.setState({ bookshelf: 'list-of-bookshelves' });
   },
 
-  addBookshelf: function () {
-
-  },
-
   _openModal: function () {
     this.setState({ modalOpen: true });
   },
@@ -159,7 +155,7 @@ const App = React.createClass({
   },
 
   handleLogout: function () {
-    let currentUser = SessionsStore.currentUser();
+    let currentUser = SessionsStore.currentUser().user;
     SessionsActions.logout(currentUser.user.id);
   },
 

@@ -16,13 +16,16 @@ const BookshelfIndex = React.createClass({
   componentDidMount: function () {
     let currentUser = SessionsStore.currentUser().user;
     let bookshelf;
-    currentUser.bookshelves.forEach( (shelf) => {
-      if(shelf.id === parseInt(this.props.params.bookshelves_id)) {
-        bookshelf = shelf;
-      }
-    });
+    if (currentUser) {
+      currentUser.bookshelves.forEach( (shelf) => {
+        if(shelf.id === parseInt(this.props.params.bookshelves_id)) {
+          bookshelf = shelf;
+        }
+      });
+      BookshelfActions.fetchAllBookshelves(currentUser.user.id);
+    }
 
-    BookshelfActions.fetchAllBookshelves();
+
 
     this.bookshelfListener = BookshelfStore.addListener(this._bookshelfChange);
     this.userListener = SessionsStore.addListener(this._userChange);
@@ -42,7 +45,7 @@ const BookshelfIndex = React.createClass({
       }
     });
 
-    BookshelfActions.fetchAllBookshelves();
+    BookshelfActions.fetchAllBookshelves(currentUser.user.id);
     this.setState({ bookshelf: bookshelf });
   },
 
@@ -53,14 +56,15 @@ const BookshelfIndex = React.createClass({
 
   render: function () {
     let books = <h1>Loading</h1>;
-    if(this.state.bookshelf.books) {
-      books = this.state.bookshelf.books.map((book) => {
-        return <BrowseItem key={book.id} book={book} />;
+    if(this.state.bookshelf.book_ids) {
+      books = this.state.bookshelf.book_ids.map((book_id) => {
+        let book = BookStore.find(book_id);
+        return <BrowseItem key={book_id} book={book} />;
       });
     }
 
     if (books.length === 0) {
-      books = <h1 className='empty-bookshelf'>{"There doesn't seem to be anything here..."}</h1>;
+      books = <h1 className='empty-bookshelf' key='empty'>{"There doesn't seem to be anything here..."}</h1>;
     }
 
     return (

@@ -20,7 +20,9 @@ const BookIndexItem = React.createClass({
     if (this.currentUser) {
       BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
     }
-    BookActions.getBook(this.props.book.id);
+    if (this.props.book.id) {
+      BookActions.getBook(this.props.book.id);
+    }
   },
 
   componentWillUnmount: function () {
@@ -67,8 +69,16 @@ const BookIndexItem = React.createClass({
   removeBook: function (e) {
     let bookshelfId = e.target.value;
     let bookshelf = BookshelfStore.find(parseInt(bookshelfId));
+    let numOfShelves = [];
 
-    if (this.book.bookshelf_ids.length <= 2) {
+    this.bookshelves.forEach( (shelf) => {
+      if (shelf.book_ids.includes(this.book.id)) {
+        numOfShelves.push(shelf.id);
+      }
+    });
+
+    if (numOfShelves.length <= 2) {
+      BookshelfActions.removeBookFromShelf(bookshelf, this.book.id);
       BookshelfActions.removeBookFromShelf(this.allShelf, this.book.id);
     } else {
       BookshelfActions.removeBookFromShelf(bookshelf, this.book.id);
@@ -104,15 +114,15 @@ const BookIndexItem = React.createClass({
 
   bookshelfMenu: function () {
       let options = [];
-      let self = this;
 
       this.book = BookStore.currentBook();
       this.bookshelves = this.currentUser.bookshelves.map( (shelf) => {
         return BookshelfStore.find(shelf.id);
       });
+      let self = this;
       if (this.state.dropDown) {
         options = this.bookshelves.map( (shelf) => {
-          if (this.book.bookshelf_ids.includes(shelf.id)) {
+          if (shelf.book_ids.includes(self.book.id)) {
             return (
               <li className='option-items remove-box ${}' onClick={self.removeBook} value={shelf.id} key={shelf.id}>
                 Remove from {shelf.title}
