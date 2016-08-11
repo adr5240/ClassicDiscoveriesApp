@@ -82,8 +82,8 @@ const BookIndexItem = React.createClass({
       );
     } else {
       this.menu = (
-        <ul className='bookshelf-menu'>
-          <Link to={'/login'} className={'.option-items'}>Sign In to add to your bookshelves!</Link>
+        <ul className='bookshelf-menu signin'>
+          <Link to={'/login'} className={'option-items signin'}>Sign In to add to your bookshelves!</Link>
         </ul>
       );
     }

@@ -1,13 +1,13 @@
 .book-index .book-index-item span {
   margin: 15px;
   float: left;
-  max-width: 400px;
+  max-width: 465px;
   white-space: pre-wrap;
 }
 
 .book-index .book-index-item img {
   float: left;
-  margin: 15px 0;
+  margin: 45px 0;
   border: 2px solid black;
 }
 
@@ -27,7 +27,7 @@
 
 .book-index .book-index-item-container {
   overflow: auto;
-  width: 600px;
+  width: 700px;
   border-bottom: 3px dashed brown;
 }
 

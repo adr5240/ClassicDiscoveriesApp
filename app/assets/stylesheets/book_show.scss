@@ -10,7 +10,8 @@
   margin-left: 20px;
   font-size: 16pt;
   white-space: pre-wrap;
-  width: 45%;
+  width: 750px;
+
 }
 
 .book-index-item .bookshelf-menu {
@@ -28,7 +29,7 @@
 
 .book-show-page a {
   text-decoration: none;
-
+  float: right;
 }
 
 .book-show-page a:hover {
@@ -52,9 +53,14 @@
 
 // Shelf drop down menu
 .book-index-item .opened {
+  padding: 5px 0;
   padding-bottom: 0;
   margin-right: 3%;
   float: right;
+}
+
+.book-index-item .closed {
+  padding: 5px 0;
 }
 
 .book-index-item .bookshelf-menu .option-items {
@@ -75,4 +81,15 @@
 .book-index-item .bookshelf-menu .option-items:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.book-index-item .signin {
+  padding: 0;
+}
+
+.book-index-item .bookshelf-menu .signin {
+  border-top: none;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
