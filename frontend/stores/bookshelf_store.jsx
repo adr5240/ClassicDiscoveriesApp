@@ -9,21 +9,8 @@ let _books = {};
 
 const resetAllBookshelves = function (bookshelves) {
   _bookshelves = {};
-  for (let key in bookshelves) {
-    _bookshelves[key] = bookshelves[key];
-  }
+  _bookshelves = bookshelves;
 };
-
-// const resetAllBooks = function (books) {
-//   _books = {};
-//   for (let book in books) {
-//     _books[book] = books[book];
-//   }
-// };
-//
-// const addBook = function (book) {
-//   _books[book.id] = book;
-// };
 
 const addBookshelf = function (bookshelf) {
   _bookshelves[bookshelf.id] = bookshelf;
@@ -50,14 +37,6 @@ BookshelfStore.__onDispatch = function (payload) {
       resetAllBookshelves(payload.bookshelves);
       BookshelfStore.__emitChange();
       break;
-    // case BookshelfConstants.BOOKS_RECEIVED:
-    //   resetAllBooks(payload.books);
-    //   BookshelfStore.__emitChange();
-    //   break;
-    // case BookshelfConstants.BOOK_RECEIVED:
-    //   addBook(payload.book);
-    //   BookshelfStore.__emitChange();
-    //   break;
   }
 };
 

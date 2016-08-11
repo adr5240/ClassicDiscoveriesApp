@@ -23,7 +23,12 @@ class Api::BookshelvesController < ApplicationController
     if params[:bookshelf][:book_id] && params[:bookshelf][:add]
       @bookshelf.addBook(params[:bookshelf][:book_id])
     elsif params[:bookshelf][:book_id]
-      @bookshelf.removeBook(params[:bookshelf][:book_id])
+      if params[:bookshelf][:title] == "All"
+        book = Book.find(params[:bookshelf][:book_id])
+        book.bookshelf_ids = [];
+      else
+        @bookshelf.removeBook(params[:bookshelf][:book_id])
+      end
     end
 
     if @bookshelf.update(bookshelf_params)

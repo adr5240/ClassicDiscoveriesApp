@@ -10,45 +10,25 @@
   margin-left: 20px;
   font-size: 16pt;
   white-space: pre-wrap;
-  width: 40%;
+  width: 45%;
 }
 
-.book-show-page .book-index-item .bookshelf-menu {
+.book-index-item .bookshelf-menu {
   background-color: #409d69;
   text-align: center;
   max-width: 200px;
-  position: absolute;
-  left: 40%;
-  padding: 10px 0;
-  border: 2px solid black;
+  margin-right: 2%;
+  float: right;
+  padding: 5px 0;
   font-weight: bold;
   border-radius: 10px;
-}
-
-.book-show-page .book-index-item .opened {
-  padding-bottom: 0;
-}
-
-.book-show-page .book-index-item .bookshelf-menu .option-items {
-  border-top: 2px solid black;
-  border-bottom: none;
-  padding: 10px 0;
-  margin: 0;
-  font-size: 14pt;
-  font-weight: normal;
-}
-
-.book-show-page .book-index-item .bookshelf-menu .option-items:hover {
-  background-color: #358257;
-}
-
-.book-show-page .book-index-item .bookshelf-menu .option-items:last-child {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  color: #462a15;
+  font-size: 12pt;
 }
 
 .book-show-page a {
-  text-decoration: underline;
+  text-decoration: none;
+
 }
 
 .book-show-page a:hover {
@@ -67,4 +47,32 @@
 .book-show-page li {
   margin-bottom: 30px;
   border-bottom: 3px dashed brown;
+}
+
+
+// Shelf drop down menu
+.book-index-item .opened {
+  padding-bottom: 0;
+  margin-right: 3%;
+  float: right;
+}
+
+.book-index-item .bookshelf-menu .option-items {
+  border-top: 2px solid black;
+  border-bottom: none;
+  padding: 5px 0;
+  margin: 0;
+  font-size: 12pt;
+  font-weight: normal;
+  color: inherit;
+  cursor: pointer;
+}
+
+.book-index-item .bookshelf-menu .option-items:hover {
+  background-color: #358257;
+}
+
+.book-index-item .bookshelf-menu .option-items:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

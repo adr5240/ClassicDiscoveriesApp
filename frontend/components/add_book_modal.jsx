@@ -1,5 +1,6 @@
 const React = require('react');
 const BookActions = require('../actions/book_actions');
+const SessionsStore = require('../stores/sessions_store');
 
 const AddBook = React.createClass({
 
@@ -7,11 +8,24 @@ const AddBook = React.createClass({
     return({
       title: "",
       description: "",
-      authorName: "",
+      authorFname: "",
+      authorLname: "",
       authorDesc: "",
       imageFile: null,
       imageUrl: null
     });
+  },
+
+  componentDidMount: function () {
+    this.sessionListener = SessionsStore.addListener(this._signOut);
+  },
+
+  componentWillUnmount: function () {
+    this.sessionListener.remove();
+  },
+
+  _signOut: function () {
+    this.props.close();
   },
 
   updateTitle: function (e) {
@@ -22,8 +36,12 @@ const AddBook = React.createClass({
     this.setState({ description: e.target.value });
   },
 
-  updateAuthorName: function (e) {
-    this.setState({ authorName: e.target.value });
+  updateAuthorFname: function (e) {
+    this.setState({ authorFname: e.target.value });
+  },
+
+  updateAuthorLname: function (e) {
+    this.setState({ authorLname: e.target.value });
   },
 
   updateAuthorDescription: function (e) {
@@ -49,7 +67,8 @@ const AddBook = React.createClass({
     formData.append("book[title]", this.state.title);
     formData.append("book[description]", this.state.description);
     formData.append("book[book_cover]", this.state.imageFile);
-    formData.append("author[name]", this.state.authorName);
+    formData.append("author[fname]", this.state.authorFname);
+    formData.append("author[lname]", this.state.authorLname);
     formData.append("author[description]", this.state.authorDesc);
     BookActions.createBook(formData, this.props.close);
   },
@@ -71,7 +90,7 @@ const AddBook = React.createClass({
         });
 
         if (empty) {
-            $('#register').attr('disabled', 'disabled'); 
+            $('#register').attr('disabled', 'disabled');
         } else {
             $('#register').removeAttr('disabled');
         }
@@ -86,7 +105,9 @@ const AddBook = React.createClass({
         <br/>
         <input id='required' type="text" onChange={this.updateDescription}/> Book Description *
         <br/>
-        <input id='required' type="text" onChange={this.updateAuthorName}/> {"Author's Name *"}
+        <input id='required' type="text" onChange={this.updateAuthorFname}/> {"Author's First Name *"}
+        <br/>
+        <input id='required' type="text" onChange={this.updateAuthorLname}/> {"Author's Last Name *"}
         <br/>
         <input id='required' type="text" onChange={this.updateAuthorDescription}/> Author Description *
         <br/>

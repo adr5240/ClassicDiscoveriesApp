@@ -164,6 +164,25 @@ const App = React.createClass({
   },
 
   render () {
+
+    (function() {
+    $('form > input').keyup(function() {
+
+        var empty = false;
+        $('form > #required').each(function() {
+            if ($(this).val() === '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#register').attr('disabled', 'disabled');
+        } else {
+            $('#register').removeAttr('disabled');
+        }
+    });
+  })();
+
     return (
       <div>
         <header className='navBar'>
@@ -191,11 +210,11 @@ const App = React.createClass({
           <form className='add-bookshelf-form' onSubmit={this._handleSubmit}>
             Add A New Bookshelf
             <br/>
-            <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Book Title *
+            <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Bookshelf Title *
             <br/>
-            <input id='required' type="text" onChange={this.updateDescription}/> Book Description
+            <input type="text" onChange={this.updateDescription}/> Bookshelf Description
             <br/>
-            <input type="submit" value="Add a Bookshelf!"/>
+            <input type="submit" id="register" value="Add a Bookshelf!" disabled="disabled"/>
             <br/>
           </form>
           <button onClick={this._onModalClose}>Close</button>

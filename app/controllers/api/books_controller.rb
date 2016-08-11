@@ -13,12 +13,8 @@ class Api::BooksController < ApplicationController
   end
 
   def create
-    lname = params[:author][:name].split(' ')[-1]
-    index = params[:author][:name].index(lname)
-    fname = params[:author][:name].slice(0, index - 1)
-
-    author = Author.find_by_name(params[:author][:name]) ||
-             Author.create!(fname: fname, lname: lname, description: params[:author][:description])
+    author = Author.find_by(fname: params[:author][:fname], lname: params[:author][:lname]) ||
+             Author.create!(fname: params[:author][:fname], lname: params[:author][:lname], description: params[:author][:description])
 
     params[:book][:author_id] = author.id
     if params[:book][:book_cover] == 'null'

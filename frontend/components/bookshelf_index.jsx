@@ -43,17 +43,12 @@ const BookshelfIndex = React.createClass({
     });
 
     BookshelfActions.fetchAllBookshelves();
-
     this.setState({ bookshelf: bookshelf });
   },
 
   _bookshelfChange: function () {
     let bookshelf = BookshelfStore.find(this.props.params.bookshelves_id);
     this.setState({ bookshelf: bookshelf });
-  },
-
-  _userChange: function () {
-
   },
 
   render: function () {
