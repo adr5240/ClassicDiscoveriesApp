@@ -155,6 +155,7 @@ const App = React.createClass({
   },
 
   handleLogout: function () {
+    hashHistory.push('/login');
     let currentUser = SessionsStore.currentUser().user;
     SessionsActions.logout(currentUser.user.id);
   },

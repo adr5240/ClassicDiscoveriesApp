@@ -77,7 +77,11 @@ const BookIndexItem = React.createClass({
       }
     });
 
-    if (numOfShelves.length <= 2) {
+    if (bookshelf.title === 'All') {
+      this.bookshelves.forEach( (shelf) => {
+        BookshelfActions.removeBookFromShelf(shelf, this.book.id);
+      });
+    } else if(numOfShelves.length <= 2) {
       BookshelfActions.removeBookFromShelf(bookshelf, this.book.id);
       BookshelfActions.removeBookFromShelf(this.allShelf, this.book.id);
     } else {
