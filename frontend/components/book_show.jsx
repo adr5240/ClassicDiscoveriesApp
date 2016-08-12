@@ -3,6 +3,8 @@ const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 const BookIndexItem = require('./book_index_item');
 const AddReview = require('./add_review_modal');
+const SessionsStore = require('../stores/sessions_store');
+const hashHistory = require('react-router').hashHistory;
 
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/modal_style');
@@ -46,6 +48,10 @@ const BookShow = React.createClass({
     this.setState({ modalOpen: false });
   },
 
+  _login: function () {
+    hashHistory.push('/login');
+  },
+
   render: function () {
 
     const reviews = this.state.reviews || [];
@@ -55,25 +61,36 @@ const BookShow = React.createClass({
         return <Review key={review.id} {...review} />;
       });
     }
+    let button;
+    if (SessionsStore.currentUser().user) {
+      button = (<button onClick={ this.modalOpen }>Tell us what you thought!</button>);
+    } else {
+      button = (<button onClick={ this._login } >Please SignIn to leave a review</button>);
+    }
 
     return (
       <div className='book-show-page'>
         <BookIndexItem className='book-show-item' book={this.state.book} />
         <br />
         <div className='reviews'>
-          Reviews
-          { reviewText }
-          <button onClick={ this.modalOpen }>Add a Review!</button>
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this._onModalClose}
-            onAfterOpen={this._onModalOpen}
-            style={ ModalStyle }>
+          <div className='review-list'>
+            <h1 className='review-title'>Reviews</h1>
+            <br />
+            { button }
+            <br />
 
-            <button onClick={this._onModalClose}>Close</button>
-            <br/>
-            <AddReview bookId={this.state.id} closeModal={this._onModalClose}/>
-          </Modal>
+            { reviewText }
+            <Modal
+              isOpen={this.state.modalOpen}
+              onRequestClose={this._onModalClose}
+              onAfterOpen={this._onModalOpen}
+              style={ ModalStyle }>
+
+              <button onClick={this._onModalClose}>Close</button>
+              <br/>
+              <AddReview bookId={this.state.id} closeModal={this._onModalClose}/>
+            </Modal>
+          </div>
         </div>
       </div>
     );

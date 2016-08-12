@@ -1,3 +1,50 @@
-// Place all the styles related to the Api::Reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.reviews {
+  clear:both;
+  margin: 50px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.reviews .review-list {
+  margin: 10px auto;
+}
+
+.review-title {
+  font-size: 20pt;
+  margin: auto;
+  width: 150px;
+  font-weight: bold;
+  border-bottom: 2px solid black
+}
+
+.reviews button {
+  margin: 10px;
+  width: 150px;
+  background-color: #f5deb3;
+  border-radius: 10px;
+  font-size: 10pt;
+}
+
+.reviews button:hover {
+  background-color: #ffd88f;
+}
+
+.reviews .individual-review {
+  border: 2px solid black;
+  width: 300px;
+  margin: auto;
+  background-color: transparent;
+  margin: 10px auto;
+}
+
+.book-show-page .individual-review li {
+  padding: 10px;
+  margin: 0;
+  background-color: #f5deb3;
+  list-style: none;
+  border: none;
+}
+
+.book-show-page .individual-review li:last-child {
+  padding-top: 0;
+}

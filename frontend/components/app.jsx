@@ -86,11 +86,11 @@ const App = React.createClass({
 
   _dropDown: function () {
     let self = this;
+    this.bookshelves = [];
 
     if (this.state.dropDown) {
       let user = SessionsStore.currentUser().user;
 
-      this.bookshelves = [];
       let shelfObj = BookshelfStore.all();
       for (let shelf in shelfObj) {
         this.bookshelves.push(shelfObj[shelf]);

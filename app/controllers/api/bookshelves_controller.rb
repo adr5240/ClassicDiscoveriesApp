@@ -3,7 +3,7 @@ class Api::BookshelvesController < ApplicationController
   # before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @bookshelves = Bookshelf.all
+    @bookshelves = Bookshelf.all.includes(:shelves, :books)
     render :index
   end
 

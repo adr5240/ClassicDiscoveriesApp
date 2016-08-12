@@ -10,8 +10,8 @@ const Review = React.createClass({
 
     return (
       <div>
-        <ul>
-          <li>Rating: {stars}</li>
+        <ul className='individual-review'>
+          <li>{this.props.username} gave it : {stars}</li>
           <li>{this.props.body}</li>
         </ul>
       </div>

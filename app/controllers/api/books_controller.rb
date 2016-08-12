@@ -3,7 +3,7 @@ class Api::BooksController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.all.includes(:author, :reviews, :shelves)
     render :index
   end
 
