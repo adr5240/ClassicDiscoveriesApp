@@ -60,6 +60,7 @@ const BookShow = React.createClass({
       reviewText = reviews.map( (review) => {
         return <Review key={review.id} {...review} />;
       });
+      reviewText.reverse();
     }
     let button;
     if (SessionsStore.currentUser().user) {

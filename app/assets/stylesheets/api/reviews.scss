@@ -1,7 +1,6 @@
 .reviews {
-  clear:both;
-  margin: 50px;
-  padding-top: 50px;
+  float: left;
+  margin: 10px 50px;
   text-align: center;
 }
 
@@ -35,6 +34,7 @@
   margin: auto;
   background-color: transparent;
   margin: 10px auto;
+  border-radius: 10px;
 }
 
 .book-show-page .individual-review li {
@@ -47,4 +47,11 @@
 
 .book-show-page .individual-review li:last-child {
   padding-top: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.book-show-page .individual-review li:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

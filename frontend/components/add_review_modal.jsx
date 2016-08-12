@@ -6,7 +6,7 @@ const AddReview = React.createClass({
   getInitialState: function () {
     return({
       body: "",
-      rating: '3',
+      rating: '0',
     });
   },
 
