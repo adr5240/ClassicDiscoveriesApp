@@ -17,6 +17,7 @@ const BookIndexItem = React.createClass({
 
   componentDidMount: function () {
     this.bookshelfListener = BookshelfStore.addListener(this._onChange);
+    this.bookshelves = [];
     if (this.currentUser) {
       BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
     }
@@ -52,14 +53,9 @@ const BookIndexItem = React.createClass({
   _onChange: function () {
     this.bookshelves = [];
     this.currentUser = SessionsStore.currentUser().user;
-
     this.bookshelves = BookshelfStore.allForUser(this.currentUser.user.id);
-
     if (this.currentUser) {
       this.allShelf = BookshelfStore.find(this.currentUser.bookshelves[0].id);
-      this.bookshelves.map( (shelf) => {
-        return BookshelfStore.find(shelf.id);
-      });
     }
   },
 
@@ -117,9 +113,7 @@ const BookIndexItem = React.createClass({
       let options = [];
 
       this.book = BookStore.currentBook();
-      this.bookshelves = this.currentUser.bookshelves.map( (shelf) => {
-        return BookshelfStore.find(shelf.id);
-      });
+      
       let self = this;
       if (this.state.dropDown) {
         options = this.bookshelves.map( (shelf) => {

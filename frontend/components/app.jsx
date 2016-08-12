@@ -26,13 +26,8 @@ const App = React.createClass({
 
   componentDidMount: function () {
     this.bookshelfListener = BookshelfStore.addListener(this._dropDown);
-    this.sessionListener = SessionsStore.addListener(this._update);
-    BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
-    this.forceUpdate();
-  },
-
-  _update: function () {
-    this.forceUpdate();
+    this.sessionListener = SessionsStore.addListener(this._dropDown);
+    BookshelfActions.fetchAllBookshelves();
   },
 
   _openDropDown: function () {
