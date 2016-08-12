@@ -53,11 +53,8 @@ const BookIndexItem = React.createClass({
     this.bookshelves = [];
     this.currentUser = SessionsStore.currentUser().user;
 
-    let shelfObj = BookshelfStore.all();
-    for(let shelf in shelfObj) {
-      this.bookshelves.push(shelfObj[shelf]);
-    }
-    
+    this.bookshelves = BookshelfStore.allForUser(this.currentUser.user.id);
+
     if (this.currentUser) {
       this.allShelf = BookshelfStore.find(this.currentUser.bookshelves[0].id);
       this.bookshelves.map( (shelf) => {
