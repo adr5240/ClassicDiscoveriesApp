@@ -3,6 +3,7 @@ const ReactRouter = require('react-router');
 const SessionsStore = require('../stores/sessions_store');
 const SessionsActions = require('../actions/sessions_actions');
 const BookshelfActions = require('../actions/bookshelf_actions');
+const BookshelfStore = require('../stores/bookshelf_store');
 const Search = require('./search_box');
 const hashHistory = ReactRouter.hashHistory;
 const Link = ReactRouter.Link;
@@ -14,12 +15,18 @@ const ModalStyle = require('../constants/modal_style');
 const App = React.createClass({
 
   getInitialState: function () {
+    this.currentUser = SessionsStore.currentUser().user;
     return ({ dropDown: false,
               bookshelf: 'list-of-bookshelves',
               explore: 'explore',
               modalOpen: false,
               bookshelf_title: "",
               bookshelf_description: "" });
+  },
+
+  componentDidMount: function () {
+    this.bookshelfListener = BookshelfStore.addListener(this._dropDown);
+    BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
   },
 
   _openDropDown: function () {
@@ -82,9 +89,16 @@ const App = React.createClass({
 
     if (this.state.dropDown) {
       let user = SessionsStore.currentUser().user;
+
+      this.bookshelves = [];
+      let shelfObj = BookshelfStore.all();
+      for (let shelf in shelfObj) {
+        this.bookshelves.push(shelfObj[shelf]);
+      }
+
       let results;
       if (user) {
-        results = user.bookshelves.map( function (shelf) {
+        results = this.bookshelves.map( function (shelf) {
           return(
             <li className='bookshelves' key={shelf.id}>
               <Link to={`/users/${user.user.id}/bookshelves/${shelf.id}`}>{shelf.title}</Link>

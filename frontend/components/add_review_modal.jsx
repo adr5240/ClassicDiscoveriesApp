@@ -1,8 +1,6 @@
 const React = require('react');
-const ReviewActions = require('../actions/reviews_actions');
 const SessionsStore = require('../stores/sessions_store');
-const ReactStars = require('react-stars');
-
+const BookActions = require('../actions/book_actions');
 const AddReview = React.createClass({
 
   getInitialState: function () {
@@ -39,7 +37,7 @@ const AddReview = React.createClass({
                  rating: this.state.rating,
                  user_id: this.currentUser.user.id,
                  book_id: this.props.bookId };
-    ReviewActions.createReview(data, this.props.close);
+    BookActions.addReview(data, this.props.closeModal);
   },
 
   render: function () {

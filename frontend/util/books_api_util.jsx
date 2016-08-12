@@ -72,6 +72,24 @@ const BooksApiUtil = {
         error('books', resp);
       }
     });
+  },
+
+  addReview: function (review, closeModal, success, error) {
+    $.ajax({
+      url: `api/books/${review.book_id}/reviews`,
+      method: 'POST',
+      data: { review: { body: review.body,
+                        rating: review.rating,
+                        user_id: review.user_id,
+                        book_id: review.book_id }},
+      success: function (resp) {
+        closeModal();
+        success(resp);
+      },
+      error: function (resp) {
+        error('books', resp);
+      }
+    });
   }
 
 };

@@ -56,6 +56,10 @@ BookStore.__onDispatch = function (payload) {
       resetAllBooks(payload.books);
       BookStore.__emitChange();
       break;
+    case BooksConstants.REVIEW_ADDED:
+      resetBook(payload.book);
+      BookStore.__emitChange();
+      break;
   }
 };
 

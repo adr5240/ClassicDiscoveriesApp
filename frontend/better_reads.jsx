@@ -19,7 +19,6 @@ const Browse = require('./components/browse');
 const AuthorShow = require('./components/author_show');
 const AuthorIndex = require('./components/author_index');
 const BookshelfIndex = require('./components/bookshelf_index');
-const Reviews = require('./components/reviews_index');
 
 // Misc
 const SessionsApiUtil = require('./util/sessions_api_util');
@@ -37,9 +36,7 @@ const appRouter = (
       <Route path='/login' component={ LoginForm } />
       <Route path='/signup' component={ LoginForm } />
       <Route path='/books' component={ BookIndex } />
-      <Route path='/books/:book_id' component={ BookShow }>
-        <Route path='/books/:book_id/reviews' component={ Reviews } />
-      </Route>
+      <Route path='/books/:book_id' component={ BookShow } />
       <Route path='/authors' component={ AuthorIndex } />
       <Route path='/authors/:author_id' component={ AuthorShow } />
       <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookshelfIndex } />

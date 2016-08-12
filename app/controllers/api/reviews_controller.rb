@@ -1,24 +1,21 @@
 class Api::ReviewsController < ApplicationController
-
-  def index
-    @reviews = Review.all
-    render :index
-  end
+  before_action :require_logged_in, only: [:create]
 
   def create
-    params[:review][:date] = DateTime.now
-    @review = Review.new(review_params)
-
-    if @review.save
-      render :show
+    review = Review.new(review_params)
+    review.date = DateTime.now
+    if review.save
+      @book = Book.find(review.book_id)
+      render '/api/books/show'
     else
-      render json: @review.errors.full_messages, status: 422
+      render json: review, status: :unprocessable_entity
     end
-
   end
 
+  private
+
   def review_params
-    params.require(:review).permit(:user_id, :book_id, :body, :rating, :date)
+    params.require(:review).permit(:rating, :body, :book_id, :user_id)
   end
 
 end

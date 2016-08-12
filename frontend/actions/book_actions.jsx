@@ -25,6 +25,10 @@ const BookActions = {
     BooksApiUtil.deleteBook(id, this.removeBook, ErrorActions.setErrors);
   },
 
+  addReview: function (review, closeModal) {
+    BooksApiUtil.addReview(review, closeModal, this.reviewAdded, ErrorActions.setErrors);
+  },
+
   receiveAllBooks: function (books) {
     AppDispatcher.dispatch({
       actionType: BooksConstants.BOOKS_RECEIVED,
@@ -50,6 +54,13 @@ const BookActions = {
     AppDispatcher.dispatch({
       actionType: BooksConstants.BOOK_REMOVED,
       books: books
+    });
+  },
+
+  reviewAdded: function (book) {
+    AppDispatcher.dispatch({
+      actionType: BooksConstants.REVIEW_ADDED,
+      book: book
     });
   }
 
