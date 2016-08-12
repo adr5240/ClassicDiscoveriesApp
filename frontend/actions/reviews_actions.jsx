@@ -3,14 +3,14 @@ const ReviewApiUtil = require('../util/review_api_util');
 const ReviewConstants = require('../constants/review_constants');
 const ErrorActions = require('./error_actions');
 
-const Review = React.createClass ({
+const ReviewActions = {
 
   fetchAllReviews: function (book_id) {
     ReviewApiUtil.fetchAllReviews(book_id, this.receiveAllReviews, ErrorActions.setErrors);
   },
 
-  createReview: function (formData, book_id) {
-    ReviewApiUtil.createReview(formDate, book_id, this.reviewReceived, ErrorActions.setErrors);
+  createReview: function (formData, close) {
+    ReviewApiUtil.createReview(formData, close, this.reviewReceived, ErrorActions.setErrors);
   },
 
   receiveAllReviews: function (reviews) {
@@ -26,6 +26,6 @@ const Review = React.createClass ({
       review: review
     });
   }
-});
+};
 
-module.exports = Review;
+module.exports = ReviewActions;

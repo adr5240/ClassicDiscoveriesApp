@@ -73,10 +73,6 @@ const AddBook = React.createClass({
     BookActions.createBook(formData, this.props.close);
   },
 
-  success: function () {
-    console.log("YAY!");
-  },
-
   render: function () {
 
     (function() {

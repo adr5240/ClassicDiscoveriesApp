@@ -2,7 +2,7 @@ const React = require('react');
 const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 const BookIndexItem = require('./book_index_item');
-
+const ReviewIndex = require('./reviews_index');
 
 const BookShow = React.createClass({
 
@@ -33,6 +33,7 @@ const BookShow = React.createClass({
     return (
       <div className='book-show-page'>
         <BookIndexItem className='book-show-item' book={this.state.book} />
+        <ReviewIndex bookId={this.state.id} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 const ReviewApiUtil = {
 
-  fetchAllReviews: function (book_id) {
+  fetchAllReviews: function (book_id, success, error) {
     $.ajax({
       url: `api/books/${book_id}/reviews`,
       method: 'GET',
@@ -13,15 +13,13 @@ const ReviewApiUtil = {
     });
   },
 
-  createReview: function (formData, book_id) {
+  createReview: function (formData, close, success, error) {
     $.ajax({
-      url: `api/books/${book_id}/reviews`,
+      url: `api/books/${formData.book_id}/reviews`,
       method: 'POST',
-      processData: false,
-      contentType: false,
-      data: formData,
+      data: { review: formData },
       success: function (resp) {
-        hashHistory.push(`/books/${book_id}/reviews`);
+        close();
         success(resp);
       },
       error: function (resp) {

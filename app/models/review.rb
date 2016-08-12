@@ -31,10 +31,5 @@ class Review < ActiveRecord::Base
     foreign_key: :book_id
   )
 
-  before_initialize :set_date_attr
-
-  def set_date_attr
-    self.date = DateTime.now
-  end
 
 end
