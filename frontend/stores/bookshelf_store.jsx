@@ -20,6 +20,17 @@ BookshelfStore.all = function () {
   return Object.assign({}, _bookshelves);
 };
 
+BookshelfStore.allForUser = function (user_id) {
+  let userShelfs = [];
+  for (let shelf in _bookshelves) {
+    if (_bookshelves[shelf].user_id === user_id) {
+      userShelfs.push(_bookshelves[shelf]);
+    }
+  }
+
+  return userShelfs;
+};
+
 BookshelfStore.find = function (id) {
   return Object.assign({}, _bookshelves[id]);
 };

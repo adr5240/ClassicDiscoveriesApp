@@ -26,7 +26,13 @@ const App = React.createClass({
 
   componentDidMount: function () {
     this.bookshelfListener = BookshelfStore.addListener(this._dropDown);
+    this.sessionListener = SessionsStore.addListener(this._update);
     BookshelfActions.fetchAllBookshelves(this.currentUser.user.id);
+    this.forceUpdate();
+  },
+
+  _update: function () {
+    this.forceUpdate();
   },
 
   _openDropDown: function () {
@@ -89,11 +95,10 @@ const App = React.createClass({
     this.bookshelves = [];
 
     if (this.state.dropDown) {
-      let user = SessionsStore.currentUser().user;
 
-      let shelfObj = BookshelfStore.all();
-      for (let shelf in shelfObj) {
-        this.bookshelves.push(shelfObj[shelf]);
+      let user = SessionsStore.currentUser().user;
+      if (user) {
+        this.bookshelves = BookshelfStore.allForUser(user.user.id);
       }
 
       let results;
