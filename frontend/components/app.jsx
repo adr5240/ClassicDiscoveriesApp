@@ -125,7 +125,7 @@ const App = React.createClass({
             <Link to='/authors'>Authors</Link>
           </li>
           <li className='bookshelf-selector' onMouseEnter={this._bookshelvesOn} >
-            Bookshelves
+            <Link to={`/users/${currentUser.user.id}/bookshelves/${this.bookshelves[0].id}`}>Bookshelves</Link>
           </li>
           <ul className={this.state.bookshelf} onMouseLeave={this._bookshelvesOff}>
             {results}
@@ -147,6 +147,12 @@ const App = React.createClass({
     hashHistory.push('/signup');
   },
 
+  guestLogin: function () {
+    let username = 'Guest';
+    let password = 'password';
+    SessionsActions.login({username: username, password: password});
+  },
+
   greeting: function () {
     if (SessionsStore.isUserLoggedIn()) {
       let currentUser = SessionsStore.currentUser().user;
@@ -162,6 +168,7 @@ const App = React.createClass({
           <div className='right-group'>
             <button className='sigup-button button' onClick={this.signup} >Signup</button>
             <button className='login-button button' onClick={this.login} >Login</button>
+            <button className='guest-button button' onClick={this.guestLogin}>Guest Login</button>
           </div>
         );
       }
@@ -197,7 +204,7 @@ const App = React.createClass({
     return (
       <div>
         <header className='navBar'>
-          <Link to='/' className='title'>BetterReads</Link>
+          <Link to='/' className='title'>ClassicDiscoveries</Link>
 
           <ul className='dropDown' onMouseEnter={this._openDropDown}
               onMouseLeave={this._closeDropDown}

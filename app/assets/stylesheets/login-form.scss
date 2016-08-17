@@ -40,17 +40,11 @@
   height: 40px;
   font-size: 12pt;
   background-color: wheat;
-  float: left;
   font-weight: bold;
 }
 
 .signin-form-container .submit-button {
-  margin-left: 50px;
-}
-
-.signin-form-container .guest-button {
-  border-radius: 5px;
-  margin-left: 10px;
+  margin: 10px 115px;
 }
 
 .signin-form-container .button:hover {

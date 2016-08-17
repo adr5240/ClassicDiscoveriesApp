@@ -66,12 +66,6 @@ const LoginForm = React.createClass({
     return this.props.location.pathname.slice(1);
   },
 
-  guestLogin: function () {
-    let username = 'Guest';
-    let password = 'password';
-    SessionsActions.login({username: username, password: password});
-  },
-
   render: function () {
     let form = this.formType();
     form = form.charAt(0).toUpperCase() + form.slice(1);
@@ -102,7 +96,6 @@ const LoginForm = React.createClass({
           <br></br>
           <input className='submit-button button' type="submit" value={form} />
         </form>
-        <button className='guest-button button' onClick={this.guestLogin}>Guest Login</button>
         <h5 className='signin-nav group'>Or feel free to {navLink}</h5>
       </div>
     );
