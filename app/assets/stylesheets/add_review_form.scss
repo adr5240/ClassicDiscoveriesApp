@@ -27,8 +27,9 @@
     background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
 }
 
-.ReactModal__Overlay button {
+.ReactModal__Overlay .review-close {
   float: left;
+  margin: 0;
 }
 
 .add-review-form textarea {

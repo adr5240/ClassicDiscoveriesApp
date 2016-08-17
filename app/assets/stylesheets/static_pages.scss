@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.ReactModal__Body--open button {
+  float: left;
+  clear: both;
+  margin-top: 20px;
+}
+
 .title {
   font-size: 20pt;
   font-weight: bold;

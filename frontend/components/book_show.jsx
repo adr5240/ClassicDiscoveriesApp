@@ -87,7 +87,7 @@ const BookShow = React.createClass({
               onAfterOpen={this._onModalOpen}
               style={ ReviewModalStyle }>
 
-              <button onClick={this._onModalClose}>Close</button>
+              <button className='review-close' onClick={this._onModalClose}>Close</button>
               <br/>
               <AddReview bookId={this.state.id} closeModal={this._onModalClose}/>
             </Modal>
