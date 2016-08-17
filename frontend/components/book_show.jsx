@@ -7,7 +7,7 @@ const SessionsStore = require('../stores/sessions_store');
 const hashHistory = require('react-router').hashHistory;
 
 const Modal = require('react-modal');
-const ModalStyle = require('../constants/modal_style');
+const ReviewModalStyle = require('../constants/review_modal_style');
 const Review = require('./review');
 
 const BookShow = React.createClass({
@@ -40,11 +40,11 @@ const BookShow = React.createClass({
   },
 
   _onModalOpen: function () {
-    ModalStyle.content.opacity = 100;
+    ReviewModalStyle.content.opacity = 100;
   },
 
   _onModalClose: function () {
-    ModalStyle.content.opacity = 0;
+    ReviewModalStyle.content.opacity = 0;
     this.setState({ modalOpen: false });
   },
 
@@ -85,7 +85,7 @@ const BookShow = React.createClass({
               isOpen={this.state.modalOpen}
               onRequestClose={this._onModalClose}
               onAfterOpen={this._onModalOpen}
-              style={ ModalStyle }>
+              style={ ReviewModalStyle }>
 
               <button onClick={this._onModalClose}>Close</button>
               <br/>

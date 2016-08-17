@@ -47,7 +47,7 @@ const AddReview = React.createClass({
 
     return(
       <form className='add-review-form' onSubmit={this._handleSubmit}>
-        Tell us what you thought!
+        <h1>Tell us what you thought!</h1>
         <br/>
         <textarea onChange={this.updateBody} value={this.state.body}>Your thoughts</textarea>
         <br/>
@@ -69,7 +69,7 @@ const AddReview = React.createClass({
               <label id='1' className="rating-star"></label>
         </span>
         <br/>
-        <input type="submit" value="Add Your Review!"/>
+        <input className='submit' type="submit" value="Add Your Review!"/>
 
         <br/>
         <h4>* indicates required field</h4>
