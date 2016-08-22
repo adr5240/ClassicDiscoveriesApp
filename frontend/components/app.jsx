@@ -9,14 +9,14 @@ const hashHistory = ReactRouter.hashHistory;
 const Link = ReactRouter.Link;
 
 const Modal = require('react-modal');
-const ModalStyle = require('../constants/modal_style');
+const ModalStyle = require('../constants/bookshelf_modal_style');
 
 
 const App = React.createClass({
 
   getInitialState: function () {
     this.currentUser = SessionsStore.currentUser().user;
-    return ({ dropDown: true,
+    return ({ dropDown: false,
               bookshelf: 'list-of-bookshelves',
               explore: 'explore',
               modalOpen: false,
@@ -99,7 +99,7 @@ const App = React.createClass({
       let results;
       let lastOption;
       let currentUser = self.currentUser;
-      
+
       if (user) {
         results = this.bookshelves.map( function (shelf) {
           return(
@@ -231,11 +231,13 @@ const App = React.createClass({
           style={ ModalStyle }>
 
           <form className='add-bookshelf-form' onSubmit={this._handleSubmit}>
-            Add A New Bookshelf
+            <h3>Add A New Bookshelf</h3>
             <br/>
             <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Bookshelf Title *
             <br/>
+            <br/>
             <input type="text" onChange={this.updateDescription}/> Bookshelf Description
+            <br/>
             <br/>
             <input type="submit" id="register" value="Add a Bookshelf!" disabled="disabled"/>
             <br/>

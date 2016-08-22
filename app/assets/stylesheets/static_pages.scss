@@ -87,3 +87,25 @@ body.modal-open {
   overflow: visible;
   height: 100%;
 }
+
+.add-bookshelf-form h3 {
+    font-weight: bold;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.add-bookshelf-form #register {
+    width: 160px;
+    height: 30px;
+    font-size: 10pt;
+    background-color: #ffd88f;
+    float: left;
+    margin-left: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+.add-bookshelf-form #register:disabled {
+    display: none;
+}
