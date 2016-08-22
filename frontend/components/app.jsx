@@ -16,7 +16,7 @@ const App = React.createClass({
 
   getInitialState: function () {
     this.currentUser = SessionsStore.currentUser().user;
-    return ({ dropDown: false,
+    return ({ dropDown: true,
               bookshelf: 'list-of-bookshelves',
               explore: 'explore',
               modalOpen: false,
@@ -97,6 +97,9 @@ const App = React.createClass({
       }
 
       let results;
+      let lastOption;
+      let currentUser = self.currentUser;
+      
       if (user) {
         results = this.bookshelves.map( function (shelf) {
           return(
@@ -110,10 +113,12 @@ const App = React.createClass({
             Add new bookshelf!
           </li>
         );
+        lastOption = <Link to={`/users/${currentUser.user.id}/bookshelves/${currentUser.bookshelves[0].id}`}>Bookshelves</Link>;
       } else {
         results = <li className='bookshelves'>
                     <Link to='/login'>You must be signed in to view bookshelves</Link>
                   </li>;
+        lastOption = <Link to="#">Bookshelves</Link>;
       }
 
       return(
@@ -125,7 +130,7 @@ const App = React.createClass({
             <Link to='/authors'>Authors</Link>
           </li>
           <li className='bookshelf-selector' onMouseEnter={this._bookshelvesOn} >
-            <Link to={`/users/${currentUser.user.id}/bookshelves/${this.bookshelves[0].id}`}>Bookshelves</Link>
+            {lastOption}
           </li>
           <ul className={this.state.bookshelf} onMouseLeave={this._bookshelvesOff}>
             {results}
@@ -235,7 +240,7 @@ const App = React.createClass({
             <input type="submit" id="register" value="Add a Bookshelf!" disabled="disabled"/>
             <br/>
           </form>
-          <button onClick={this._onModalClose}>Close</button>
+          <button onClick={this._onModalClose} className='closeButton'>Close</button>
         </Modal>
       </div>
     );

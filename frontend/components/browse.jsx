@@ -126,7 +126,7 @@ const Browse = React.createClass({
           </div>
 
           <br/>
-          <button onClick={this._onModalClose}>Close</button>
+          <button onClick={this._onModalClose} className='closeButton'>Close</button>
         </Modal>
       </div>
     );

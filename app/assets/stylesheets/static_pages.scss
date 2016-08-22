@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.ReactModal__Body--open button {
+.ReactModal__Body--open .closeButton {
   float: left;
   clear: both;
   margin-top: 20px;
