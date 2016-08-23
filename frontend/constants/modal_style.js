@@ -15,7 +15,7 @@ module.exports = {
     bottom: '100px',
     height: '600px',
     width: '800px',
-    backgroundColor: '#eee',
+    backgroundColor: 'wheat',
     border: '1px solid black',
     background: '#fff',
     borderRadius: '4px',
