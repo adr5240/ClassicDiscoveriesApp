@@ -3,7 +3,7 @@
 ClassicDiscoveries is an online literary library where users can find their next favorite book or rediscover an old classic. With inspiration from GoodReads, this single page web application improves the user's experience by eliminating whitespace and allowing for a more wide spread browse feature. Once a user finds a book that they love, they can add it to a number of different bookshelves in order to save them for later!
 
 [Live Link][live]
-[live]: http://www.classic-discoveries.com
+[live]: http://classic-discoveries.com
 
 ### Technical Details:
 
@@ -24,3 +24,4 @@ ClassicDiscoveries was build using Ruby on Rails for the back-end and React.js/F
 - [ ] Add book tags
 - [ ] Allow users to find/follow friends or fellow readers
 - [ ] Implement OmniAuth for ease of signup
+- [ ] Add books to AuthorShow page
