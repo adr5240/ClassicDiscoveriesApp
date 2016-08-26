@@ -91,20 +91,19 @@ const App = React.createClass({
 
     if (this.state.dropDown) {
 
-      let user = SessionsStore.currentUser().user;
-      if (user) {
-        this.bookshelves = BookshelfStore.allForUser(user.user.id);
+      let currentUser = SessionsStore.currentUser().user;
+      if (currentUser) {
+        this.bookshelves = BookshelfStore.allForUser(currentUser.user.id);
       }
 
       let results;
       let lastOption;
-      let currentUser = self.currentUser;
 
-      if (user) {
+      if (currentUser) {
         results = this.bookshelves.map( function (shelf) {
           return(
             <li className='bookshelves' key={shelf.id}>
-              <Link to={`/users/${user.user.id}/bookshelves/${shelf.id}`}>{shelf.title}</Link>
+              <Link to={`/users/${currentUser.user.id}/bookshelves/${shelf.id}`}>{shelf.title}</Link>
             </li>
           );
         });
