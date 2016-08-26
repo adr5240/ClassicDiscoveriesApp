@@ -12,7 +12,7 @@ ClassicDiscoveries was build using Ruby on Rails for the back-end and React.js/F
 
 ### Login Page:
 
-[![welcome](./docs/images/welcome.png)](http://classic-discoveries.com/)
+[![welcome](./docs/images/welcome.png)](http://classic-discoveries.com/login)
 
 ### Browse:
 
