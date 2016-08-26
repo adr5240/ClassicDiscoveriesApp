@@ -60,6 +60,7 @@ const Browse = React.createClass({
   },
 
   shuffleBooks: function () {
+      debugger
     let self = this;
     let bookArray = Object.keys(this.state.books).map(function (key) {
       let book = self.state.books[key];
