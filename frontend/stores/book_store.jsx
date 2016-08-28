@@ -8,12 +8,32 @@ const BookStore = new Store(AppDispatcher);
 
 let _book = {};
 let _books = {};
+let _shuffledBooks = {};
 
 const resetAllBooks = function (books) {
   _books = {};
   for (let key in books) {
     _books[key] = books[key];
   }
+  shuffleBooks();
+};
+
+const shuffleBooks = function () {
+    _shuffledBooks = Object.keys(_books).map(function (key) {
+      let book = _books[key];
+      return book;
+    });
+
+    var m = _shuffledBooks.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+      // And swap it with the current element.
+      t = _shuffledBooks[m];
+      _shuffledBooks[m] = _shuffledBooks[i];
+      _shuffledBooks[i] = t;
+    }
 };
 
 const resetBook = function (book) {
@@ -33,6 +53,10 @@ BookStore.currentBook = function () {
 
 BookStore.all = function () {
   return Object.assign({}, _books);
+};
+
+BookStore.shuffled = function () {
+    return Object.assign({}, _shuffledBooks);
 };
 
 BookStore.find = function (id) {

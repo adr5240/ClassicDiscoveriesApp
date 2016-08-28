@@ -10,7 +10,7 @@ const ModalStyle = require('../constants/modal_style');
 const Browse = React.createClass({
 
   getInitialState: function () {
-    return { books: {}, modalOpen: false, modalObject: "" };
+    return { books: {}, shuffledBooks: {}, modalOpen: false, modalObject: "" };
   },
 
   _handleClick: function (e) {
@@ -19,8 +19,7 @@ const Browse = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({ books: BookStore.all() });
-    this.shuffleBooks();
+    this.setState({ books: BookStore.all(), shuffledBooks: BookStore.shuffled() });
   },
 
   _handleModal: function (e) {
@@ -59,35 +58,12 @@ const Browse = React.createClass({
     this.bookListener.remove();
   },
 
-  shuffleBooks: function () {
-      debugger
-    let self = this;
-    let bookArray = Object.keys(this.state.books).map(function (key) {
-      let book = self.state.books[key];
-      return book;
-    });
-
-    var m = bookArray.length, t, i;
-    // While there remain elements to shuffle…
-    while (m) {
-      // Pick a remaining element…
-      i = Math.floor(Math.random() * m--);
-      // And swap it with the current element.
-      t = bookArray[m];
-      bookArray[m] = bookArray[i];
-      bookArray[i] = t;
-    }
-
-    this.shuffledBooks = bookArray;
-    this.forceUpdate();
-    return bookArray;
-  },
-
   render: function () {
 
     let results = <h1>Loading</h1>;
-    if (this.shuffledBooks) {
-      results = this.shuffledBooks.map((book) => {
+    if (Object.keys(this.state.shuffledBooks).length > 0) {
+      results = Object.keys(this.state.shuffledBooks).map((key) => {
+        let book = this.state.shuffledBooks[key];
         return(
           <BrowseItem key={book.id} book={book} />
         );
