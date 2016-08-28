@@ -56,7 +56,6 @@ const Browse = React.createClass({
 
   componentWillUnmount: function () {
     this.setState({ shuffledBooks: {} });
-    BookStore.clearShuffledBooks();
     this.bookListener.remove();
   },
 
