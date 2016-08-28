@@ -20,6 +20,11 @@ const resetAllBooks = function (books) {
   }
 };
 
+
+const clearShuffledBooks = function () {
+    _shuffledBooks = {};
+};
+
 const shuffleBooks = function () {
     _shuffledBooks = Object.keys(_books).map(function (key) {
       let book = _books[key];
