@@ -15,7 +15,9 @@ const resetAllBooks = function (books) {
   for (let key in books) {
     _books[key] = books[key];
   }
-  shuffleBooks();
+  if (Object.keys(_shuffledBooks).length <= 0 ) {
+      shuffleBooks();
+  }
 };
 
 const shuffleBooks = function () {
