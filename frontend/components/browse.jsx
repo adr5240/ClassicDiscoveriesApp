@@ -19,6 +19,7 @@ const Browse = React.createClass({
   },
 
   _onChange: function () {
+      debugger
     this.setState({ books: BookStore.all(), shuffledBooks: BookStore.shuffled() });
   },
 
@@ -50,11 +51,13 @@ const Browse = React.createClass({
   },
 
   componentDidMount: function () {
+
     this.bookListener = BookStore.addListener(this._onChange);
     BookActions.fetchAllBooks();
   },
 
   componentWillUnmount: function () {
+    this.setState({ shuffledBooks: {} });
     this.bookListener.remove();
   },
 
