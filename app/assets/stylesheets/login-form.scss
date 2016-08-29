@@ -44,7 +44,13 @@
 }
 
 .signin-form-container .submit-button {
-  margin: 10px 115px;
+  margin: 15px 45px 15px 0;
+  float: right;
+}
+
+.signin-form-container .guest-button {
+    float: left;
+    margin: 15px 0 0 45px;
 }
 
 .signin-form-container .button:hover {

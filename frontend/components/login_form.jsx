@@ -62,6 +62,12 @@ const LoginForm = React.createClass({
     this.setState({ password: e.target.value});
   },
 
+  guestLogin: function () {
+    let username = 'Guest';
+    let password = 'password';
+    SessionsActions.login({username: username, password: password});
+  },
+
   formType: function () {
     return this.props.location.pathname.slice(1);
   },
@@ -95,6 +101,7 @@ const LoginForm = React.createClass({
                  placeholder='Password' />
           <br></br>
           <input className='submit-button button' type="submit" value={form} />
+          <button className='guest-button button' onClick={this.guestLogin}>Guest Login</button>
         </form>
         <h5 className='signin-nav group'>Or feel free to {navLink}</h5>
       </div>
