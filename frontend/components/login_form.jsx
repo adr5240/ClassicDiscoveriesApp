@@ -62,7 +62,8 @@ const LoginForm = React.createClass({
     this.setState({ password: e.target.value});
   },
 
-  guestLogin: function () {
+  guestLogin: function (e) {
+    e.preventDefault();
     let username = 'Guest';
     let password = 'password';
     SessionsActions.login({username: username, password: password});

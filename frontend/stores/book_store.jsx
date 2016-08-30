@@ -20,7 +20,6 @@ const resetAllBooks = function (books) {
   }
 };
 
-
 const clearShuffledBooks = function () {
     _shuffledBooks = {};
 };

@@ -26,7 +26,7 @@ const App = React.createClass({
 
   componentDidMount: function () {
     this.bookshelfListener = BookshelfStore.addListener(this._dropDown);
-    this.sessionListener = SessionsStore.addListener(this._dropDown);
+    this.sessionListener = SessionsStore.addListener(this.forceUpdate.bind(this));
     BookshelfActions.fetchAllBookshelves();
   },
 
@@ -151,7 +151,8 @@ const App = React.createClass({
     hashHistory.push('/signup');
   },
 
-  guestLogin: function () {
+  guestLogin: function (e) {
+    e.preventDefault();
     let username = 'Guest';
     let password = 'password';
     SessionsActions.login({username: username, password: password});
@@ -180,9 +181,7 @@ const App = React.createClass({
   },
 
   handleLogout: function () {
-    hashHistory.push('/login');
-    let currentUser = SessionsStore.currentUser().user;
-    SessionsActions.logout(currentUser.user.id);
+    SessionsActions.logout();
   },
 
   render () {
