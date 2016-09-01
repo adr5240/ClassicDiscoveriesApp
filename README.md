@@ -33,7 +33,7 @@ ClassicDiscoveries was build using Ruby on Rails for the back-end and React.js/F
 The following is how the greeting message is selected (top right of navBar). If there is a current user, the welcome message with their username
 pops up with a logout button. If there is no current user, then the guest login, login, and logout buttons will appear on every page except the sign in page. There is no need to redirect to the same page.
 
-[welcome](./docs/images/Greeting.png)
+![welcome](./docs/images/Greeting.png)
 
 ### Dropdown Menu with User's Bookshelves
 
@@ -41,7 +41,7 @@ The Browse dropdown menu has a Bookshelves option. This is toggled between a lis
 but how can you make sure that the current user has all of their bookshelves listed and not just the default ones? I made a call to the bookshelf store
 to collect all of the user's bookshelves and listed them with a link in the dropdown.
 
-[welcome](./docs/images/Bookshelf_DropDown.png)
+![welcome](./docs/images/Bookshelf_DropDown.png)
 
 
 ### Creating a new Bookshelf
@@ -49,4 +49,4 @@ to collect all of the user's bookshelves and listed them with a link in the drop
 This method uses a FormData object to collect and send the information given to it. This helps keep all of the information grouped together. This style
 is also used when creating a new book.
 
-[welcome](./docs/images/Bookshelf_HandleSubmit.png)
+![welcome](./docs/images/Bookshelf_HandleSubmit.png)
