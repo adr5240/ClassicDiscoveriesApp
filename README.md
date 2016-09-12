@@ -7,7 +7,7 @@ ClassicDiscoveries is an online literary library where users can find their next
 
 ## Technical Details:
 
-ClassicDiscoveries was build using Ruby on Rails for the back-end and React.js/Flux, JavaScript, HTML5, and CSS3 for the front end. This app runs very smoothly by reusing several components throughout the site and only rendering sections that change. Massive loads of data to/from the server are avoided as well by only requesting information that is needed where the user currently is navigating.
+ClassicDiscoveries was build using Ruby on Rails for the back-end and React.js/Flux, JavaScript, HTML5, and CSS3 for the front end. This is a single page app that takes care of re-rendering quickly and efficiently with the use of React/Flux. ClassicDiscoveries uses very DRY code by reusing a handful of components across the entire app. Massive loads of data to/from the server are avoided as well by only requesting information that is needed where the user currently is navigating.
 
 
 ## Login Page:
