@@ -3,12 +3,41 @@
 # Users
 User.destroy_all
 guest = User.create(username: 'Guest', password: 'password');
+u1 = User.create(username: 'Billy', password: 'password');
+u2 = User.create(username: 'Sally', password: 'password');
+u3 = User.create(username: 'Sarah', password: 'password');
+u4 = User.create(username: 'John', password: 'password');
+u5 = User.create(username: 'Michelle', password: 'password');
 
 s1 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: guest.id)
 s2 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: guest.id)
 s3 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: guest.id)
 s4 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: guest.id)
 
+# s5 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u1.id)
+# s6 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u1.id)
+# s7 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u1.id)
+# s8 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u1.id)
+#
+# s9 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u2.id)
+# s10 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u2.id)
+# s11 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u2.id)
+# s12 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u2.id)
+#
+# s13 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u3.id)
+# s14 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u3.id)
+# s15 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u3.id)
+# s16 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u3.id)
+#
+# s17 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u4.id)
+# s18 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u4.id)
+# s19 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u4.id)
+# s20 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u4.id)
+#
+# s21 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u5.id)
+# s22 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u5.id)
+# s23 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u5.id)
+# s24 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u5.id)
 
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
