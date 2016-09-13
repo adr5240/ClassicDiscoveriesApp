@@ -1,5 +1,4 @@
 
-
 # Users
 User.destroy_all
 guest = User.create(username: 'Guest', password: 'password');
@@ -14,30 +13,30 @@ s2 = Bookshelf.create(title: "Read", description: "All the books you have read."
 s3 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: guest.id)
 s4 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: guest.id)
 
-# s5 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u1.id)
-# s6 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u1.id)
-# s7 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u1.id)
-# s8 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u1.id)
-#
-# s9 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u2.id)
-# s10 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u2.id)
-# s11 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u2.id)
-# s12 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u2.id)
-#
-# s13 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u3.id)
-# s14 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u3.id)
-# s15 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u3.id)
-# s16 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u3.id)
-#
-# s17 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u4.id)
-# s18 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u4.id)
-# s19 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u4.id)
-# s20 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u4.id)
-#
-# s21 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u5.id)
-# s22 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u5.id)
-# s23 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u5.id)
-# s24 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u5.id)
+s5 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u1.id)
+s6 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u1.id)
+s7 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u1.id)
+s8 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u1.id)
+
+s9 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u2.id)
+s10 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u2.id)
+s11 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u2.id)
+s12 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u2.id)
+
+s13 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u3.id)
+s14 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u3.id)
+s15 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u3.id)
+s16 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u3.id)
+
+s17 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u4.id)
+s18 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u4.id)
+s19 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u4.id)
+s20 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u4.id)
+
+s21 = Bookshelf.create(title: "All", description: "A collection of all your books!", user_id: u5.id)
+s22 = Bookshelf.create(title: "Read", description: "All the books you have read.", user_id: u5.id)
+s23 = Bookshelf.create(title: "Want to Read", description: "All the books you would like to read.", user_id: u5.id)
+s24 = Bookshelf.create(title: "Currently Reading", description: "Books you are currently enjoying", user_id: u5.id)
 
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -820,8 +819,89 @@ b105 = Book.create(title: "One Fish, Two Fish, Red Fish, Blue Fish",
 
 # Adding Books to Shelves
 
+s1.book_ids = [b1.id, b6.id, b8.id, b11.id, b20.id, b46.id, b50.id, b58.id, b88.id, b90.id, b95.id]
 s2.book_ids = [b1.id, b6.id, b8.id, b50.id]
 s3.book_ids = [b20.id, b46.id, b88.id, b90.id, b95.id]
 s4.book_ids = [b11.id, b46.id, b58.id]
 
-s1.book_ids = [b1.id, b6.id, b8.id, b11.id, b20.id, b46.id, b50.id, b58.id, b88.id, b90.id, b95.id]
+REVIEWS = [
+    { body: "This book was amazing!", rating: 5 },
+    { body: "I really like the beginning part and the ending. The middle was okay", rating: 4 },
+    { body: "I love book!", rating: 5 },
+    { body: "It was really okay", rating: 3 },
+    { body: "I think they could have done a better job with the main character.", rating: 4 },
+    { body: "Random review", rating: 3 },
+    { body: "I like to imagine that the ending took place on a bridge in the rain", rating: 4 },
+    { body: "I hated everything about this", rating: 1 },
+    { body: "The author clearly doesn't know how to write.", rating: 2 },
+    { body: "My friend recommended this to me.. I regret my decision", rating: 1 },
+    { body: "WIILLSSOOONNNN!!!", rating: 4 },
+    { body: "Harry Potter was better", rating: 4 },
+    { body: "This book is very mediocre", rating: 2 },
+    { body: "I think the movie was better", rating: 3 },
+    { body: "The book was so much better than the movie!", rating: 5 },
+    { body: "Why can't my life be more like this??", rating: 5 },
+    { body: "I could really see myself as the main character's best friend in RL", rating: 4 },
+    { body: "What if the book was actually about a hippo?", rating: 3 },
+    { body: "They should rewrite this with more humor", rating: 2 },
+    { body: "This book was life changing", rating: 5 },
+    { body: "This book was not life changing", rating: 1 },
+    { body: "I belive that the characters felt too real. I thought I was reading a fictional story, but it felt like an autobiography of a lion tamer.", rating: 2 },
+    { body: "I don't believe that the events in the book every truly happened...", rating: 2 },
+    { body: "LOOOOVVVVEEEEEDDD IT!", rating: 5 },
+    { body: "Bear with me here... but what if the bad guy was actually the good guy all along? Mind = Blown", rating: 4 },
+    { body: "This was absurd", rating: 2 },
+    { body: "It was juuuusstt right", rating: 3 },
+    { body: "I give this 3 stars", rating: 3 },
+    { body: "I filled out this review just to feel like I belong", rating: 4 },
+    { body: "I found this book on the side of the road. Best.Discovery.Ever.", rating: 5 }
+]
+
+def rand_in_range(from, to)
+  rand * (to - from) + from
+end
+
+def rand_time(from, to=Time.now)
+    Time.at(rand_in_range(from.to_f, to.to_f))
+end
+
+first = b1.id
+last = b105.id
+
+(first..last).each do |i|
+
+    review = REVIEWS.sample
+    Review.create(rating: review[:rating],
+                  body: review[:body],
+                  book_id: i,
+                  user_id: u1.id,
+                  date: rand_time(10.days.ago))
+
+    review = REVIEWS.sample
+    Review.create(rating: review[:rating],
+                  body: review[:body],
+                  book_id: i,
+                  user_id: u2.id,
+                  date: rand_time(10.days.ago))
+
+    review = REVIEWS.sample
+    Review.create(rating: review[:rating],
+                  body: review[:body],
+                  book_id: i,
+                  user_id: u3.id,
+                  date: rand_time(10.days.ago))
+
+    review = REVIEWS.sample
+    Review.create(rating: review[:rating],
+                  body: review[:body],
+                  book_id: i,
+                  user_id: u4.id,
+                  date: rand_time(10.days.ago))
+
+    review = REVIEWS.sample
+    Review.create(rating: review[:rating],
+                  body: review[:body],
+                  book_id: i,
+                  user_id: u5.id,
+                  date: rand_time(10.days.ago))
+end
