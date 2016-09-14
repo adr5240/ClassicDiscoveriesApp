@@ -34,7 +34,6 @@ gem 'aws-sdk', '>= 2.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
