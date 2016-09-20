@@ -10,8 +10,6 @@ const AuthorShow = React.createClass({
     let author_id = this.props.params.author_id;
     let author = AuthorActions.getAuthor(author_id) || {};
 
-    // Create this method
-    // BookActions.getAuthoredBooks(author_id);
     return ({ author: author, id: author_id, books: {} });
   },
 
@@ -47,7 +45,10 @@ const AuthorShow = React.createClass({
     return (
       <div className='author-show-page'>
         <AuthorIndexItem className='author-show-item' author={this.state.author} />
-        {results}
+        <div className='other-authored-books'>
+            <h1>Also by this author:</h1>
+            {results}
+        </div>
       </div>
     );
   }
