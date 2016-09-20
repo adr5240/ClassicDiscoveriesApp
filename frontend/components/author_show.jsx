@@ -46,7 +46,7 @@ const AuthorShow = React.createClass({
       <div className='author-show-page'>
         <AuthorIndexItem className='author-show-item' author={this.state.author} />
         <div className='other-authored-books'>
-            <h1>Also by this author:</h1>
+            <h1>Books by this author:</h1>
             {results}
         </div>
       </div>
