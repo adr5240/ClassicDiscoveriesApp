@@ -206,42 +206,44 @@ const App = React.createClass({
 
     return (
       <div>
-        <header className='navBar'>
-          <Link to='/' className='title'>ClassicDiscoveries</Link>
+        <div className='content'>
+            <header className='navBar'>
+              <Link to='/' className='title'>ClassicDiscoveries</Link>
 
-          <ul className='dropDown' onMouseEnter={this._openDropDown}
-              onMouseLeave={this._closeDropDown}
-              onClick={this._closeDropDown}>
+              <ul className='dropDown' onMouseEnter={this._openDropDown}
+                  onMouseLeave={this._closeDropDown}
+                  onClick={this._closeDropDown}>
 
-            <h3 className={this.state.explore}>Explore</h3>
-            {this._dropDown()}
-          </ul>
+                <h3 className={this.state.explore}>Explore</h3>
+                {this._dropDown()}
+              </ul>
 
-          <Search />
-          {this.greeting()}
-        </header>
-        {this.props.children}
+              <Search />
+              {this.greeting()}
+            </header>
+            {this.props.children}
 
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this._onModalClose}
-          onAfterOpen={this._onModalOpen}
-          style={ ModalStyle }>
+            <Modal
+              isOpen={this.state.modalOpen}
+              onRequestClose={this._onModalClose}
+              onAfterOpen={this._onModalOpen}
+              style={ ModalStyle }>
 
-          <form className='add-bookshelf-form' onSubmit={this._handleSubmit}>
-            <h3>Add A New Bookshelf</h3>
-            <br/>
-            <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Bookshelf Title *
-            <br/>
-            <br/>
-            <input type="text" onChange={this.updateDescription}/> Bookshelf Description
-            <br/>
-            <br/>
-            <input type="submit" id="register" value="Add a Bookshelf!" disabled="disabled"/>
-            <br/>
-          </form>
-          <button onClick={this._onModalClose} className='closeButton'>Close</button>
-        </Modal>
+              <form className='add-bookshelf-form' onSubmit={this._handleSubmit}>
+                <h3>Add A New Bookshelf</h3>
+                <br/>
+                <input id='required' type="text" onChange={this.updateTitle} value={this.state.title}/> Bookshelf Title *
+                <br/>
+                <br/>
+                <input type="text" onChange={this.updateDescription}/> Bookshelf Description
+                <br/>
+                <br/>
+                <input type="submit" id="register" value="Add a Bookshelf!" disabled="disabled"/>
+                <br/>
+              </form>
+              <button onClick={this._onModalClose} className='closeButton'>Close</button>
+            </Modal>
+        </div>
       </div>
     );
   }
