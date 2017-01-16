@@ -19,6 +19,8 @@ The following is how the greeting message is selected (top right of navBar). If 
 pops up with a logout button. If there is no current user, then the guest login, login, and logout buttons will appear on every page except the sign in page. There is no need to redirect to the same page.
 
 ![welcome](./docs/images/GreetingPage.png)
+
+#### Sample Code
 ![welcome](./docs/images/Greeting.png)
 
 
@@ -29,6 +31,8 @@ but how can you make sure that the current user has all of their bookshelves lis
 to collect all of the user's bookshelves and listed them with a link in the dropdown.
 
 ![welcome](./docs/images/Bookshelf_DropDownPage.png)
+
+#### Sample Code
 ![welcome](./docs/images/Bookshelf_DropDown.png)
 
 
@@ -38,6 +42,8 @@ This method uses a FormData object to collect and send the information given to 
 is also used when creating a new book.
 
 ![welcome](./docs/images/Bookshelf_HandleSubmitPage.png)
+
+#### Sample Code
 ![welcome](./docs/images/Bookshelf_HandleSubmit.png)
 
 
