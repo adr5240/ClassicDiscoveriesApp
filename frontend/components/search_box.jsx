@@ -34,23 +34,19 @@ const Search = React.createClass({
     this.authorListener.remove();
   },
 
+  _addBook: function (book) {
+      BookActions.createBook(book);
+  },
+
+  _clearSearchBox: function () {
+      this.searchItems = [];
+      this.setState({ inputVal: '' });
+  },
+
   _onChange: function () {
     this.books = BookStore.all();
     this.authors = AuthorStore.all();
     this.searchArray = this._resetSearchArray();
-  },
-
-  _resetSearchArray: function () {
-    let searchArray = [];
-
-    for (let book in this.books) {
-      searchArray.push(this.books[book]);
-    }
-
-    for (let author in this.authors) {
-      searchArray.push(this.authors[author]);
-    }
-    return searchArray;
   },
 
   _handleInput: function (e) {
@@ -60,6 +56,39 @@ const Search = React.createClass({
     } else {
       this.searchItems = [];
     }
+  },
+
+  _handleModal: function () {
+      this._clearSearchBox();
+      if(SessionsStore.isUserLoggedIn()) {
+          this.setState({ modalOpen: true });
+      } else {
+          this.forceUpdate();
+          hashHistory.push('/login');
+          setTimeout(() => alert("You must be logged in to add books!"), 200);
+      }
+  },
+
+  _onModalClose: function () {
+      ModalStyle.content.opacity = 0;
+      this.setState({ modalOpen: false });
+  },
+
+  _onModalOpen: function () {
+      ModalStyle.content.opacity = 100;
+  },
+
+  _resetSearchArray: function () {
+      let searchArray = [];
+
+      for (let book in this.books) {
+          searchArray.push(this.books[book]);
+      }
+
+      for (let author in this.authors) {
+          searchArray.push(this.authors[author]);
+      }
+      return searchArray;
   },
 
   _selectItem: function (input) {
@@ -74,35 +103,6 @@ const Search = React.createClass({
         }
       }
     });
-  },
-
-  _clearSearchBox: function () {
-    this.searchItems = [];
-    this.setState({ inputVal: '' });
-  },
-
-  _addBook: function (book) {
-    BookActions.createBook(book);
-  },
-
-  _onModalOpen: function () {
-    ModalStyle.content.opacity = 100;
-  },
-
-  _onModalClose: function () {
-    ModalStyle.content.opacity = 0;
-    this.setState({ modalOpen: false });
-  },
-
-  _handleModal: function () {
-    this._clearSearchBox();
-    if(SessionsStore.isUserLoggedIn()) {
-      this.setState({ modalOpen: true });
-    } else {
-      this.forceUpdate();
-      hashHistory.push('/login');
-      setTimeout(() => alert("You must be logged in to add books!"), 200);
-    }
   },
 
   render: function () {
