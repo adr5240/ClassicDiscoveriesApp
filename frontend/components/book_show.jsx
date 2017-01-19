@@ -12,90 +12,91 @@ const Review = require('./review');
 
 const BookShow = React.createClass({
 
-  getInitialState: function () {
-    let book_id = this.props.params.book_id;
-    return ({ book: {}, id: book_id, reviews: [], modalOpen: false});
-  },
+    getInitialState: function () {
+        let book_id = this.props.params.book_id;
+        return ({ book: {}, id: book_id, reviews: [], modalOpen: false});
+    },
 
-  _onChange: function () {
-    let currentBook = BookStore.currentBook();
-    this.setState({ book: currentBook, id: currentBook.id, reviews: currentBook.reviews });
-  },
 
-  componentDidMount: function () {
-    this.bookListener = BookStore.addListener(this._onChange);
-    BookActions.getBook(this.state.id);
-  },
+    componentDidMount: function () {
+        this.bookListener = BookStore.addListener(this._onChange);
+        BookActions.getBook(this.state.id);
+    },
 
-  componentWillReceiveProps: function (newProps) {
-    BookActions.getBook(newProps.params.book_id);
-  },
+    componentWillReceiveProps: function (newProps) {
+        BookActions.getBook(newProps.params.book_id);
+    },
 
-  componentWillUnmount: function () {
-    this.bookListener.remove();
-  },
+    componentWillUnmount: function () {
+        this.bookListener.remove();
+    },
 
-  modalOpen: function () {
-    this.setState({ modalOpen: true });
-  },
+    _login: function () {
+        hashHistory.push('/login');
+    },
 
-  _onModalOpen: function () {
-    ReviewModalStyle.content.opacity = 100;
-  },
+    modalOpen: function () {
+        this.setState({ modalOpen: true });
+    },
 
-  _onModalClose: function () {
-    ReviewModalStyle.content.opacity = 0;
-    this.setState({ modalOpen: false });
-  },
+    _onChange: function () {
+        let currentBook = BookStore.currentBook();
+        this.setState({ book: currentBook, id: currentBook.id, reviews: currentBook.reviews });
+    },
 
-  _login: function () {
-    hashHistory.push('/login');
-  },
+    _onModalClose: function () {
+        ReviewModalStyle.content.opacity = 0;
+        this.setState({ modalOpen: false });
+    },
 
-  render: function () {
+    _onModalOpen: function () {
+        ReviewModalStyle.content.opacity = 100;
+    },
 
-    const reviews = this.state.reviews || [];
-    let reviewText = "no reviews yet";
-    if(reviews.length > 0) {
-      reviewText = reviews.map( (review) => {
-        return <Review key={review.id} {...review} />;
-      });
-      reviewText.reverse();
+    render: function () {
+
+        const reviews = this.state.reviews || [];
+        let reviewText = "no reviews yet";
+        if(reviews.length > 0) {
+            reviewText = reviews.map( (review) => {
+                return <Review key = {review.id} {...review} />;
+            });
+            reviewText.reverse();
+        }
+        let button;
+        if (SessionsStore.currentUser().user) {
+            button = (<button onClick={ this.modalOpen }>Tell us what you thought!</button>);
+        } else {
+            button = (<button onClick={ this._login } >Please SignIn to leave a review</button>);
+        }
+
+        return (
+            <div className='book-show-page'>
+                <BookIndexItem className='book-show-item' book={this.state.book} />
+                <br />
+                <div className='reviews'>
+                    <div className='review-list'>
+                        <h1 className='review-title'>Reviews</h1>
+                        <br />
+                        { button }
+                        <br />
+
+                        { reviewText }
+                        <Modal
+                            isOpen={this.state.modalOpen}
+                            onRequestClose={this._onModalClose}
+                            onAfterOpen={this._onModalOpen}
+                            style={ ReviewModalStyle }>
+
+                            <button className='review-close' onClick={this._onModalClose}>Close</button>
+                            <br/>
+                            <AddReview bookId={this.state.id} closeModal={this._onModalClose}/>
+                        </Modal>
+                    </div>
+                </div>
+            </div>
+        );
     }
-    let button;
-    if (SessionsStore.currentUser().user) {
-      button = (<button onClick={ this.modalOpen }>Tell us what you thought!</button>);
-    } else {
-      button = (<button onClick={ this._login } >Please SignIn to leave a review</button>);
-    }
-
-    return (
-      <div className='book-show-page'>
-        <BookIndexItem className='book-show-item' book={this.state.book} />
-        <br />
-        <div className='reviews'>
-          <div className='review-list'>
-            <h1 className='review-title'>Reviews</h1>
-            <br />
-            { button }
-            <br />
-
-            { reviewText }
-            <Modal
-              isOpen={this.state.modalOpen}
-              onRequestClose={this._onModalClose}
-              onAfterOpen={this._onModalOpen}
-              style={ ReviewModalStyle }>
-
-              <button className='review-close' onClick={this._onModalClose}>Close</button>
-              <br/>
-              <AddReview bookId={this.state.id} closeModal={this._onModalClose}/>
-            </Modal>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
 });
 
