@@ -6,52 +6,52 @@ const BrowseItem = require('./browse_item');
 
 const AuthorShow = React.createClass({
 
-  getInitialState: function () {
-    let author_id = this.props.params.author_id;
-    let author = AuthorActions.getAuthor(author_id) || {};
+    getInitialState: function () {
+        let author_id = this.props.params.author_id;
+        let author = AuthorActions.getAuthor(author_id) || {};
 
-    return ({ author: author, id: author_id, books: {} });
-  },
+        return ({ author: author, id: author_id, books: {} });
+    },
 
-  _onChange: function () {
-    let currentAuthor = AuthorStore.currentAuthor();
-    this.setState({ author: currentAuthor, id: currentAuthor.id, books: currentAuthor.books });
-  },
+    componentDidMount: function () {
+        this.authorListener = AuthorStore.addListener(this._onChange);
+        AuthorActions.getAuthor(this.state.id);
+    },
 
-  componentDidMount: function () {
-    this.authorListener = AuthorStore.addListener(this._onChange);
-    AuthorActions.getAuthor(this.state.id);
-  },
+    componentWillReceiveProps: function (newProps) {
+        AuthorActions.getAuthor(newProps.params.author_id);
+    },
 
-  componentWillReceiveProps: function (newProps) {
-    AuthorActions.getAuthor(newProps.params.author_id);
-  },
+    componentWillUnmount: function () {
+        this.authorListener.remove();
+    },
 
-  componentWillUnmount: function () {
-    this.authorListener.remove();
-  },
+    _onChange: function () {
+        let currentAuthor = AuthorStore.currentAuthor();
+        this.setState({ author: currentAuthor, id: currentAuthor.id, books: currentAuthor.books });
+    },
 
-  render: function () {
-      let results = <h1>Loading</h1>;
-      if (this.state.author.books) {
-        results = Object.keys(this.state.author.books).map((key) => {
-          let book = this.state.author.books[key];
-          return(
-            <BrowseItem key={book.id} book={book} />
-          );
-        });
-      }
+    render: function () {
+        let results = <h1>Loading</h1>;
+        if (this.state.author.books) {
+            results = Object.keys(this.state.author.books).map((key) => {
+                let book = this.state.author.books[key];
+                return(
+                    <BrowseItem key={book.id} book={book} />
+                );
+            });
+        }
 
-    return (
-      <div className='author-show-page'>
-        <AuthorIndexItem className='author-show-item' author={this.state.author} />
-        <div className='other-authored-books'>
-            <h1>Books by this author:</h1>
-            {results}
-        </div>
-      </div>
-    );
-  }
+        return (
+            <div className='author-show-page'>
+                <AuthorIndexItem className='author-show-item' author={this.state.author} />
+                <div className='other-authored-books'>
+                    <h1>Books by this author:</h1>
+                    {results}
+                </div>
+            </div>
+        );
+    }
 
 });
 
