@@ -9,106 +9,106 @@ const ModalStyle = require('../constants/modal_style');
 
 const Browse = React.createClass({
 
-  getInitialState: function () {
-    return { books: {}, shuffledBooks: {}, modalOpen: false, modalObject: "" };
-  },
+    getInitialState: function () {
+        return { books: {}, shuffledBooks: {}, modalOpen: false, modalObject: "" };
+    },
 
-  _handleClick: function (e) {
-    e.preventDefault();
-    hashHistory.push(`/books/${this.props.book.id}`);
-  },
+    componentDidMount: function () {
+        this.bookListener = BookStore.addListener(this._onChange);
+        BookActions.fetchAllBooks();
+    },
 
-  _onChange: function () {
-    this.setState({ books: BookStore.all(), shuffledBooks: BookStore.shuffled() });
-  },
+    componentWillUnmount: function () {
+        this.setState({ shuffledBooks: {} });
+        this.bookListener.remove();
+    },
 
-  _handleModal: function (e) {
-    e.preventDefault();
-    let self = this;
-    var timer;
-    var delay = 750;
+    _handleClick: function (e) {
+        e.preventDefault();
+        hashHistory.push(`/books/${this.props.book.id}`);
+    },
 
-    this.currentBookId = e.target.getAttribute('data-book-id');
-    this.setState({ modalObject: e.target });
-    $(e.target).hover(function() {
-      timer = setTimeout(function() {
-        self.setState({ modalOpen: true });
-      }, delay);
-    }, function() {
-      clearTimeout(timer);
-    });
-  },
+    _handleModal: function (e) {
+        e.preventDefault();
+        let self = this;
+        var timer;
+        var delay = 750;
 
-  _onModalOpen: function () {
-    ModalStyle.content.opacity = 100;
-  },
+        this.currentBookId = e.target.getAttribute('data-book-id');
+        this.setState({ modalObject: e.target });
+        $(e.target).hover(function() {
+            timer = setTimeout(function() {
+                self.setState({ modalOpen: true });
+            }, delay);
+        }, function() {
+            clearTimeout(timer);
+        });
+    },
 
-  _onModalClose: function () {
-    this.currentBookId = null;
-    ModalStyle.content.opacity = 0;
-    this.setState({ modalOpen: false });
-  },
+    _onChange: function () {
+        this.setState({ books: BookStore.all(), shuffledBooks: BookStore.shuffled() });
+    },
 
-  componentDidMount: function () {
-    this.bookListener = BookStore.addListener(this._onChange);
-    BookActions.fetchAllBooks();
-  },
+    _onModalClose: function () {
+        this.currentBookId = null;
+        ModalStyle.content.opacity = 0;
+        this.setState({ modalOpen: false });
+    },
 
-  componentWillUnmount: function () {
-    this.setState({ shuffledBooks: {} });
-    this.bookListener.remove();
-  },
+    _onModalOpen: function () {
+        ModalStyle.content.opacity = 100;
+    },
 
-  render: function () {
+    render: function () {
 
-    let results = <h1>Loading</h1>;
-    if (Object.keys(this.state.shuffledBooks).length > 0) {
-      results = Object.keys(this.state.shuffledBooks).map((key) => {
-        let book = this.state.shuffledBooks[key];
+        let results = <h1>Loading</h1>;
+        if (Object.keys(this.state.shuffledBooks).length > 0) {
+            results = Object.keys(this.state.shuffledBooks).map((key) => {
+                let book = this.state.shuffledBooks[key];
+                return(
+                    <BrowseItem key={book.id} book={book} />
+                );
+            });
+        }
+
+        let modStyle = {
+            height: '400px',
+            width: '275px',
+            border: '2px solid black',
+            float: 'left'
+        };
+
+        let book = {title: "", description: ""};
+        if (this.currentBookId) {
+            book = BookStore.find(parseInt(this.currentBookId));
+        }
+
         return(
-          <BrowseItem key={book.id} book={book} />
+            <div className='browse-box'>
+                <h1 className='browse-title'>Browse</h1>
+                <div onMouseOver={this._handleModal}>
+                    {results}
+                </div>
+
+                <Modal
+                    isOpen={this.state.modalOpen}
+                    onRequestClose={this._onModalClose}
+                    onAfterOpen={this._onModalOpen}
+                    style={ ModalStyle }>
+                    <img src={this.state.modalObject.src} style={modStyle} />
+
+                    <div className='modText'>
+                        <h1><b>Title:</b> {book.title}</h1>
+                        <br/>
+                        <h1><b>Description:</b> {book.description}</h1>
+                    </div>
+
+                    <br/>
+                    <button onClick={this._onModalClose} className='closeButton'>Close</button>
+                </Modal>
+            </div>
         );
-      });
     }
-
-    let modStyle = {
-      height: '400px',
-      width: '275px',
-      border: '2px solid black',
-      float: 'left'
-    };
-
-    let book = {title: "", description: ""};
-    if (this.currentBookId) {
-      book = BookStore.find(parseInt(this.currentBookId));
-    }
-
-    return(
-      <div className='browse-box'>
-        <h1 className='browse-title'>Browse</h1>
-        <div onMouseOver={this._handleModal}>
-          {results}
-        </div>
-
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this._onModalClose}
-          onAfterOpen={this._onModalOpen}
-          style={ ModalStyle }>
-          <img src={this.state.modalObject.src} style={modStyle} />
-
-          <div className='modText'>
-            <h1><b>Title:</b> {book.title}</h1>
-            <br/>
-            <h1><b>Description:</b> {book.description}</h1>
-          </div>
-
-          <br/>
-          <button onClick={this._onModalClose} className='closeButton'>Close</button>
-        </Modal>
-      </div>
-    );
-  }
 });
 
 module.exports = Browse;
