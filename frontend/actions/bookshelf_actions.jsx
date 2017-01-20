@@ -5,76 +5,75 @@ const ErrorActions = require('./error_actions');
 
 const BookshelfActions = {
 
-  fetchAllBookshelves: function (user_id) {
-    BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves, ErrorActions.setErrors);
-  },
+    addBookToShelf: function (bookshelf, book_id) {
+        BookshelfApiUtil.addBookToShelf(bookshelf, book_id, this.addNewBook, ErrorActions.setErrors);
+    },
 
-  fetchBookshelf: function (user_id, bookshelf_id) {
-    BookshelfApiUtil.fetchBookshelf(user_id, bookshelf_id, this.receiveBookshelf, ErrorActions.setErrors);
-  },
+    addNewBook: function (bookshelf) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELF_UPDATE,
+            bookshelf: bookshelf
+        });
+    },
 
+    createBookshelf: function (formData, user_id, close) {
+        BookshelfApiUtil.createBookshelf(formData, user_id, close, this.newBookshelf, ErrorActions.setErrors);
+    },
 
-  addBookToShelf: function (bookshelf, book_id) {
-    BookshelfApiUtil.addBookToShelf(bookshelf, book_id, this.addNewBook, ErrorActions.setErrors);
-  },
+    deleteBookshelf: function (bookshelf) {
+        BookshelfApiUtil.deleteBookshelf(bookshelf, this.removeBookshelf, ErrorActions.setErrors);
+    },
 
-  removeBookFromShelf: function (bookshelf, book_id) {
-    BookshelfApiUtil.removeBookFromShelf(bookshelf, book_id, this.removeBook, ErrorActions.setErrors);
-  },
+    fetchAllBookshelves: function (user_id) {
+        BookshelfApiUtil.fetchAllBookshelves(user_id, this.receiveAllBookshelves, ErrorActions.setErrors);
+    },
 
-  createBookshelf: function (formData, user_id, close) {
-    BookshelfApiUtil.createBookshelf(formData, user_id, close, this.newBookshelf, ErrorActions.setErrors);
-  },
+    fetchBookshelf: function (user_id, bookshelf_id) {
+        BookshelfApiUtil.fetchBookshelf(user_id, bookshelf_id, this.receiveBookshelf, ErrorActions.setErrors);
+    },
 
-  updateBookshelf: function (bookshelf) {
-    BookshelfApiUtil.updateBookshelf(bookshelf, this.newBookshelf, ErrorActions.setErrors);
-  },
+    newBookshelf: function (bookshelf) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELF_UPDATE,
+            bookshelf: bookshelf
+        });
+    },
 
-  deleteBookshelf: function (bookshelf) {
-    BookshelfApiUtil.deleteBookshelf(bookshelf, this.removeBookshelf, ErrorActions.setErrors);
-  },
+    receiveAllBookshelves: function (bookshelves) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELVES_RECEIVED,
+            bookshelves: bookshelves
+        });
+    },
 
-  addNewBook: function (bookshelf) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELF_UPDATE,
-      bookshelf: bookshelf
-    });
-  },
+    receiveBookshelf: function (bookshelf) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELF_RECEIVED,
+            bookshelf: bookshelf
+        });
+    },
 
-  removeBook: function (bookshelf) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELF_UPDATE,
-      bookshelf: bookshelf
-    });
-  },
+    removeBook: function (bookshelf) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELF_UPDATE,
+            bookshelf: bookshelf
+        });
+    },
 
-  receiveAllBookshelves: function (bookshelves) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELVES_RECEIVED,
-      bookshelves: bookshelves
-    });
-  },
+    removeBookFromShelf: function (bookshelf, book_id) {
+        BookshelfApiUtil.removeBookFromShelf(bookshelf, book_id, this.removeBook, ErrorActions.setErrors);
+    },
 
-  receiveBookshelf: function (bookshelf) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELF_RECEIVED,
-      bookshelf: bookshelf
-    });
-  },
+    removeBookshelf: function (bookshelves) {
+        AppDispatcher.dispatch({
+            actionType: BookshelfConstants.BOOKSHELF_REMOVED,
+            bookshelves: bookshelves
+        });
+    },
 
-  newBookshelf: function (bookshelf) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELF_UPDATE,
-        bookshelf: bookshelf
-    });
-  },
-
-  removeBookshelf: function (bookshelves) {
-    AppDispatcher.dispatch({
-      actionType: BookshelfConstants.BOOKSHELF_REMOVED,
-      bookshelves: bookshelves
-    });
-  }
+    updateBookshelf: function (bookshelf) {
+        BookshelfApiUtil.updateBookshelf(bookshelf, this.newBookshelf, ErrorActions.setErrors);
+    }
 
 };
 

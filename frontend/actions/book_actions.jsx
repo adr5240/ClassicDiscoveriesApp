@@ -5,64 +5,64 @@ const ErrorActions = require('./error_actions');
 
 const BookActions = {
 
-  fetchAllBooks: function () {
-    BooksApiUtil.fetchAllBooks(this.receiveAllBooks, ErrorActions.setErrors);
-  },
+    addReview: function (review, closeModal) {
+        BooksApiUtil.addReview(review, closeModal, this.reviewAdded, ErrorActions.setErrors);
+    },
 
-  getBook: function (id) {
-    BooksApiUtil.getBook(id, this.receiveBook, ErrorActions.setErrors);
-  },
+    createBook: function (book, close) {
+        BooksApiUtil.createBook(book, close, this.newBook, ErrorActions.setErrors);
+    },
 
-  createBook: function (book, close) {
-    BooksApiUtil.createBook(book, close, this.newBook, ErrorActions.setErrors);
-  },
+    deleteBook: function (id) {
+        BooksApiUtil.deleteBook(id, this.removeBook, ErrorActions.setErrors);
+    },
 
-  updateBook: function (book) {
-    BooksApiUtil.updateBook(book, this.newBook, ErrorActions.setErrors);
-  },
+    fetchAllBooks: function () {
+        BooksApiUtil.fetchAllBooks(this.receiveAllBooks, ErrorActions.setErrors);
+    },
 
-  deleteBook: function (id) {
-    BooksApiUtil.deleteBook(id, this.removeBook, ErrorActions.setErrors);
-  },
+    getBook: function (id) {
+        BooksApiUtil.getBook(id, this.receiveBook, ErrorActions.setErrors);
+    },
 
-  addReview: function (review, closeModal) {
-    BooksApiUtil.addReview(review, closeModal, this.reviewAdded, ErrorActions.setErrors);
-  },
+    newBook: function (book) {
+        AppDispatcher.dispatch({
+            actionType: BooksConstants.BOOK_UPDATE,
+            book: book
+        });
+    },
 
-  receiveAllBooks: function (books) {
-    AppDispatcher.dispatch({
-      actionType: BooksConstants.BOOKS_RECEIVED,
-      books: books
-    });
-  },
+    receiveAllBooks: function (books) {
+        AppDispatcher.dispatch({
+            actionType: BooksConstants.BOOKS_RECEIVED,
+            books: books
+        });
+    },
 
-  receiveBook: function (book) {
-    AppDispatcher.dispatch({
-      actionType: BooksConstants.BOOK_RECEIVED,
-      book: book
-    });
-  },
+    receiveBook: function (book) {
+        AppDispatcher.dispatch({
+            actionType: BooksConstants.BOOK_RECEIVED,
+            book: book
+        });
+    },
 
-  newBook: function (book) {
-    AppDispatcher.dispatch({
-      actionType: BooksConstants.BOOK_UPDATE,
-        book: book
-    });
-  },
+    removeBook: function (books) {
+        AppDispatcher.dispatch({
+            actionType: BooksConstants.BOOK_REMOVED,
+            books: books
+        });
+    },
 
-  removeBook: function (books) {
-    AppDispatcher.dispatch({
-      actionType: BooksConstants.BOOK_REMOVED,
-      books: books
-    });
-  },
+    reviewAdded: function (book) {
+        AppDispatcher.dispatch({
+            actionType: BooksConstants.REVIEW_ADDED,
+            book: book
+        });
+    },
 
-  reviewAdded: function (book) {
-    AppDispatcher.dispatch({
-      actionType: BooksConstants.REVIEW_ADDED,
-      book: book
-    });
-  }
+    updateBook: function (book) {
+        BooksApiUtil.updateBook(book, this.newBook, ErrorActions.setErrors);
+    }
 
 };
 

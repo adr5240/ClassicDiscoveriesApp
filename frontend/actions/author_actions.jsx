@@ -5,27 +5,27 @@ const ErrorActions = require('./error_actions');
 
 const AuthorActions = {
 
-  fetchAllAuthors: function () {
-    AuthorApiUtil.fetchAllAuthors(this.receiveAllAuthors, ErrorActions.setErrors);
-  },
+    fetchAllAuthors: function () {
+        AuthorApiUtil.fetchAllAuthors(this.receiveAllAuthors, ErrorActions.setErrors);
+    },
 
-  getAuthor: function (id) {
-    AuthorApiUtil.getAuthor(id, this.receiveAuthor, ErrorActions.setErrors);
-  },
+    getAuthor: function (id) {
+        AuthorApiUtil.getAuthor(id, this.receiveAuthor, ErrorActions.setErrors);
+    },
 
-  receiveAllAuthors: function (authors) {
-    AppDispatcher.dispatch({
-      actionType: AuthorConstants.AUTHORS_RECEIVED,
-      authors: authors
-    });
-  },
+    receiveAllAuthors: function (authors) {
+        AppDispatcher.dispatch({
+            actionType: AuthorConstants.AUTHORS_RECEIVED,
+            authors: authors
+        });
+    },
 
-  receiveAuthor: function (author) {
-    AppDispatcher.dispatch({
-      actionType: AuthorConstants.AUTHOR_RECEIVED,
-      author: author
-    });
-  }
+    receiveAuthor: function (author) {
+        AppDispatcher.dispatch({
+            actionType: AuthorConstants.AUTHOR_RECEIVED,
+            author: author
+        });
+    }
 
 };
 
