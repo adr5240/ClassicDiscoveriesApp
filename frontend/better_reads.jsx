@@ -30,24 +30,24 @@ const BookActions = require('./actions/book_actions');
 // Test
 
 const appRouter = (
-  <Router history={ hashHistory } >
-    <Route path='/' component={ App } >
-      <IndexRoute component={ Browse } />
-      <Route path='/login' component={ LoginForm } />
-      <Route path='/signup' component={ LoginForm } />
-      <Route path='/books' component={ BookIndex } />
-      <Route path='/books/:book_id' component={ BookShow } />
-      <Route path='/authors' component={ AuthorIndex } />
-      <Route path='/authors/:author_id' component={ AuthorShow } />
-      <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookshelfIndex } />
+    <Router history={ hashHistory } >
+        <Route path='/' component={ App } >
+            <IndexRoute component={ Browse } />
+            <Route path='/login' component={ LoginForm } />
+            <Route path='/signup' component={ LoginForm } />
+            <Route path='/books' component={ BookIndex } />
+            <Route path='/books/:book_id' component={ BookShow } />
+            <Route path='/authors' component={ AuthorIndex } />
+            <Route path='/authors/:author_id' component={ AuthorShow } />
+            <Route path='/users/:user_id/bookshelves/:bookshelves_id' component={ BookshelfIndex } />
 
-    </Route>
-  </Router>
+        </Route>
+    </Router>
 );
 
 document.addEventListener("DOMContentLoaded", function () {
-  const root = document.getElementById('main');
-  Modal.setAppElement(root);
-  SessionsActions.receiveCurrentUser(window.currentUser);
-  ReactDOM.render(appRouter, root);
+    const root = document.getElementById('main');
+    Modal.setAppElement(root);
+    SessionsActions.receiveCurrentUser(window.currentUser);
+    ReactDOM.render(appRouter, root);
 });
