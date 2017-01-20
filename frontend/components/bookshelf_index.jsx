@@ -6,7 +6,6 @@ const BookshelfStore = require('../stores/bookshelf_store');
 const BookStore = require('../stores/book_store');
 const BookActions = require('../actions/book_actions');
 
-
 const BookshelfIndex = React.createClass({
 
     getInitialState: function () {

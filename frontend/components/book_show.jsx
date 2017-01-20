@@ -5,7 +5,6 @@ const BookIndexItem = require('./book_index_item');
 const AddReview = require('./add_review_modal');
 const SessionsStore = require('../stores/sessions_store');
 const hashHistory = require('react-router').hashHistory;
-
 const Modal = require('react-modal');
 const ReviewModalStyle = require('../constants/review_modal_style');
 const Review = require('./review');

@@ -3,7 +3,6 @@ const hashHistory = require('react-router').hashHistory;
 const BookActions = require('../actions/book_actions');
 const BookStore = require('../stores/book_store');
 const BrowseItem = require('./browse_item');
-
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/modal_style');
 

@@ -7,12 +7,10 @@ const AddBook = require('./add_book_modal');
 const SessionsStore = require('../stores/sessions_store');
 const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
-
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/modal_style');
 
 String.prototype.contains = function(substring) { return this.indexOf(substring) != -1; };
-
 
 const Search = React.createClass({
 

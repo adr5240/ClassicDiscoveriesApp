@@ -1,7 +1,6 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 
-
 const BrowseItem = React.createClass({
 
     _handleClick: function (e) {

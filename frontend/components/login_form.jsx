@@ -7,7 +7,6 @@ const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 const Link = require('react-router').Link;
 
-
 const LoginForm = React.createClass({
 
     getInitialState: function () {

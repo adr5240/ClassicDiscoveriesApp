@@ -3,7 +3,6 @@ const AuthorStore = require('../stores/author_store');
 const AuthorActions = require('../actions/author_actions');
 const AuthorIndexItem = require('./author_index_item');
 
-
 const AuthorIndex = React.createClass({
 
     getInitialState: function () {

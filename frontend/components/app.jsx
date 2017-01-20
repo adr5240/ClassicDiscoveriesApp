@@ -7,10 +7,8 @@ const BookshelfStore = require('../stores/bookshelf_store');
 const Search = require('./search_box');
 const hashHistory = ReactRouter.hashHistory;
 const Link = ReactRouter.Link;
-
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/bookshelf_modal_style');
-
 
 const App = React.createClass({
 
