@@ -4,5 +4,5 @@ json.image_url asset_path(author.image.url)
 json.books author.books
 
 json.books do
-  json.partial! 'api/books/book', collection: author.books, as: :book
+    json.partial! 'api/books/book', collection: author.books, as: :book
 end
