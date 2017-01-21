@@ -15,37 +15,37 @@
 #
 
 class Book < ActiveRecord::Base
-  validates :title, :description, :author_id, presence: true
+    validates :title, :description, :author_id, presence: true
 
-  has_attached_file :book_cover, default_url: "book_covers/defbookcover.jpg"
-  validates_attachment_content_type :book_cover, content_type: /\Aimage\/.*\Z/
+    has_attached_file :book_cover, default_url: "book_covers/defbookcover.jpg"
+    validates_attachment_content_type :book_cover, content_type: /\Aimage\/.*\Z/
 
-  belongs_to(
-    :author,
-    class_name: 'Author',
-    primary_key: :id,
-    foreign_key: :author_id
-  )
+    belongs_to(
+        :author,
+        class_name: 'Author',
+        primary_key: :id,
+        foreign_key: :author_id
+    )
 
-  has_many(
-    :reviews,
-    class_name: 'Review',
-    primary_key: :id,
-    foreign_key: :book_id
-  )
+    has_many(
+        :bookshelves,
+        through: :shelves,
+        source: :bookshelves
+    )
 
-  has_many(
-    :shelves,
-    dependent: :destroy,
-    class_name: 'Shelf',
-    primary_key: :id,
-    foreign_key: :book_id
-  )
+    has_many(
+        :reviews,
+        class_name: 'Review',
+        primary_key: :id,
+        foreign_key: :book_id
+    )
 
-  has_many(
-    :bookshelves,
-    through: :shelves,
-    source: :bookshelves
-  )
+    has_many(
+        :shelves,
+        dependent: :destroy,
+        class_name: 'Shelf',
+        primary_key: :id,
+        foreign_key: :book_id
+    )
 
 end

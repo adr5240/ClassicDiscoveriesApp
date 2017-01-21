@@ -15,27 +15,27 @@
 #
 
 class Author < ActiveRecord::Base
-  validates :fname, :lname, :description, presence: true
+    validates :fname, :lname, :description, presence: true
 
-  has_attached_file :image, default_url: "authors/missing.jpg"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+    has_attached_file :image, default_url: "authors/missing.jpg"
+    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  has_many(
-    :books,
-    class_name: 'Book',
-    primary_key: :id,
-    foreign_key: :author_id
-  )
+    has_many(
+        :books,
+        class_name: 'Book',
+        primary_key: :id,
+        foreign_key: :author_id
+    )
 
-  def self.find_by_name(full_name)
-    lname = full_name.split(' ')[-1]
-    index = full_name.index(lname)
-    fname = full_name.slice(0, index - 1)
-    return Author.find_by(fname: fname, lname: lname)
-  end
+    def self.find_by_name(full_name)
+        lname = full_name.split(' ')[-1]
+        index = full_name.index(lname)
+        fname = full_name.slice(0, index - 1)
+        return Author.find_by(fname: fname, lname: lname)
+    end
 
-  def full_name
-    return "#{fname} #{lname}"
-  end
+    def full_name
+        return "#{fname} #{lname}"
+    end
 
 end
