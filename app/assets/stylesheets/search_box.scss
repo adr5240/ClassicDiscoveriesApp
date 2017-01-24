@@ -16,6 +16,14 @@
   text-align: center;
   border-radius: 10px;
   margin: auto;
+
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+
+  &:focus {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 1px solid rgba(81, 203, 238, 1);
+  }
 }
 
 .navBar .search-box .search-results {

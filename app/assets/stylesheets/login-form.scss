@@ -26,6 +26,14 @@
   font-weight: bold;
   font-size: 15pt;
   text-align: center;
+
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+
+  &:focus {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 1px solid rgba(81, 203, 238, 1);
+  }
 }
 
 //errors
@@ -46,6 +54,7 @@
 .signin-form-container .submit-button {
   margin: 15px 45px 15px 0;
   float: right;
+  color: black;
 }
 
 .signin-form-container .guest-button {
