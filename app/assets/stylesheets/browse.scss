@@ -1,19 +1,35 @@
 .browse-title {
-  text-align: left;
-  font-size: 28pt;
-  margin-left: 30px;
-  font-weight: bold;
+    text-align: left;
+    font-size: 28pt;
+    margin-left: 30px;
+    font-weight: bold;
+    width: 50%;
+    display: inline-block;
 }
 
 .browse-item img {
-  cursor: pointer;
-  box-shadow: 10px 5px 5px #6b6b6b;
+    cursor: pointer;
+    box-shadow: 10px 5px 5px #6b6b6b;
 }
 
 .modText {
-  float: left;
-  max-width: 450px;
-  padding: 10px;
-  margin-left: 10px;
-  white-space: pre-line;
+    float: left;
+    max-width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+    white-space: pre-line;
+}
+
+.pages {
+    float: right;
+    padding-right: 50px;
+}
+
+.page-numbers {
+    float: left;
+    margin: 10px;
+    list-style: none;
+    text-decoration: underline;
+    cursor: pointer;
+
 }

@@ -2,6 +2,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BooksConstants = require('../constants/books_constants');
 const BookshelfConstants = require('../constants/bookshelf_constants');
+const PageConstants = require('../constants/page_constants');
 
 
 const BookStore = new Store(AppDispatcher);
@@ -9,6 +10,13 @@ const BookStore = new Store(AppDispatcher);
 let _book = {};
 let _books = {};
 let _shuffledBooks = {};
+
+let _page = {}, // Default Book listing
+    total  = 0,  // Default number of Available Books
+    start  = 0,  // Default start
+    end    = 9,  // Default end
+    amt    = 29;  // Number of Books to list per page (0-based)
+
 
 const addBook = function (book) {
     _book = {};
@@ -41,7 +49,7 @@ const shuffleBooks = function () {
         return book;
     });
 
-    var m = _shuffledBooks.length, t, i;
+    let m = _shuffledBooks.length, t, i;
     // While there remain elements to shuffle…
     while (m) {
       // Pick a remaining element…
@@ -69,6 +77,10 @@ BookStore.shuffled = function () {
     return Object.assign({}, _shuffledBooks);
 };
 
+BookStore.currentPage = function () {
+    return Object.assign({}, _page);
+};
+
 BookStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
         case BooksConstants.BOOKS_RECEIVED:
@@ -88,6 +100,12 @@ BookStore.__onDispatch = function (payload) {
             break;
         case BooksConstants.REVIEW_ADDED:
             resetBook(payload.book);
+            BookStore.__emitChange();
+            break;
+        case PageConstants.TURN_PAGE:
+            processTurnPage(payload.data); //NOTE fix payload
+            // Omitted:
+            // Call the API to get new event data based on our new Page params
             BookStore.__emitChange();
             break;
     }

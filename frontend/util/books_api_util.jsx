@@ -91,8 +91,7 @@ const BooksApiUtil = {
                 error('books', resp);
             }
         });
-    }
-    
+    },
 };
 
 module.exports = BooksApiUtil;

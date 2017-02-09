@@ -6,10 +6,12 @@ const BrowseItem = require('./browse_item');
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/modal_style');
 
+const NUM_PER_PAGE = 32;
+
 const Browse = React.createClass({
 
     getInitialState: function () {
-        return { books: {}, shuffledBooks: {}, modalOpen: false, modalObject: "" };
+        return { books: {}, shuffledBooks: {}, currentPage: 0, modalOpen: false, modalObject: "" };
     },
 
     componentDidMount: function () {
@@ -58,16 +60,27 @@ const Browse = React.createClass({
         ModalStyle.content.opacity = 100;
     },
 
+    _pageTurn: function (e) {
+        let newPage = parseInt(e.target.innerHTML) - 1;
+        this.setState({ currentPage: newPage });
+    },
+
     render: function () {
 
         let results = <h1>Loading</h1>;
         if (Object.keys(this.state.shuffledBooks).length > 0) {
-            results = Object.keys(this.state.shuffledBooks).map((key) => {
-                let book = this.state.shuffledBooks[key];
-                return(
-                    <BrowseItem key={book.id} book={book} />
-                );
-            });
+            results = [];
+            let start = (this.state.currentPage * NUM_PER_PAGE);
+            for(let i = start; i < start + NUM_PER_PAGE; i++) {
+                let book = this.state.shuffledBooks[i];
+                if (book) {
+                    results.push(
+                        <BrowseItem key={book.id} book={book} />
+                    );
+                } else {
+                    break;
+                }
+            }
         }
 
         let modStyle = {
@@ -85,6 +98,13 @@ const Browse = React.createClass({
         return(
             <div className='browse-box'>
                 <h1 className='browse-title'>Browse</h1>
+                <ul className="pages">
+                    <li className="page-numbers" onClick={this._pageTurn}>1</li>
+                    <li className="page-numbers" onClick={this._pageTurn}>2</li>
+                    <li className="page-numbers" onClick={this._pageTurn}>3</li>
+                    <li className="page-numbers" onClick={this._pageTurn}>4</li>
+                </ul>
+                <br></br>
                 <div onMouseOver={this._handleModal}>
                     {results}
                 </div>
