@@ -2,7 +2,6 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const BooksConstants = require('../constants/books_constants');
 const BookshelfConstants = require('../constants/bookshelf_constants');
-const PageConstants = require('../constants/page_constants');
 
 
 const BookStore = new Store(AppDispatcher);

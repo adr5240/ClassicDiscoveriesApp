@@ -25,10 +25,6 @@ const BookActions = {
         BooksApiUtil.getBook(id, this.receiveBook, ErrorActions.setErrors);
     },
 
-    turnPage: function (value) {
-        BooksApiUtil.turnPage(value, this.turnedPage, ErrorActions.setErrors);
-    },
-
     newBook: function (book) {
         AppDispatcher.dispatch({
             actionType: BooksConstants.BOOK_UPDATE,
