@@ -101,12 +101,6 @@ BookStore.__onDispatch = function (payload) {
             resetBook(payload.book);
             BookStore.__emitChange();
             break;
-        case PageConstants.TURN_PAGE:
-            processTurnPage(payload.data); //NOTE fix payload
-            // Omitted:
-            // Call the API to get new event data based on our new Page params
-            BookStore.__emitChange();
-            break;
     }
 };
 
