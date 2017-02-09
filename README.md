@@ -52,4 +52,3 @@ is also used when creating a new book.
 - [ ] Add book tags
 - [ ] Allow users to find/follow friends or fellow readers
 - [ ] Implement OmniAuth for ease of signup
-- [ ] Add books to AuthorShow page
