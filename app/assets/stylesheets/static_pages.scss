@@ -118,3 +118,16 @@ body.modal-open {
 .add-bookshelf-form #register:disabled {
     display: none;
 }
+
+.pages {
+    float: right;
+    padding-right: 50px;
+}
+
+.page-numbers {
+    float: left;
+    margin: 10px;
+    list-style: none;
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -10,12 +10,7 @@ let _book = {};
 let _books = {};
 let _shuffledBooks = {};
 
-let _page = {}, // Default Book listing
-    total  = 0,  // Default number of Available Books
-    start  = 0,  // Default start
-    end    = 9,  // Default end
-    amt    = 29;  // Number of Books to list per page (0-based)
-
+let _page = {};
 
 const addBook = function (book) {
     _book = {};
@@ -51,9 +46,9 @@ const shuffleBooks = function () {
     let m = _shuffledBooks.length, t, i;
     // While there remain elements to shuffle…
     while (m) {
-      // Pick a remaining element…
+        // Pick a remaining element…
         i = Math.floor(Math.random() * m--);
-      // And swap it with the current element.
+        // And swap it with the current element.
         t = _shuffledBooks[m];
         _shuffledBooks[m] = _shuffledBooks[i];
         _shuffledBooks[i] = t;
