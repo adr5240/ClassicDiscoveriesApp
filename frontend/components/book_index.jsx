@@ -51,7 +51,6 @@ const BookIndex = React.createClass({
 
         return(
             <div className='book-index'>
-                <h1 className='title'>Books</h1>
                 <ul className="pages" style={{marginTop: "75px"}}>
                     <li className="page-numbers" onClick={this._pageTurn}>1</li>
                     <li className="page-numbers" onClick={this._pageTurn}>2</li>
