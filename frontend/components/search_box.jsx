@@ -49,20 +49,35 @@ const Search = React.createClass({
 
     _handleClick: function (e) {
         let str = e.target.innerHTML;
-        let start = str.indexOf('href="#/books/') + 14;
+        let start = str.indexOf('href="#/books/');
         let newStr = "";
-        console.log(str);
-        console.log(start);
+        let link = "";
 
-        for (let i = start; i < 100; i++) {
-            if (!isNaN(parseInt(str[i]))) {
-                newStr += str[i];
-            } else {
-                break;
+        if (start !== -1) {
+            link = "books";
+            for (let i = start + 14; i < 100; i++) {
+                if (!isNaN(parseInt(str[i]))) {
+                    newStr += str[i];
+                } else {
+                    break;
+                }
+            }
+        } else {
+            link = "authors";
+            str = e.target.outerHTML;
+            start = str.indexOf('href="#/authors/');
+
+            for (let i = start + 16; i < 100; i++) {
+                if (!isNaN(parseInt(str[i]))) {
+                    newStr += str[i];
+                } else {
+                    break;
+                }
             }
         }
+
         this._clearSearchBox();
-        hashHistory.push(`/books/${newStr}`);
+        hashHistory.push(`/${link}/${newStr}`);
     },
 
     _handleInput: function (e) {
