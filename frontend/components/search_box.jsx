@@ -47,6 +47,24 @@ const Search = React.createClass({
         this.searchArray = this._resetSearchArray();
     },
 
+    _handleClick: function (e) {
+        let str = e.target.innerHTML;
+        let start = str.indexOf('href="#/books/') + 14;
+        let newStr = "";
+        console.log(str);
+        console.log(start);
+
+        for (let i = start; i < 100; i++) {
+            if (!isNaN(parseInt(str[i]))) {
+                newStr += str[i];
+            } else {
+                break;
+            }
+        }
+        this._clearSearchBox();
+        hashHistory.push(`/books/${newStr}`);
+    },
+
     _handleInput: function (e) {
         this.setState({ inputVal: e.currentTarget.value });
         if(e.currentTarget.value.length > 1) {
@@ -110,7 +128,7 @@ const Search = React.createClass({
             this.searchItems.forEach((item) => {
                 if (item.title) {
                     this.results.push(
-                        <li key={item.title} onClick={this._clearSearchBox}>
+                        <li key={item.title} onClick={this._handleClick}>
                             <Link to={`/books/${item.id}`}
                                   className='book-img'><img src={item.book_cover_url}/>
                             </Link>
