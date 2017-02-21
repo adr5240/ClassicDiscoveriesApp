@@ -143,7 +143,7 @@ const Search = React.createClass({
             this.searchItems.forEach((item) => {
                 if (item.title) {
                     this.results.push(
-                        <li key={item.title} onClick={this._handleClick}>
+                        <li className="searchLi" key={item.title} onClick={this._handleClick}>
                             <Link to={`/books/${item.id}`}
                                   className='book-img'><img src={item.book_cover_url}/>
                             </Link>
