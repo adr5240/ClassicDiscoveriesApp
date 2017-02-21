@@ -156,7 +156,7 @@ const Search = React.createClass({
                     );
                 } else if (item.full_name) {
                     this.results.push(
-                        <li key={item.full_name} onClick={this._clearSearchBox}>
+                        <li className="searchLi" key={item.full_name} onClick={this._handleClick}>
                             <Link to={`/authors/${item.id}`}
                                   className='author-img'><img src={item.image_url}/>
                             </Link>
